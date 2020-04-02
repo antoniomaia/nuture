@@ -1,0 +1,36 @@
+:root {
+  --main-color: #0d090a;
+  --primary-color: #277a21;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+p,
+h1 {
+  color: var(--main-color);
+}
+
+.background {
+  background: url("campfire.png");
+  background-position: 70% 10px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}

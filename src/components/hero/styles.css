@@ -1,0 +1,60 @@
+.hero {
+  text-align: center;
+  padding: 20px 0;
+  margin: 0 20px;
+}
+
+.headline {
+  font-size: 44px;
+  margin-top: 32px;
+}
+
+.sub-heading {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 16px;
+}
+
+.cta-container {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.circle-1 {
+  width: 100px;
+  height: 100px;
+  border-radius: 48%;
+  background: var(--primary-color);
+}
+
+.circle-2 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  position: absolute;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  animation: rotating 10s linear infinite;
+}
+
+.start {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  position: absolute;
+  align-self: center;
+  font-weight: bold;
+  padding: 20px;
+}
