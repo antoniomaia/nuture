@@ -1,12 +1,11 @@
 import React from "react";
-import logo from "./logo.png";
+import Logo from "../logo";
 import "./styles.css";
 
 const Header = () => {
   return (
     <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>NUTURE.earth</p>
+      <Logo />
     </header>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 
 import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 import "./styles.css";
 
@@ -9,6 +10,7 @@ const Layout = ({ children }) => {
     <div className="background">
       <Header />
       <main>{children}</main>
+      <Footer />
     </div>
   );
 };

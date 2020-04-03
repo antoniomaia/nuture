@@ -1,0 +1,23 @@
+.step {
+  text-align: center;
+  padding: 20px;
+  color: var(--main-color);
+  input[type="radio"] {
+    display: none;
+  }
+  .title {
+    margin: 8px 0;
+  }
+  .description {
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .item {
+    list-style: none;
+    border: 2px solid var(--primary-color);
+    padding: 10px 10px;
+    margin: 10px 30px;
+    border-radius: 18px;
+    text-align: center;
+  }
+}

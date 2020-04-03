@@ -2,20 +2,8 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 50px;
-  pointer-events: none;
-  padding: 20px 10px 20px 20px;
-}
-
 .App-header {
   min-height: 50px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   font-size: calc(10px + 2vmin);
-}
-
-.App-link {
-  color: #61dafb;
+  padding: 20px;
 }

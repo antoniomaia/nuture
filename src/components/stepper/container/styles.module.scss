@@ -1,0 +1,36 @@
+.question_container {
+  background-color: var(--bg-darker-color);
+  border-radius: 18px;
+  margin: 0 20px;
+  text-align: center;
+}
+
+.previous {
+  color: #6c3822;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.finish {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-exit-active {
+  transition: opacity 200ms;
+}
