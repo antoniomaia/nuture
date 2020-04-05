@@ -1,0 +1,15 @@
+.root {
+  background-color: var(--bg-light-color);
+  padding: 50px 20px 0 20px;
+  color: var(--main-color);
+  .title {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .description {
+    font-weight: 300;
+    margin-top: 24px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}

@@ -11,7 +11,7 @@ const Step = ({ active = false, question, onClick }) => {
   return (
     <div className={styles.step}>
       <h4 className={styles.title}>{title}</h4>
-      <p className={styles.description}>{description}</p>
+      {/* <p className={styles.description}>{description}</p> */}
       <ul>
         {choices.map((choice, index) => (
           <li key={`choice_${index}`} className={styles.item} onClick={onClick}>

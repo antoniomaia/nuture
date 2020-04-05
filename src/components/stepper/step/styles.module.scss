@@ -6,12 +6,10 @@
     display: none;
   }
   .title {
-    margin: 8px 0;
+    font-size: 20px;
+    margin: 8px 0 24px 0;
   }
-  .description {
-    margin-bottom: 16px;
-    font-size: 14px;
-  }
+
   .item {
     list-style: none;
     border: 2px solid var(--primary-color);
