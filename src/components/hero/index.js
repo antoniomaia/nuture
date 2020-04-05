@@ -10,9 +10,6 @@ const Hero = ({ jumpTo }) => {
         your first step with our environmental footprint calculator.
       </p>
       <div className="cta-container">
-        <div className="circle-1 rotating">
-          <div className="circle-2"></div>
-        </div>
         <button className="start" onClick={jumpTo}>
           Start
         </button>

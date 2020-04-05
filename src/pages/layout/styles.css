@@ -1,9 +1,9 @@
 :root {
   --main-color: #0d090a;
   --primary-color: #277a21;
-  --bg-light-color: #ebffed;
+  --bg-light-color: #eef6ee;
   --bg-darker-color: #d8f9db;
-  --brown-color: #2b1713;
+  --secondary-color: #0d090a;
 }
 
 body {
@@ -31,8 +31,7 @@ h1 {
 }
 
 .background {
-  background: url("campfire.png");
-  background-position: 70% 10px;
+  background: url(background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;

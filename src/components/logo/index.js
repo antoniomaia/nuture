@@ -7,7 +7,6 @@ const Logo = () => {
   return (
     <section className={styles.root}>
       <img src={logo} className={styles.logo} alt="logo" />
-      <p>NUTURE.earth</p>
     </section>
   );
 };
