@@ -1,9 +1,12 @@
 .root {
-  background: url("background.jpg");
-  background-repeat: no-repeat;
+  background: url("background.jpg") no-repeat;
   background-size: cover;
   height: 600px;
   padding: 20px;
+  margin-top: -66px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero {
@@ -14,11 +17,10 @@
 
 .headline {
   font-size: 44px;
-  margin-top: 32px;
   color: #fff;
 }
 
-.sub-heading {
+.sub_heading {
   font-size: 18px;
   line-height: 1.6;
   margin-top: 16px;
@@ -26,7 +28,7 @@
   font-weight: 300;
 }
 
-.cta-container {
+.cta_container {
   margin-top: 80px;
   display: flex;
   justify-content: center;
@@ -44,11 +46,11 @@
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   background-color: white;
   width: 140px;
-  height: 45px;
   border-radius: 45px;
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
+  padding: 15px;
 }
 
 .button:hover {

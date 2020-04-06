@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import styles from "./styles.module.scss";
-import { questions } from "../../../constants/questions";
-import Step from "../step";
-import Dots from "../dots";
-import FinalResult from "../final-result";
+import { questions } from "../../constants/questions";
+import Step from "./step";
+import Dots from "./dots";
+import FinalResult from "./final-result";
 
-const StepperContainer = () => {
+const Calculator = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [finish, setFinish] = useState(false);
   const handleNext = () => {
@@ -57,4 +57,4 @@ const StepperContainer = () => {
   );
 };
 
-export default StepperContainer;
+export default Calculator;

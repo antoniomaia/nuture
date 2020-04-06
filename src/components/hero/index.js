@@ -1,21 +1,21 @@
 import React from "react";
-import Header from "../../components/header";
+import cx from "classnames";
+import { Link } from "react-router-dom";
 
-import "./styles.css";
+import styles from "./styles.module.scss";
 
-const Hero = ({ jumpTo }) => {
+const Hero = () => {
   return (
-    <section className="root hero">
-      <Header />
-      <h1 className="headline">How big is your carbon footprint?</h1>
-      <p className="sub-heading">
+    <section className={cx(styles.root, styles.hero)}>
+      <h1 className={styles.headline}>How big is your carbon footprint?</h1>
+      <p className={styles.sub_heading}>
         Understand your CO2 emissions and live a more sustainable life. Take
         your first step with our environmental footprint calculator.
       </p>
-      <div className="cta-container">
-        <button className="button" onClick={jumpTo}>
+      <div className={styles.cta_container}>
+        <Link className={styles.button} to={"/calculator"}>
           Start
-        </button>
+        </Link>
       </div>
     </section>
   );

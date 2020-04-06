@@ -1,0 +1,17 @@
+.header {
+  height: 50px;
+  font-size: calc(10px + 2vmin);
+  padding: 8px 20px;
+  background: transparent;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.solid {
+  background-color: white;
+  transition: background-color 1s ease 0s;
+  box-shadow: 0 0 4px grey;
+
+  // transition: color 1s ease 0s;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.css";
-import StepperContainer from "../stepper/container";
+import StepperContainer from "../calculator";
 
 const Understand = () => {
   return (
