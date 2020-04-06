@@ -1,5 +1,6 @@
 .root {
-  margin-top: 100px;
+  padding: 100px 20px;
   position: relative;
-  display: inline-block;
+  display: flex;
+  background: var(--bg-light-color);
 }
