@@ -4,14 +4,15 @@ import styles from "./styles.module.scss";
 import { questions } from "../../../constants/questions";
 import Step from "../step";
 import Dots from "../dots";
+import FinalResult from "../final-result";
 
 const StepperContainer = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [finish, setFinish] = useState(null);
+  const [finish, setFinish] = useState(false);
   const handleNext = () => {
     const nextStep = currentStep + 1;
     if (nextStep >= questions.length) {
-      setFinish("🎉🎉🎉");
+      setFinish(true);
     }
     setCurrentStep(nextStep);
   };
@@ -47,7 +48,11 @@ const StepperContainer = () => {
           </CSSTransition>
         </SwitchTransition>
       )}
-      {finish && <div className={styles.finish}>{finish}</div>}
+      {finish && (
+        <div className={styles.finish}>
+          <FinalResult />
+        </div>
+      )}
     </div>
   );
 };
