@@ -1,23 +1,25 @@
 .together {
   margin: auto;
-  max-width: 700px;
-  padding: 70px 50px 50px 50px;
+  background: var(--bg-secondary-color);
+  padding: 70px 20px;
   text-align: center;
   h1 {
     font-size: 40px;
   }
   p {
-    margin: 12px 0;
+    margin: 12px auto;
     font-size: 18px;
+    max-width: 700px;
+    line-height: 1.4;
   }
 
   a {
-    color: var(--primary-text-color);
+    color: var(--primary-color);
     padding: 14px 30px;
     border: 1px solid var(--primary-color);
     border-radius: 45px;
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 24px;
     &:hover {
       cursor: pointer;
       background-color: var(--bg-light-color);

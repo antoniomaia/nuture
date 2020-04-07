@@ -1,0 +1,13 @@
+.root {
+  padding: 80px 20px;
+  text-align: center;
+  color: var(--primary-text-color);
+  background: linear-gradient(
+    to right,
+    var(--bg-light-color),
+    var(--bg-darker-color)
+  );
+  h3 {
+    font-size: 28px;
+  }
+}
