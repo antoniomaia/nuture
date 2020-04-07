@@ -7,7 +7,14 @@ import styles from "./styles.module.scss";
 const Calculator = () => {
   return (
     <section className={styles.root}>
-      <CalculatorStepper />
+      <div className={styles.middle}>
+        <h2>Calculate your carbon footprint</h2>
+        <p>
+          We need to get to know your green habits. Start by answering some
+          questions.
+        </p>
+        <CalculatorStepper />
+      </div>
     </section>
   );
 };

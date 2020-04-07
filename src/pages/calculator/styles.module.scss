@@ -1,6 +1,30 @@
 .root {
   padding: 100px 20px;
   position: relative;
-  display: flex;
   background: var(--bg-light-color);
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-areas: "calculator calculator calculator";
+  @media only screen and (min-device-width: 768px) {
+    grid-template-areas: ". calculator .";
+  }
+
+  .middle {
+    grid-area: calculator;
+    text-align: center;
+    color: var(--primary-text-color);
+
+    h2 {
+      font-size: 32px;
+    }
+
+    p {
+      margin: 8px 0 36px 0;
+    }
+
+    h2,
+    p {
+      color: inherit;
+    }
+  }
 }

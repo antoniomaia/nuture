@@ -4,6 +4,7 @@
   --bg-light-color: #eef6ee;
   --bg-darker-color: #d8f9db;
   --secondary-color: #0d090a;
+  --primary-text-color: #424757;
 }
 
 body {
@@ -27,7 +28,7 @@ code {
 
 p,
 h1 {
-  color: var(--main-color);
+  color: var(--primary-text-color);
 }
 
 button {
