@@ -36,7 +36,7 @@ const Header = () => {
 
   return (
     <header className={cx(styles.header, { [styles.solid]: isSolid })}>
-      <Logo />
+      <Logo type={isSolid ? "black" : "white"} />
     </header>
   );
 };

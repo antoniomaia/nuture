@@ -2,11 +2,10 @@
   padding: 80px 20px;
   text-align: center;
   color: var(--primary-text-color);
-  background: linear-gradient(
-    to right,
-    var(--bg-light-color),
-    var(--bg-darker-color)
-  );
+  box-shadow: 0 14px 25px rgba(0, 0, 0, 0.13);
+  border-radius: 18px;
+  width: 700px;
+  margin: auto auto 120px auto;
   h3 {
     font-size: 28px;
   }

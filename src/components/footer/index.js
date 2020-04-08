@@ -13,7 +13,7 @@ const Footer = () => {
         <li>feedback</li>
       </ul>
       <p className={styles.copyright}>
-        <small>CO2eco © 2020 All Rights Reserved.</small>
+        <small>UNLEASH.earth © 2020 All Rights Reserved.</small>
       </p>
     </footer>
   );
