@@ -2,34 +2,42 @@
   max-width: 1200px;
   display: flex;
   flex-direction: column;
-  margin: 50px auto auto auto;
+  margin: 30px auto auto auto;
   position: relative;
   color: var(--primary-text-color);
   .item {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    padding: 1.5rem 3.5rem 2rem;
+    padding: 1.5rem 1.5rem 2rem;
     margin: 1rem 0;
 
     .text {
       order: 1;
       max-width: 400px;
       h2 {
+        text-align: center;
         font-size: 40px;
-        font-weight: 600;
+        font-weight: 900;
         margin: 0 0 20px 0;
       }
 
       p {
+        text-align: center;
         font-size: 16px;
         line-height: 1.6;
         font-weight: 400;
       }
+
+      a {
+        margin-top: 30px;
+        display: inline-block;
+        color: var(--primary-color);
+        text-decoration: none;
+      }
     }
 
     .icon {
-      margin-bottom: 30px;
       img {
         max-width: 250px;
         height: 250px;
