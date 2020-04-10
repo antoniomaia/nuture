@@ -1,7 +1,6 @@
 .root {
   padding: 100px 20px;
   position: relative;
-  background: var(--bg-light-color);
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
   grid-template-areas: "calculator calculator calculator";
