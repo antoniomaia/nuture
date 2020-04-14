@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import { SwitchTransition, CSSTransition } from "react-transition-group";
-import styles from "./styles.module.scss";
-import { questions } from "../../constants/questions";
-import Step from "./step";
-import Dots from "./dots";
-import FinalResult from "./final-result";
+import React, { useState } from 'react';
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import styles from './styles.module.scss';
+
+import { questions } from '../../constants/questions';
+import Question from './question';
+import QuestionCount from './question-count';
+import FinalResult from './final-result';
+import Navigation from './navigation';
 
 const Calculator = () => {
+  const [answers, setAnswers] = useState({ country: 'af' });
   const [currentStep, setCurrentStep] = useState(0);
   const [finish, setFinish] = useState(false);
   const handleNext = () => {
@@ -16,12 +19,14 @@ const Calculator = () => {
     }
     setCurrentStep(nextStep);
   };
-
   const handlePrevious = () => {
     setCurrentStep(currentStep - 1);
   };
+  const question = questions.find((question, index) => currentStep === index);
+  const setNewAnswer = (type, value) => {
+    setAnswers({ ...answers, [type]: value });
+  };
 
-  const step = questions.find((question, index) => currentStep === index);
   return (
     <div className={styles.question_container}>
       {!finish && (
@@ -30,20 +35,29 @@ const Calculator = () => {
             key={currentStep}
             timeout={200}
             classNames={{
-              enter: styles["fade-enter"],
-              enterActive: styles["fade-enter-active"],
-              exit: styles["fade-exit"],
-              exitActive: styles["fade-exit-active"]
+              enter: styles['fade-enter'],
+              enterActive: styles['fade-enter-active'],
+              exit: styles['fade-exit'],
+              exitActive: styles['fade-exit-active'],
             }}
           >
             <>
-              <Step question={step} active={true} onClick={handleNext} />
-              <Dots size={questions.length} active={currentStep} />
-              {currentStep > 0 && (
-                <button onClick={handlePrevious} className={styles.previous}>
-                  back
-                </button>
-              )}
+              <Question
+                question={question}
+                active={true}
+                onClick={handleNext}
+                answers={answers}
+                setAnswers={setNewAnswer}
+              />
+              <QuestionCount
+                total={questions.length}
+                activeIndex={currentStep}
+              />
+              <Navigation
+                currentStep={currentStep}
+                handlePrevious={handlePrevious}
+                handleNext={handleNext}
+              />
             </>
           </CSSTransition>
         </SwitchTransition>

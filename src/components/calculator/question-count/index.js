@@ -1,7 +1,19 @@
-import React from "react";
+import React from 'react';
+import styles from './styles.module.scss';
 
-const Question = ({ content }) => {
-  return <div>{content}</div>;
+const QuestionCount = ({ activeIndex, total }) => {
+  return (
+    <ul className={styles.dots}>
+      {Array(total)
+        .fill(0)
+        .map((e, index) => (
+          <li
+            key={`dot_${index}`}
+            className={index === activeIndex ? styles.active : ''}
+          />
+        ))}
+    </ul>
+  );
 };
 
-export default Question;
+export default QuestionCount;

@@ -1,6 +1,6 @@
-.step {
+.single {
   text-align: center;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   color: var(--main-color);
   input[type='radio'] {
     display: none;
@@ -22,7 +22,7 @@
     max-width: 400px;
     list-style: none;
     border: 2px solid var(--primary-color);
-    padding: 14px 10px;
+    padding: 10px 5px;
     margin: 14px auto;
     border-radius: 8px;
     text-align: center;
@@ -33,19 +33,17 @@
   }
 }
 
-.step {
-  text-align: left;
-  padding: 20px;
-  color: var(--main-color);
+.center {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
 
-  label {
-    cursor: pointer;
-  }
+.flag {
+  width: 50px;
+}
 
-  .title {
-    text-align: center;
-    font-size: 20px;
-    margin: 8px 0 24px 0;
-    color: var(--primary-text-color);
-  }
+.country_dropdown {
+  width: 100%;
+  margin-top: 20px;
 }

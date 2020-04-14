@@ -1,10 +1,10 @@
-import React from "react";
-import { Route, Switch, useLocation } from "react-router-dom";
+import React from 'react';
+import { Route, Switch, useLocation } from 'react-router-dom';
 
-import Layout from "./pages/layout";
-import Home from "./pages/home";
-import Calculator from "./pages/calculator";
-import DynamicTransition from "./components/global/dynamic-transition";
+import Layout from './pages/layout';
+import Home from './pages/home';
+import Calculator from './pages/calculator';
+import DynamicTransition from './components/global/dynamic-transition';
 
 function App() {
   const location = useLocation();
