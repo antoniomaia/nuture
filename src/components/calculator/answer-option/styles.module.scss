@@ -1,0 +1,51 @@
+.step {
+  text-align: center;
+  padding: 20px;
+  color: var(--main-color);
+  input[type='radio'] {
+    display: none;
+  }
+
+  label {
+    cursor: pointer;
+  }
+
+  .title {
+    font-size: 20px;
+    margin: 8px 0 24px 0;
+    color: var(--primary-text-color);
+  }
+
+  .item {
+    color: var(--primary-text-color);
+    font-size: 18px;
+    max-width: 400px;
+    list-style: none;
+    border: 2px solid var(--primary-color);
+    padding: 14px 10px;
+    margin: 14px auto;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      background: var(--bg-light-color);
+    }
+  }
+}
+
+.step {
+  text-align: left;
+  padding: 20px;
+  color: var(--main-color);
+
+  label {
+    cursor: pointer;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 20px;
+    margin: 8px 0 24px 0;
+    color: var(--primary-text-color);
+  }
+}
