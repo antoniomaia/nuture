@@ -8,10 +8,12 @@ import QuestionCount from './question-count';
 import FinalResult from './final-result';
 import Navigation from './navigation';
 
-const Calculator = () => {
-  const [answers, setAnswers] = useState({ country: 'af' });
+const Calculator = ({ answers, setAnswers }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [finish, setFinish] = useState(false);
+  const handleOnChange = (type, value) => () => {
+    setAnswers({ ...answers, [type]: value });
+  };
   const handleNext = () => {
     const nextStep = currentStep + 1;
     if (nextStep >= questions.length) {
@@ -23,9 +25,6 @@ const Calculator = () => {
     setCurrentStep(currentStep - 1);
   };
   const question = questions.find((question, index) => currentStep === index);
-  const setNewAnswer = (type, value) => {
-    setAnswers({ ...answers, [type]: value });
-  };
 
   return (
     <div className={styles.question_container}>
@@ -45,9 +44,8 @@ const Calculator = () => {
               <Question
                 question={question}
                 active={true}
-                onClick={handleNext}
                 answers={answers}
-                setAnswers={setNewAnswer}
+                setAnswers={handleOnChange}
               />
               <QuestionCount
                 total={questions.length}

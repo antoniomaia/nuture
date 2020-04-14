@@ -21,7 +21,7 @@
     font-size: 18px;
     max-width: 400px;
     list-style: none;
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--primary-text-color);
     padding: 10px 5px;
     margin: 14px auto;
     border-radius: 8px;
@@ -29,6 +29,10 @@
     cursor: pointer;
     &:hover {
       background: var(--bg-light-color);
+    }
+    &.selected {
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
     }
   }
 }
@@ -46,4 +50,14 @@
 .country_dropdown {
   width: 100%;
   margin-top: 20px;
+}
+
+.input {
+  text-align: center;
+  input {
+    border-radius: 8px;
+    border: none;
+    padding: 10px;
+    text-align: right;
+  }
 }

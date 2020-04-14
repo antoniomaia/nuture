@@ -2,21 +2,24 @@ import { countries } from './countries';
 
 export const questions = [
   {
+    id: 'country',
     title: 'What country do you live in?',
     choices: countries,
     answerType: 'dropdown',
   },
   {
+    id: 'transportMethod',
     title: 'Select the transport mode you use most often',
-    description: 'Some stuff about diet affecting carbon emissions',
+    description: '',
     choices: ['Car', 'Bus', 'Train', 'Motorbike', 'Bicycle', 'Walk'],
     answerType: 'single',
   },
   {
-    title: 'On average how much time per day do you spend traveling?',
-    description: 'Some stuff about diet affecting carbon emissions',
-    choices: [''],
-    answerType: 'number',
+    id: 'transportTravelDistancePerYear',
+    title: 'What is your average travel distance per year?',
+    description: '',
+    choices: [],
+    answerType: 'input',
   },
   {
     title: 'How many roundtrip flights do you take each year?',

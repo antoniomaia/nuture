@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 
-import CalculatorStepper from "../../components/calculator";
+import Calculator from '../../components/calculator';
 
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
-const Calculator = () => {
+const INITIAL_STATE = {
+  country: 'af',
+  transportTravelDistancePerYear: 15000,
+};
+
+const CalculatorPage = () => {
+  const [answers, setAnswers] = useState(
+    JSON.parse(localStorage.getItem('answers')) || INITIAL_STATE
+  );
+
+  useEffect(
+    () => {
+      localStorage.setItem('answers', JSON.stringify(answers));
+    },
+    [answers]
+  );
+
   return (
     <section className={styles.root}>
       <div className={styles.middle}>
@@ -13,10 +29,10 @@ const Calculator = () => {
           We need to get to know your green habits. Start by answering some
           questions.
         </p>
-        <CalculatorStepper />
+        <Calculator answers={answers} setAnswers={setAnswers} />
       </div>
     </section>
   );
 };
 
-export default Calculator;
+export default CalculatorPage;

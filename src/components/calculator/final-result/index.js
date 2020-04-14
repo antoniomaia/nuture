@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const FinalResult = () => {
   return (
@@ -9,7 +9,7 @@ const FinalResult = () => {
       </p>
       <br />
       <p>
-        HELP US SPREAD THE WORD Share your results and help us make the UK more
+        HELP US SPREAD THE WORD Share your results and help us make the .. more
         aware of their impact, and what they can do about it.
       </p>
       <br />
