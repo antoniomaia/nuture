@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import Logo from "../logo";
-import styles from "./styles.module.scss";
+import Logo from '../logo';
+import styles from './styles.module.scss';
 
 const Footer = () => {
   return (
@@ -13,7 +13,7 @@ const Footer = () => {
         <li>feedback</li>
       </ul>
       <p className={styles.copyright}>
-        <small>UNLEASH.earth © 2020 All Rights Reserved.</small>
+        <small>Ecological.Earth © 2020 All Rights Reserved.</small>
       </p>
     </footer>
   );

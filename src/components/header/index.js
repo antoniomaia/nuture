@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import cx from "classnames";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import cx from 'classnames';
+import { useLocation } from 'react-router-dom';
 
-import Logo from "../logo";
+import Logo from '../logo';
 
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
 const Header = () => {
   const [isSolid, setIsSolid] = useState(false);
@@ -20,15 +20,15 @@ const Header = () => {
 
   useEffect(
     () => {
-      if (location && location.pathname !== "/") {
+      if (location && location.pathname !== '/') {
         setIsSolid(true);
       } else {
         setIsSolid(false);
-        window.addEventListener("scroll", onScrollEventListener);
+        window.addEventListener('scroll', onScrollEventListener);
       }
 
       return () => {
-        window.removeEventListener("scroll", onScrollEventListener);
+        window.removeEventListener('scroll', onScrollEventListener);
       };
     },
     [location]
@@ -36,7 +36,7 @@ const Header = () => {
 
   return (
     <header className={cx(styles.header, { [styles.solid]: isSolid })}>
-      <Logo type={isSolid ? "black" : "white"} />
+      <Logo type={isSolid ? 'black' : 'white'} />
     </header>
   );
 };
