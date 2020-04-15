@@ -3,6 +3,7 @@ import Select from 'react-select';
 import cx from 'classnames';
 
 import styles from './styles.module.scss';
+import SingleChoice from './single-choice';
 
 const AnswerOption = ({ id, type, choices, answers, setAnswers }) => {
   switch (type) {
@@ -12,7 +13,7 @@ const AnswerOption = ({ id, type, choices, answers, setAnswers }) => {
         label: name,
       }));
       const onCountryChange = value => {
-        setAnswers('country', value.value);
+        setAnswers('country', value.value)();
       };
       const country = options.find(
         element => element.value === answers.country
@@ -32,22 +33,14 @@ const AnswerOption = ({ id, type, choices, answers, setAnswers }) => {
       );
     }
 
-    case 'single': {
+    case 'single-choice': {
       return (
-        <ul className={styles.single}>
-          {choices.map((choice, index) => (
-            <li
-              key={`choice_${index}`}
-              className={cx(styles.item, {
-                [styles.selected]: choice === answers[id],
-              })}
-              onClick={setAnswers(id, choice)}
-            >
-              <input type="radio" name={choice} value={choice} />
-              <label htmlFor={choice}>{choice}</label>
-            </li>
-          ))}
-        </ul>
+        <SingleChoice
+          id={id}
+          choices={choices}
+          answers={answers}
+          setAnswers={setAnswers}
+        />
       );
     }
 

@@ -5,8 +5,9 @@ import Calculator from '../../components/calculator';
 import styles from './styles.module.scss';
 
 const INITIAL_STATE = {
+  activeQuestionIndex: 0,
   country: 'af',
-  transportTravelDistancePerYear: 15000,
+  travelDistancePerYear: 15000,
 };
 
 const CalculatorPage = () => {

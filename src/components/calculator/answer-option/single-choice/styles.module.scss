@@ -1,0 +1,46 @@
+.single {
+  text-align: center;
+  padding: 0 20px 20px 20px;
+  color: var(--main-color);
+  input[type='radio'] {
+    display: none;
+  }
+
+  label {
+    cursor: pointer;
+  }
+
+  .title {
+    font-size: 20px;
+    margin: 8px 0 24px 0;
+    color: var(--primary-text-color);
+  }
+
+  .item {
+    color: var(--primary-text-color);
+    font-size: 18px;
+    max-width: 400px;
+    list-style: none;
+    border: 2px solid var(--primary-text-color);
+    padding: 10px 5px;
+    margin: 14px auto;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      background: var(--bg-light-color);
+    }
+    &.selected {
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
+  }
+  .manual_input {
+    list-style: none;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    outline: none;
+  }
+}

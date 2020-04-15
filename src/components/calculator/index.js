@@ -9,20 +9,27 @@ import FinalResult from './final-result';
 import Navigation from './navigation';
 
 const Calculator = ({ answers, setAnswers }) => {
-  const [currentStep, setCurrentStep] = useState(0);
   const [finish, setFinish] = useState(false);
-  const handleOnChange = (type, value) => () => {
-    setAnswers({ ...answers, [type]: value });
+  const handleOnChange = (type, value, next = false) => () => {
+    setAnswers({
+      ...answers,
+      [type]: value,
+      activeQuestionIndex: next
+        ? answers.activeQuestionIndex + 1
+        : answers.activeQuestionIndex,
+    });
   };
+  const currentStep = answers.activeQuestionIndex;
   const handleNext = () => {
     const nextStep = currentStep + 1;
     if (nextStep >= questions.length) {
       setFinish(true);
     }
-    setCurrentStep(nextStep);
+    setAnswers({ ...answers, activeQuestionIndex: nextStep });
   };
   const handlePrevious = () => {
-    setCurrentStep(currentStep - 1);
+    const nextStep = currentStep - 1;
+    setAnswers({ ...answers, activeQuestionIndex: nextStep });
   };
   const question = questions.find((question, index) => currentStep === index);
 
