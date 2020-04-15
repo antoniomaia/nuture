@@ -4,7 +4,7 @@ import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import { questions } from '../../constants/questions';
 import Question from './question';
 import QuestionCount from './question-count';
-import FinalResult from './final-result';
+import Result from './result';
 import Navigation from './navigation';
 
 import styles from './styles.module.scss';
@@ -70,7 +70,7 @@ const Calculator = ({ answers, setAnswers }) => {
       )}
       {isFinished && (
         <div className={styles.finish}>
-          <FinalResult />
+          <Result answers={answers} />
         </div>
       )}
     </div>
