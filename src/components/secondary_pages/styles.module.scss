@@ -1,33 +1,31 @@
 .simple_page_container {
-    text-align: center;
+  text-align: center;
 
-    .header{
-        text-align: center;
-        background: url("secondary_pages_header.jpg") no-repeat;
-        background-size: cover;
-        height: 333px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        h1{
-            color: white;
-            font-size: 44px;
-        }
-        @media only screen and (min-device-width: 768px) {
-        
+  .header {
+    text-align: center;
+    background: url('secondary_pages_header.jpg') no-repeat;
+    background-size: cover;
+    height: 333px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h1 {
+      color: white;
+      font-size: 44px;
+    }
+    @media only screen and (min-device-width: 768px) {
     }
   }
 
-    .body{
-      padding: 55px 20px;
+  .body {
+    padding: 55px 20px;
+    max-width: 700px;
+    margin: auto;
+    p {
+      margin: 12px auto;
+      font-size: 18px;
       max-width: 700px;
-      margin: auto;
-        p{
-        margin: 12px auto;
-        font-size: 18px;
-        max-width: 700px;
-        line-height: 1.4;
-        }
+      line-height: 1.4;
     }
+  }
 }
-
