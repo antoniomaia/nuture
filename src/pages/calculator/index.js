@@ -4,7 +4,7 @@ import Calculator from '../../components/calculator';
 
 import styles from './styles.module.scss';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   activeQuestionIndex: 0,
   country: 'af',
   travelDistancePerYear: 15000,

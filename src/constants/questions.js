@@ -1,4 +1,12 @@
 import { countries } from './countries';
+import {
+  MEAL_TYPE_HIGH_MEAT,
+  MEAL_TYPE_LOW_MEAT,
+  MEAL_TYPE_MEDIUM_MEAT,
+  MEAL_TYPE_VEGAN,
+  MEAL_TYPE_VEGETARIAN,
+  MEAL_TYPE_FISH,
+} from '../co2e/meals';
 
 export const questions = [
   {
@@ -57,11 +65,18 @@ export const questions = [
     title: 'What is your diet like?',
     description: 'Some stuff about diet affecting carbon emissions',
     choices: [
-      { value: 'vegan', name: 'Vegan' },
-      { value: 'vegetarian', name: 'Vegetarian' },
-      { value: 'lowMeat', name: 'Low meat or fish' },
-      { value: 'mediumMeat', name: 'Meat in some meals' },
-      { value: 'highMeat', name: 'Meat in every meal' },
+      { name: 'Vegan', key: MEAL_TYPE_VEGAN },
+      { name: 'Vegetarian', key: MEAL_TYPE_VEGETARIAN },
+      { name: 'Pescatarian', key: MEAL_TYPE_FISH },
+      { name: 'Low meat or fish', key: MEAL_TYPE_LOW_MEAT },
+      {
+        name: 'Meat in some meals',
+        key: MEAL_TYPE_MEDIUM_MEAT,
+      },
+      {
+        name: 'Meat in every meal',
+        key: MEAL_TYPE_HIGH_MEAT,
+      },
     ],
     answerType: 'single-choice',
   },

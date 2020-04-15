@@ -1,14 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { carbonEmissionMealTypePerYear } from '../../../co2e/meals';
+import { INITIAL_STATE } from '../../../pages/calculator';
 
-const Result = ({ answers }) => {
+const Result = ({ answers, setAnswers }) => {
+  const carbonEmissions = carbonEmissionMealTypePerYear(answers.dietPreference);
   return (
     <section>
       <p>
-        YOUR CARBON FOOTPRINT IS XXX% of your target impact on the world, when
-        your footprint is compared ....
+        YOUR CARBON FOOTPRINT IS{' '}
+        <strong>{carbonEmissions.toFixed(1)} tonCO2</strong>
       </p>
       <br />
+      <button
+        onClick={() => {
+          setAnswers(INITIAL_STATE);
+        }}
+      >
+        reset
+      </button>
       <p>
         HELP US SPREAD THE WORD Share your results and help us make the .. more
         aware of their impact, and what they can do about it.

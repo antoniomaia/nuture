@@ -38,12 +38,12 @@ const SingleChoice = ({ choices, answers, setAnswers, id }) => {
           <li
             key={`choice_${index}`}
             className={cx(styles.item, {
-              [styles.selected]: choice.value === answers[id],
+              [styles.selected]: choice.key === answers[id],
             })}
-            onClick={onChange(id, choice.value, true)}
+            onClick={onChange(id, choice.key, true)}
           >
-            <input type="radio" name={choice.name} value={choice.value} />
-            <label htmlFor={choice.value}>{choice.name}</label>
+            <input type="radio" name={choice.name} value={choice.key} />
+            <label htmlFor={choice.key}>{choice.name}</label>
           </li>
         );
       })}

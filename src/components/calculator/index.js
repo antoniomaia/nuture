@@ -70,7 +70,7 @@ const Calculator = ({ answers, setAnswers }) => {
       )}
       {isFinished && (
         <div className={styles.finish}>
-          <Result answers={answers} />
+          <Result answers={answers} setAnswers={setAnswers} />
         </div>
       )}
     </div>
