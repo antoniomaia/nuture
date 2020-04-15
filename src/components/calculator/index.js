@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
-import styles from './styles.module.scss';
 
 import { questions } from '../../constants/questions';
 import Question from './question';
@@ -8,8 +7,10 @@ import QuestionCount from './question-count';
 import FinalResult from './final-result';
 import Navigation from './navigation';
 
+import styles from './styles.module.scss';
+
 const Calculator = ({ answers, setAnswers }) => {
-  const [finish, setFinish] = useState(false);
+  const isFinished = answers.activeQuestionIndex >= questions.length;
   const handleOnChange = (type, value, next = false) => () => {
     setAnswers({
       ...answers,
@@ -22,10 +23,10 @@ const Calculator = ({ answers, setAnswers }) => {
   const currentStep = answers.activeQuestionIndex;
   const handleNext = () => {
     const nextStep = currentStep + 1;
-    if (nextStep >= questions.length) {
-      setFinish(true);
-    }
-    setAnswers({ ...answers, activeQuestionIndex: nextStep });
+    setAnswers({
+      ...answers,
+      activeQuestionIndex: nextStep,
+    });
   };
   const handlePrevious = () => {
     const nextStep = currentStep - 1;
@@ -35,7 +36,7 @@ const Calculator = ({ answers, setAnswers }) => {
 
   return (
     <div className={styles.question_container}>
-      {!finish && (
+      {!isFinished && (
         <SwitchTransition>
           <CSSTransition
             key={currentStep}
@@ -67,7 +68,7 @@ const Calculator = ({ answers, setAnswers }) => {
           </CSSTransition>
         </SwitchTransition>
       )}
-      {finish && (
+      {isFinished && (
         <div className={styles.finish}>
           <FinalResult />
         </div>

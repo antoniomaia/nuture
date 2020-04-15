@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import AnswerOption from '../answer-option';
 
 const Question = ({ active = false, question, answers, setAnswers }) => {
-  if (!active) {
+  if (!active || !question) {
     return null;
   }
   const { id, title, description, choices, answerType } = question;
