@@ -16,21 +16,12 @@ const TRANSPORT_CO2 = {
   [TRANSPORT.MOTORBIKE]: 0,
   [TRANSPORT.BICYCLE]: 0,
   [TRANSPORT.WALK]: 0,
-  [TRANSPORT.SHORT_HAUL_FLIGHT]: 0.000133,
-  [TRANSPORT.LONG_HAUL_FLIGHT]: 0.000102,
+  [TRANSPORT.SHORT_HAUL_FLIGHT]: 0.000115, //https://www.carbonindependent.org/22.html
+  [TRANSPORT.LONG_HAUL_FLIGHT]: 0.000101,
 };
 
 const carbonEmissionTransportType = transportType => {
-  const {
-    CAR,
-    BUS,
-    TRAIN,
-    MOTORBIKE,
-    BICYCLE,
-    WALK,
-    SHORT_HAUL_FLIGHT,
-    LONG_HAUL_FLIGHT,
-  } = TRANSPORT;
+  const { CAR, BUS, TRAIN, MOTORBIKE, BICYCLE, WALK } = TRANSPORT;
   switch (transportType) {
     case CAR: {
       return TRANSPORT_CO2[CAR];
@@ -50,12 +41,6 @@ const carbonEmissionTransportType = transportType => {
     case WALK: {
       return TRANSPORT_CO2[WALK];
     }
-    case SHORT_HAUL_FLIGHT: {
-      return TRANSPORT_CO2[SHORT_HAUL_FLIGHT];
-    }
-    case LONG_HAUL_FLIGHT: {
-      return TRANSPORT_CO2[LONG_HAUL_FLIGHT];
-    }
 
     default:
       throw Error(`unknown transport type: ${transportType}`);
@@ -73,4 +58,31 @@ export const carbonEmissionTransportTypeWithDistance = (
   distance
 ) => {
   return carbonEmissionTransportType(transportType) * distance;
+};
+
+const SHORT_HAUL_DISTANCE_THRESHOLD = 1500; // km
+const LONG_HAUL_DISTANCE_THRESHOLD = 2500; // km
+
+export const carbonEmissionFlightType = (flightType, counter) => {
+  const { SHORT_HAUL_FLIGHT, LONG_HAUL_FLIGHT } = TRANSPORT;
+  switch (flightType) {
+    case SHORT_HAUL_FLIGHT: {
+      return (
+        TRANSPORT_CO2[SHORT_HAUL_FLIGHT] *
+        counter *
+        2 *
+        SHORT_HAUL_DISTANCE_THRESHOLD
+      );
+    }
+    case LONG_HAUL_FLIGHT: {
+      return (
+        TRANSPORT_CO2[LONG_HAUL_FLIGHT] *
+        counter *
+        2 *
+        LONG_HAUL_DISTANCE_THRESHOLD
+      );
+    }
+    default:
+      return 0;
+  }
 };

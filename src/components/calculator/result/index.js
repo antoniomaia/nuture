@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { carbonEmissionMealTypePerYear } from '../../../co2e/food/meals';
-import { carbonEmissionTransportTypeWithDistance } from '../../../co2e/transport';
+import {
+  carbonEmissionTransportTypeWithDistance,
+  carbonEmissionFlightType,
+} from '../../../co2e/transport';
 import { INITIAL_STATE } from '../../../pages/calculator';
+import { TRANSPORT } from '../../../co2e/transport';
 
 const Result = ({ answers, setAnswers }) => {
   const carbonEmissions =
@@ -10,8 +14,15 @@ const Result = ({ answers, setAnswers }) => {
     carbonEmissionTransportTypeWithDistance(
       answers.travelMethod,
       answers.travelDistancePerYear
+    ) +
+    carbonEmissionFlightType(
+      TRANSPORT.SHORT_HAUL_FLIGHT,
+      parseInt(answers.travelDomesticFlightsPerYear, 10)
+    ) +
+    carbonEmissionFlightType(
+      TRANSPORT.LONG_HAUL_FLIGHT,
+      parseInt(answers.travelInternationalFlightsPerYear, 10)
     );
-
   return (
     <section>
       <p>
