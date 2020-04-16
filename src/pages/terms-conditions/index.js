@@ -1,13 +1,11 @@
 import React from 'react';
-import secondary_page_styles from '../../secondary_pages/styles.module.scss';
-import styles from './styles.module.scss';
+import Hero from '../../components/hero';
+import secondary_page_styles from '../styles.module.scss';
 
 const Terms = () => {
   return (
     <section className={secondary_page_styles.simple_page_container}>
-      <div className={secondary_page_styles.header}>
-        <h1>Terms and Conditions</h1>
-      </div>
+      <Hero.Secondary headline={'Terms and Conditions'} />
       <div className={secondary_page_styles.body}>
         <p>
           O Lorem Ipsum é um texto modelo da indústria tipográfica e de

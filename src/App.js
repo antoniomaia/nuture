@@ -4,8 +4,8 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import Layout from './pages/layout';
 import Home from './pages/home';
 import Calculator from './pages/calculator';
-import About from './components/secondary_pages/about';
-import Terms from './components/secondary_pages/terms_conditions';
+import About from './pages/about';
+import Terms from './pages/terms-conditions';
 
 import DynamicTransition from './components/global/dynamic-transition';
 

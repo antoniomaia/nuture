@@ -1,0 +1,15 @@
+.hero {
+  text-align: center;
+  background: url('./secondary_pages_header.jpg') no-repeat;
+  background-size: cover;
+  height: 333px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h1 {
+    color: white;
+    font-size: 44px;
+  }
+  @media only screen and (min-device-width: 768px) {
+  }
+}
