@@ -1,12 +1,6 @@
 import { countries } from './countries';
-import {
-  MEAL_TYPE_HIGH_MEAT,
-  MEAL_TYPE_LOW_MEAT,
-  MEAL_TYPE_MEDIUM_MEAT,
-  MEAL_TYPE_VEGAN,
-  MEAL_TYPE_VEGETARIAN,
-  MEAL_TYPE_FISH,
-} from '../co2e/meals';
+import { MEALS } from '../co2e/food/meals';
+import { TRANSPORT } from '../co2e/transport';
 
 export const questions = [
   {
@@ -20,12 +14,12 @@ export const questions = [
     title: 'Select the transport method you use most often',
     description: '',
     choices: [
-      { value: 'car', name: 'Car' },
-      { value: 'bus', name: 'Bus' },
-      { value: 'train', name: 'Train' },
-      { value: 'motorbike', name: 'Motorbike' },
-      { value: 'bicycle', name: 'Bicycle' },
-      { value: 'walk', name: 'Walk' },
+      { name: 'Car', key: TRANSPORT.CAR },
+      { name: 'Bus', key: TRANSPORT.BUS },
+      { name: 'Train', key: TRANSPORT.TRAIN },
+      { name: 'Motorbike', key: TRANSPORT.MOTORBIKE },
+      { name: 'Bicycle', key: TRANSPORT.BICYCLE },
+      { name: 'Walk', key: TRANSPORT.WALK },
     ],
     answerType: 'single-choice',
   },
@@ -65,17 +59,17 @@ export const questions = [
     title: 'What is your diet like?',
     description: 'Some stuff about diet affecting carbon emissions',
     choices: [
-      { name: 'Vegan', key: MEAL_TYPE_VEGAN },
-      { name: 'Vegetarian', key: MEAL_TYPE_VEGETARIAN },
-      { name: 'Pescatarian', key: MEAL_TYPE_FISH },
-      { name: 'Low meat or fish', key: MEAL_TYPE_LOW_MEAT },
+      { name: 'Vegan', key: MEALS.VEGAN },
+      { name: 'Vegetarian', key: MEALS.VEGETARIAN },
+      { name: 'Pescatarian', key: MEALS.FISH },
+      { name: 'Low meat', key: MEALS.LOW_MEAT },
       {
         name: 'Meat in some meals',
-        key: MEAL_TYPE_MEDIUM_MEAT,
+        key: MEALS.MEDIUM_MEAT,
       },
       {
         name: 'Meat in every meal',
-        key: MEAL_TYPE_HIGH_MEAT,
+        key: MEALS.HIGH_MEAT,
       },
     ],
     answerType: 'single-choice',
