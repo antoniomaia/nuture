@@ -12,13 +12,21 @@ import styles from './styles.module.scss';
 const Calculator = ({ answers, setAnswers }) => {
   const isFinished = answers.activeQuestionIndex >= questions.length;
   const handleOnChange = (type, value, next = false) => () => {
-    setAnswers({
+    const newAnswers = {
       ...answers,
       [type]: value,
-      activeQuestionIndex: next
-        ? answers.activeQuestionIndex + 1
-        : answers.activeQuestionIndex,
+    };
+    setAnswers({
+      ...newAnswers,
     });
+    setTimeout(() => {
+      setAnswers({
+        ...newAnswers,
+        activeQuestionIndex: next
+          ? answers.activeQuestionIndex + 1
+          : answers.activeQuestionIndex,
+      });
+    }, 300);
   };
   const currentStep = answers.activeQuestionIndex;
   const handleNext = () => {

@@ -1,11 +1,16 @@
 .root {
+  background-color: var(--bg-light-color);
   padding: 100px 20px;
   position: relative;
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-template-areas: "calculator calculator calculator";
+  grid-template-areas: 'calculator calculator calculator';
   @media only screen and (min-device-width: 768px) {
-    grid-template-areas: ". calculator .";
+    grid-template-areas: '. calculator .';
+  }
+
+  .paragraph {
+    line-height: 1.4;
   }
 
   .middle {

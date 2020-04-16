@@ -5,15 +5,13 @@ import styles from './styles.module.scss';
 const Navigation = ({ currentStep, handlePrevious, handleNext }) => {
   return (
     <>
-      <button
-        disabled={currentStep <= 0}
-        onClick={handlePrevious}
-        className={styles.previous}
-      >
-        Back
-      </button>
+      {currentStep > 0 && (
+        <button onClick={handlePrevious} className={styles.previous}>
+          Previous
+        </button>
+      )}
       <button onClick={handleNext} className={styles.next}>
-        Next
+        {currentStep > 0 ? 'Next' : 'Start'}
       </button>
     </>
   );

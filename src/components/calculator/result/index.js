@@ -8,6 +8,8 @@ import {
 import { INITIAL_STATE } from '../../../pages/calculator';
 import { TRANSPORT } from '../../../co2e/transport';
 
+import styles from './styles.module.scss';
+
 const Result = ({ answers, setAnswers }) => {
   const carbonEmissions =
     carbonEmissionMealTypePerYear(answers.dietPreference) +
@@ -17,17 +19,21 @@ const Result = ({ answers, setAnswers }) => {
     ) +
     carbonEmissionFlightType(
       TRANSPORT.SHORT_HAUL_FLIGHT,
-      parseInt(answers.travelDomesticFlightsPerYear, 10)
+      parseInt(answers.travelDomesticFlightsPerYear, 10) * 2
     ) +
     carbonEmissionFlightType(
       TRANSPORT.LONG_HAUL_FLIGHT,
-      parseInt(answers.travelInternationalFlightsPerYear, 10)
+      parseInt(answers.travelInternationalFlightsPerYear, 10) * 2
     );
   return (
     <section>
-      <p>
-        YOUR CARBON FOOTPRINT IS{' '}
-        <strong>{carbonEmissions.toFixed(1)} tonCO2</strong>
+      <h3>Your carbon footprint is:</h3>
+      <br />
+      <p className={styles.result}>
+        <span className={styles.number}>{carbonEmissions.toFixed(1)} </span>
+        tons CO
+        <sub>2</sub>
+        /year
       </p>
       <br />
       <button
@@ -35,7 +41,7 @@ const Result = ({ answers, setAnswers }) => {
           setAnswers(INITIAL_STATE);
         }}
       >
-        reset
+        <strong>RESET</strong>
       </button>
       <p>
         HELP US SPREAD THE WORD Share your results and help us make the .. more

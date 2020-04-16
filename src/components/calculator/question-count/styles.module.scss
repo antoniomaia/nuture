@@ -1,10 +1,11 @@
 .dots {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   padding-bottom: 20px;
   li {
     list-style: none;
-    background-color: lightslategrey;
+    background-color: var(--grey-light);
     width: 8px;
     height: 8px;
     border-radius: 50%;
