@@ -1,15 +1,22 @@
 .simple_page_container {
-  text-align: center;
+  text-align: justify;
 
   .body {
     padding: 55px 20px;
-    max-width: 700px;
+    max-width: 850px;
     margin: auto;
+    
+    h1{
+      padding: 40px 0 35px 0;
+    }
+
     p {
       margin: 12px auto;
       font-size: 18px;
-      max-width: 700px;
       line-height: 1.4;
+    }
+    ul{
+      padding: 15px 50px;
     }
   }
 }

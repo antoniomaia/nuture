@@ -8,16 +8,23 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <Logo />
+      
+      
       <ul className={styles.links}>
         <li>
-          <Link to={'/about'}>about</Link>
+          <Link to={'/about'}>About Us</Link>
         </li>
         <li>
-          <Link to={'/terms-conditions'}>Terms Conditions</Link>
+          <Link to={'/terms-conditions'}>Terms & Conditions</Link>
+        </li>
+        <li>
+          <Link to={'/privacy-policy'}>Privacy Policy</Link>
         </li>
         <li>early access</li>
         <li>feedback</li>
       </ul>
+
+      
       <p className={styles.copyright}>
         <small>Ecological.Earth © 2020 All Rights Reserved.</small>
       </p>
