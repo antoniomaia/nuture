@@ -38,6 +38,7 @@ const CalculatorPage = () => {
           footprint based on your habits. Start by answering some questions.
         </p>
         <br />
+        <span className={styles.emoji}>⬇️</span>
         <Calculator answers={answers} setAnswers={setAnswers} />
       </div>
     </section>

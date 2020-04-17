@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+
 import { carbonEmissionMealTypePerYear } from '../../../co2e/food/meals';
 import {
   carbonEmissionTransportTypeWithDistance,
@@ -8,11 +9,13 @@ import {
 import { INITIAL_STATE } from '../../../pages/calculator';
 import { TRANSPORT } from '../../../co2e/transport';
 import { carbonEmissionsElectricity } from '../../../co2e/energy/electricity';
+import { carbonEmissionsPurchase } from '../../../co2e/purchase';
+import { animateValue } from '../../../utils';
 
 import styles from './styles.module.scss';
-import { carbonEmissionsPurchase } from '../../../co2e/purchase';
 
 const Result = ({ answers, setAnswers }) => {
+  const resultEl = useRef(null);
   const carbonEmissions =
     carbonEmissionMealTypePerYear(answers.dietPreference) +
     carbonEmissionTransportTypeWithDistance(
@@ -30,16 +33,19 @@ const Result = ({ answers, setAnswers }) => {
     carbonEmissionsElectricity(answers.electricityKwhPerMonth) * 12 +
     carbonEmissionsPurchase(answers.purchaseAmountPerMonth) * 12;
 
+  const carbonEmissionsResult = parseFloat(carbonEmissions.toFixed(1));
+
   return (
     <section>
-      <h3>Your carbon footprint is:</h3>
-      <br />
-      <p className={styles.result}>
-        <span className={styles.number}>{carbonEmissions.toFixed(1)} </span>
-        tons CO
-        <sub>2</sub>
-        /year
-      </p>
+      <article className={styles.results_container}>
+        <h3>Your carbon footprint is</h3>
+        <p className={styles.result}>
+          <span className={styles.number} ref={resultEl}>
+            {animateValue(resultEl, 1, carbonEmissionsResult, 100)}
+          </span>
+          <span>tons / year</span>
+        </p>
+      </article>
       <br />
       <button
         onClick={() => {
