@@ -4,21 +4,32 @@
   background-size: cover;
   height: 390px;
 
-  .heroinside{
-    background: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,0.6)),color-stop(60%,rgba(0,0,0,0.6)),to(rgba(0,0,0,0)));
-    background: linear-gradient(180deg,rgba(0,0,0,0.6) 100%,rgba(0,0,0,0.6) 60%,rgba(0,0,0,0) 0%);
-    height: 100%;   
+  .heroinside {
+    background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 0.6)),
+      color-stop(60%, rgba(0, 0, 0, 0.6)),
+      to(rgba(0, 0, 0, 0))
+    );
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 100%,
+      rgba(0, 0, 0, 0.6) 60%,
+      rgba(0, 0, 0, 0) 0%
+    );
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
     h1 {
       color: white;
       font-size: 35px;
       letter-spacing: 3.5px;
-      }
+    }
   }
-
 
   @media only screen and (min-device-width: 768px) {
   }

@@ -7,7 +7,6 @@ const Terms = () => {
     <section className={secondary_page_styles.simple_page_container}>
       <Hero.Secondary headline={'Terms & Conditions'} />
       <div className={secondary_page_styles.body}>
-        
         <p>
           These terms and conditions outline the rules and regulations for the
           use of Ecological's Website, located at ecological.heart.

@@ -7,7 +7,6 @@ const Policy = () => {
     <section className={secondary_page_styles.simple_page_container}>
       <Hero.Secondary headline={'Privacy Policy'} />
       <div className={secondary_page_styles.body}>
-        
         <p>
           At Ecological Heart, accessible from ecological.heart, one of our main
           priorities is the privacy of our visitors. This Privacy Policy

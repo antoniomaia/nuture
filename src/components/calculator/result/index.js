@@ -7,9 +7,10 @@ import {
 } from '../../../co2e/transport';
 import { INITIAL_STATE } from '../../../pages/calculator';
 import { TRANSPORT } from '../../../co2e/transport';
-import { carbonEmissionsElectricity } from '../../../co2e/electricity';
+import { carbonEmissionsElectricity } from '../../../co2e/energy/electricity';
 
 import styles from './styles.module.scss';
+import { carbonEmissionsPurchase } from '../../../co2e/purchase';
 
 const Result = ({ answers, setAnswers }) => {
   const carbonEmissions =
@@ -26,7 +27,9 @@ const Result = ({ answers, setAnswers }) => {
       TRANSPORT.LONG_HAUL_FLIGHT,
       parseInt(answers.travelInternationalFlightsPerYear, 10) * 2
     ) +
-    carbonEmissionsElectricity(answers.electricityKwhPerMonth) * 12;
+    carbonEmissionsElectricity(answers.electricityKwhPerMonth) * 12 +
+    carbonEmissionsPurchase(answers.purchaseAmountPerMonth) * 12;
+
   return (
     <section>
       <h3>Your carbon footprint is:</h3>
@@ -72,6 +75,8 @@ Result.propTypes = {
     travelDomesticFlightsPerYear: PropTypes.number,
     travelInternationalFlightsPerYear: PropTypes.number,
     dietPreference: PropTypes.string,
+    electricityKwhPerMonth: PropTypes.number,
+    purchaseAmountPerMonth: PropTypes.number,
   }),
 };
 
@@ -84,6 +89,8 @@ Result.defaultProps = {
     travelDomesticFlightsPerYear: 6,
     travelInternationalFlightsPerYear: 2,
     dietPreference: 'lowMeat',
+    electricityKwhPerMonth: 0,
+    purchaseAmountPerMonth: 0,
   }),
 };
 
