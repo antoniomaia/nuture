@@ -21,3 +21,19 @@
     }
   }
 }
+
+.equivalent_container {
+  margin: 20px -20px;
+  display: flex;
+  justify-content: space-between;
+  .equivalent_item {
+    padding: 10px;
+    display: flex;
+    flex-flow: column;
+    max-width: 120px;
+    .icon {
+      font-size: 50px;
+    }
+    font-size: 14px;
+  }
+}

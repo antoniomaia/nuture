@@ -14,6 +14,22 @@ import { animateValue } from '../../../utils';
 
 import styles from './styles.module.scss';
 
+const equivalentCarbonEmissions = [
+  {
+    key: 'iphone',
+    value: 0.079,
+    icon: '📱',
+    description: 'iPhone X produced',
+  },
+  { key: 'tree', value: 0.181, icon: '🌲', description: 'trees cut per year' },
+  {
+    key: 'netflix',
+    value: 0.0042,
+    icon: '🖥️',
+    description: 'hours watching netflix',
+  },
+];
+
 const Result = ({ answers, setAnswers }) => {
   const resultEl = useRef(null);
   const carbonEmissions =
@@ -46,6 +62,16 @@ const Result = ({ answers, setAnswers }) => {
           <span>tons / year</span>
         </p>
       </article>
+      <strong>EQUIVALENT TO</strong>
+      <div className={styles.equivalent_container}>
+        {equivalentCarbonEmissions.map(({ icon, value, description }) => (
+          <p className={styles.equivalent_item}>
+            <span className={styles.icon}>{icon}</span>
+            <strong>{parseInt(carbonEmissionsResult / value, 10)}</strong>{' '}
+            {description}
+          </p>
+        ))}
+      </div>
       <br />
       <button
         onClick={() => {
@@ -54,6 +80,10 @@ const Result = ({ answers, setAnswers }) => {
       >
         <strong>RESET</strong>
       </button>
+      <p>
+        To help you better understand your footprint, the same amount compares
+        to the lifetime of 100 iPhone X
+      </p>
       <p>
         HELP US SPREAD THE WORD Share your results and help us make the .. more
         aware of their impact, and what they can do about it.
