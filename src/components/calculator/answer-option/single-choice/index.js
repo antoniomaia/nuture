@@ -26,16 +26,19 @@ const SingleChoice = ({ choices, answers, setAnswers, id }) => {
             <li
               key={`choice_${index}`}
               className={cx(styles.item, {
-                [styles.selected]: choice.value === answers[id] || isManual,
+                [styles.selected]:
+                  choice.value === answers[id] ||
+                  (isManual && selectedValue !== undefined),
               })}
             >
               <input
                 type="number"
                 name={choice.name}
-                placeholder={choice.name}
-                className={styles.manual_input}
+                className={cx(styles.manual_input, {
+                  [styles.is_manual]: selectedValue,
+                })}
                 onChange={onManualChange(id)}
-                value={selectedValue}
+                placeholder={selectedValue || choice.name}
               />
             </li>
           );

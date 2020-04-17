@@ -48,18 +48,45 @@ const AnswerOption = ({ id, type, choices, answers, setAnswers }) => {
       const onChange = id => event => {
         setAnswers(id, event.target.value)();
       };
+      const metrics = [
+        {
+          value: 'km',
+          label: 'Km',
+        },
+        {
+          value: 'miles',
+          label: 'Miles',
+        },
+      ];
       return (
         <div className={styles.input}>
           <input
             id="distance"
             type="number"
-            value={answers[id]}
+            placeholder={15000}
             onChange={onChange(id)}
+            maxLength={10}
+            min="1"
+            step="1"
           />
-          <select name="metric" id="metric-select">
-            <option value="km">km</option>
-            <option value="miles">miles</option>
-          </select>
+          <Select
+            defaultValue={metrics[0]}
+            options={metrics}
+            styles={{
+              container: (provided, state) => ({
+                ...provided,
+                border: 'none',
+              }),
+              control: provided => ({
+                ...provided,
+                border: 'none',
+                width: 60,
+                background: 'var(--grey-light)',
+                borderRadius: '0 8px 8px 0',
+              }),
+              indicatorsContainer: () => ({ display: 'none' }),
+            }}
+          />
         </div>
       );
     }

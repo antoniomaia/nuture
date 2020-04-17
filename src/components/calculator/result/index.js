@@ -7,6 +7,7 @@ import {
 } from '../../../co2e/transport';
 import { INITIAL_STATE } from '../../../pages/calculator';
 import { TRANSPORT } from '../../../co2e/transport';
+import { carbonEmissionsElectricity } from '../../../co2e/electricity';
 
 import styles from './styles.module.scss';
 
@@ -24,7 +25,8 @@ const Result = ({ answers, setAnswers }) => {
     carbonEmissionFlightType(
       TRANSPORT.LONG_HAUL_FLIGHT,
       parseInt(answers.travelInternationalFlightsPerYear, 10) * 2
-    );
+    ) +
+    carbonEmissionsElectricity(answers.electricityKwhPerMonth) * 12;
   return (
     <section>
       <h3>Your carbon footprint is:</h3>

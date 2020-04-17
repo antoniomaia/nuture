@@ -74,6 +74,18 @@ export const questions = [
     ],
     answerType: 'single-choice',
   },
+  {
+    id: 'electricityKwhPerMonth',
+    title: 'How much electricity (kWh) do you use in a month?',
+    description: '',
+    choices: [
+      { value: 100, name: 'A bit (100 kWh)', key: '100' },
+      { value: 230, name: 'Average (230 kWh)', key: '230' },
+      { value: 350, name: 'A lot (350 kWh)', key: '350' },
+      { value: 'manual', name: 'Other', key: 'other' },
+    ],
+    answerType: 'single-choice',
+  },
   /*  {
     title: 'How much do you use in your home?',
     choices: ['Electricity', 'Natural Gas'],
