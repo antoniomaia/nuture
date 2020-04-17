@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Logo from '../logo';
+import Social from '../social';
 import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
 
@@ -8,8 +9,12 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <Logo />
+
       
-      
+      <div class="">
+        <Social />
+      </div>
+
       <ul className={styles.links}>
         <li>
           <Link to={'/about'}>About Us</Link>
@@ -24,7 +29,6 @@ const Footer = () => {
         <li>feedback</li>
       </ul>
 
-      
       <p className={styles.copyright}>
         <small>Ecological.Earth © 2020 All Rights Reserved.</small>
       </p>

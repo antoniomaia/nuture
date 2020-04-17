@@ -1,0 +1,19 @@
+.root {
+  ul{
+      display: flex;
+      flex-direction: row;
+      .icon {
+        margin: 5px;
+        display: inline-block;
+        svg{
+          fill: white;
+          height: 35px;
+          &:hover{
+            fill: var(--primary-text-color);
+          }
+        }
+      }
+    }
+}
+
+
