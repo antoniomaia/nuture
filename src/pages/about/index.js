@@ -6,7 +6,7 @@ import secondary_page_styles from '../styles.module.scss';
 const About = () => {
   return (
     <section className={secondary_page_styles.simple_page_container}>
-      <Hero.Secondary headline={'About us'} />
+      <Hero.Secondary headline={'About Us'} />
       <div className={secondary_page_styles.body}>
         <p>
           O Lorem Ipsum é um texto modelo da indústria tipográfica e de
