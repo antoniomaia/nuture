@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Logo from '../logo';
 import Social from '../social';
+import SocialMedia from './social-media';
+
 import styles from './styles.module.scss';
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -31,6 +33,8 @@ const Footer = () => {
           </ul>
         </div>
       </div>
+      <SocialMedia />
+
       <p className={styles.copyright}>
         <small>Ecological.Earth © 2020 All Rights Reserved.</small>
       </p>
