@@ -54,7 +54,7 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
                 ...transitionStyles[state],
               }}
             >
-              IS LIKE
+              COMPARES TO
             </strong>
           )}
         </Transition>

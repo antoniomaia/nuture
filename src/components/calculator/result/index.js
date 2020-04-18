@@ -59,7 +59,7 @@ const Result = ({ answers, setAnswers }) => {
           }}
           className={styles.reset}
         >
-          <small>(return)</small>
+          <small>(reset)</small>
         </button>
       </article>
       <IsLike
@@ -67,13 +67,6 @@ const Result = ({ answers, setAnswers }) => {
         carbonEmissionsResult={carbonEmissionsResult}
       />
       <br />
-      <button
-        onClick={() => {
-          setAnswers(INITIAL_STATE);
-        }}
-      >
-        <strong>RESET</strong>
-      </button>
       <p>
         To help you better understand your footprint, the same amount compares
         to the lifetime of 100 iPhone X
