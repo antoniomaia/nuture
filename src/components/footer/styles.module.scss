@@ -1,5 +1,6 @@
 .footer {
-  background: var(--secondary-color);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  //background: var(--secondary-color);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -7,20 +8,22 @@
   padding: 40px 20px 30px 20px;
   p,
   small {
-    color: #fff;
+    color: var(--primary-text-color);
   }
 
   .links {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: 30px;
+    margin-top: 60px;
+    margin-bottom: 30px;
     width: 100%;
     li {
-      color: #fff;
+      color: var(--primary-text-color);
       list-style: none;
       a {
-        color: white;
+        color: var(--primary-text-color);
+        text-decoration: none;
       }
     }
   }

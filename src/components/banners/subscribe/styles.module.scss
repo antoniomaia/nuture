@@ -9,4 +9,7 @@
   h3 {
     font-size: 28px;
   }
+  @media only screen and (min-device-width: 768px) {
+    margin: 50px auto 100px auto;
+  }
 }
