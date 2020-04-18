@@ -20,18 +20,14 @@
   align-items: center;
   text-align: center;
   width: fit-content;
-  background: var(--grey-light);
   border-radius: 8px;
+  height: 38px;
   input {
+    height: 100%;
     border-radius: 8px 0 0 8px;
     border: none;
-    padding: 10px;
+    padding: 0 10px;
     text-align: right;
-  }
-  select {
-    border-radius: 0 8px 8px 0;
-    border: none;
-    color: var(--main-color);
-    background: none;
+    font-size: 16px;
   }
 }

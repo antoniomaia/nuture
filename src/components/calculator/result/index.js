@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+
 import { carbonEmissionMealTypePerYear } from '../../../co2e/food/meals';
 import {
   carbonEmissionTransportTypeWithDistance,
@@ -7,10 +8,18 @@ import {
 } from '../../../co2e/transport';
 import { INITIAL_STATE } from '../../../pages/calculator';
 import { TRANSPORT } from '../../../co2e/transport';
+import { carbonEmissionsElectricity } from '../../../co2e/energy/electricity';
+import { carbonEmissionsPurchase } from '../../../co2e/purchase';
+import { animateValue } from '../../../utils';
 
 import styles from './styles.module.scss';
 
+import IsLike from './is-like';
+
 const Result = ({ answers, setAnswers }) => {
+  let [show, setShow] = useState({ 0: false, 1: false, 2: false });
+  const [animation, setAnimation] = useState(true);
+  const resultEl = useRef(null);
   const carbonEmissions =
     carbonEmissionMealTypePerYear(answers.dietPreference) +
     carbonEmissionTransportTypeWithDistance(
@@ -24,25 +33,44 @@ const Result = ({ answers, setAnswers }) => {
     carbonEmissionFlightType(
       TRANSPORT.LONG_HAUL_FLIGHT,
       parseInt(answers.travelInternationalFlightsPerYear, 10) * 2
-    );
+    ) +
+    carbonEmissionsElectricity(answers.electricityKwhPerMonth) * 12 +
+    carbonEmissionsPurchase(answers.purchaseAmountPerMonth) * 12;
+
+  const carbonEmissionsResult = parseFloat(carbonEmissions.toFixed(1));
+
   return (
     <section>
-      <h3>Your carbon footprint is:</h3>
+      <article className={styles.results_container}>
+        <h3>Your carbon footprint is</h3>
+        <p className={styles.result}>
+          <span className={styles.number} ref={resultEl}>
+            {animation
+              ? animateValue(resultEl, 1, carbonEmissionsResult, 50, () =>
+                  setAnimation(false)
+                )
+              : carbonEmissionsResult}
+          </span>
+          <span>tons / year</span>
+        </p>
+        <button
+          onClick={() => {
+            setAnswers(INITIAL_STATE);
+          }}
+          className={styles.reset}
+        >
+          <small>(reset)</small>
+        </button>
+      </article>
+      <IsLike
+        animation={animation}
+        carbonEmissionsResult={carbonEmissionsResult}
+      />
       <br />
-      <p className={styles.result}>
-        <span className={styles.number}>{carbonEmissions.toFixed(1)} </span>
-        tons CO
-        <sub>2</sub>
-        /year
+      <p>
+        To help you better understand your footprint, the same amount compares
+        to the lifetime of 100 iPhone X
       </p>
-      <br />
-      <button
-        onClick={() => {
-          setAnswers(INITIAL_STATE);
-        }}
-      >
-        <strong>RESET</strong>
-      </button>
       <p>
         HELP US SPREAD THE WORD Share your results and help us make the .. more
         aware of their impact, and what they can do about it.
@@ -70,6 +98,8 @@ Result.propTypes = {
     travelDomesticFlightsPerYear: PropTypes.number,
     travelInternationalFlightsPerYear: PropTypes.number,
     dietPreference: PropTypes.string,
+    electricityKwhPerMonth: PropTypes.number,
+    purchaseAmountPerMonth: PropTypes.number,
   }),
 };
 
@@ -82,6 +112,8 @@ Result.defaultProps = {
     travelDomesticFlightsPerYear: 6,
     travelInternationalFlightsPerYear: 2,
     dietPreference: 'lowMeat',
+    electricityKwhPerMonth: 0,
+    purchaseAmountPerMonth: 0,
   }),
 };
 

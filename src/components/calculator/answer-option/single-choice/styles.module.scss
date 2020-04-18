@@ -46,4 +46,10 @@
     text-align: center;
     outline: none;
   }
+  .is_manual {
+    &::placeholder {
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+  }
 }
