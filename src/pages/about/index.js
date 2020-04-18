@@ -2,24 +2,36 @@ import React from 'react';
 
 import Hero from '../../components/hero';
 import secondary_page_styles from '../styles.module.scss';
+import styles from './styles.module.scss';
 
 const About = () => {
   return (
     <section className={secondary_page_styles.simple_page_container}>
-      <Hero.Secondary headline={'About Us'} />
+      <Hero.Secondary headline={'About us'} />
       <div className={secondary_page_styles.body}>
         <p>
-          O Lorem Ipsum é um texto modelo da indústria tipográfica e de
-          impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por
-          estas indústrias desde o ano de 1500, quando uma misturou os
-          caracteres de um texto para criar um espécime de livro. Este texto não
-          só sobreviveu 5 séculos, mas também o salto para a tipografia
-          electrónica, mantendo-se essencialmente inalterada. Foi popularizada
-          nos anos 60 com a disponibilização das folhas de Letraset, que
-          continham passagens com Lorem Ipsum, e mais recentemente com os
-          programas de publicação como o Aldus PageMaker que incluem versões do
-          Lorem Ipsum.
+          Ecological.Earth is a small team of humans concerned by our impact on
+          the planet. We put our minds thinking about climate change and our
+          mission is to build tools that help everyone understand and reduce
+          their carbon footprint and fight the climate crisis.
         </p>
+        <p>
+          We’re starting with a web app that makes it easy to calculate our
+          carbon footprint. It’s a simple calculator that gives us a rough
+          estimate of our carbon footprint based on our habits.
+        </p>
+        <p>
+          Try it out and let us know what you think. Give us feedback. We’re
+          here for you. Help us improve and if you have any question, idea or
+          kind words please drop us a message at email and we will get back as
+          soon as we can!
+        </p>
+        <br />
+        <br />
+        <div className={styles.team}>
+          <h2>The team</h2>
+          <p>Located in 🇵🇹.</p>
+        </div>
       </div>
     </section>
   );
