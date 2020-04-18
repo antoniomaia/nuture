@@ -1,0 +1,58 @@
+.root {
+  min-height: 400px;
+  .equivalent_container {
+    margin: 20px -20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .equivalent_item {
+      padding: 10px;
+      display: flex;
+      flex-flow: column;
+      max-width: 120px;
+      .icon {
+        font-size: 50px;
+      }
+      font-size: 14px;
+    }
+    .tweet {
+      height: 28px;
+      line-height: 28px;
+      align-self: center;
+      margin-top: 12px;
+      background: #1ea1f2;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 0 10px 0 6px;
+      border-radius: 4px;
+      img {
+        width: 24px;
+      }
+      color: white;
+      text-decoration: none;
+      &:hover {
+        background: #005fd1;
+      }
+    }
+  }
+
+  .fade-enter {
+    opacity: 0;
+  }
+  .fade-enter-active {
+    opacity: 1;
+  }
+  .fade-exit {
+    opacity: 1;
+  }
+  .fade-exit-active {
+    opacity: 0;
+  }
+  .fade-enter-active,
+  .fade-exit-active {
+    transition: opacity 200ms;
+  }
+}

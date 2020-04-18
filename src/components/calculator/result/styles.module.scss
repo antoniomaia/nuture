@@ -11,7 +11,7 @@
     border-radius: 18px;
     max-width: 250px;
     padding: 20px 8px;
-    margin: 30px auto !important;
+    margin: 30px auto 0 auto !important;
     .number {
       padding: 0 10px;
       font-size: 70px;
@@ -20,20 +20,8 @@
       height: 90px;
     }
   }
-}
-
-.equivalent_container {
-  margin: 20px -20px;
-  display: flex;
-  justify-content: space-between;
-  .equivalent_item {
-    padding: 10px;
-    display: flex;
-    flex-flow: column;
-    max-width: 120px;
-    .icon {
-      font-size: 50px;
-    }
-    font-size: 14px;
+  .reset {
+    margin: 8px 0 22px 0;
+    color: var(--brown-color);
   }
 }

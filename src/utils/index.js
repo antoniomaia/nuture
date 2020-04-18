@@ -8,7 +8,7 @@ export const jumpTo = element => () => {
   }
 };
 
-export const animateValue = (ref, start, end, duration) => {
+export const animateValue = (ref, start, end, duration, callback) => {
   const range = end - start;
   let current = start;
   const increment = end > start ? 0.1 : -0.1;
@@ -21,6 +21,7 @@ export const animateValue = (ref, start, end, duration) => {
     }
     if (fixedCurrent == end) {
       clearInterval(timer);
+      callback();
     }
   }, stepTime);
 };

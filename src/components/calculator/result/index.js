@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { carbonEmissionMealTypePerYear } from '../../../co2e/food/meals';
@@ -14,23 +14,11 @@ import { animateValue } from '../../../utils';
 
 import styles from './styles.module.scss';
 
-const equivalentCarbonEmissions = [
-  {
-    key: 'iphone',
-    value: 0.079,
-    icon: '📱',
-    description: 'iPhone X produced',
-  },
-  { key: 'tree', value: 0.181, icon: '🌲', description: 'trees cut per year' },
-  {
-    key: 'netflix',
-    value: 0.0042,
-    icon: '🖥️',
-    description: 'hours watching netflix',
-  },
-];
+import IsLike from './is-like';
 
 const Result = ({ answers, setAnswers }) => {
+  let [show, setShow] = useState({ 0: false, 1: false, 2: false });
+  const [animation, setAnimation] = useState(true);
   const resultEl = useRef(null);
   const carbonEmissions =
     carbonEmissionMealTypePerYear(answers.dietPreference) +
@@ -57,21 +45,27 @@ const Result = ({ answers, setAnswers }) => {
         <h3>Your carbon footprint is</h3>
         <p className={styles.result}>
           <span className={styles.number} ref={resultEl}>
-            {animateValue(resultEl, 1, carbonEmissionsResult, 100)}
+            {animation
+              ? animateValue(resultEl, 1, carbonEmissionsResult, 50, () =>
+                  setAnimation(false)
+                )
+              : carbonEmissionsResult}
           </span>
           <span>tons / year</span>
         </p>
+        <button
+          onClick={() => {
+            setAnswers(INITIAL_STATE);
+          }}
+          className={styles.reset}
+        >
+          <small>(return)</small>
+        </button>
       </article>
-      <strong>EQUIVALENT TO</strong>
-      <div className={styles.equivalent_container}>
-        {equivalentCarbonEmissions.map(({ icon, value, description }) => (
-          <p className={styles.equivalent_item}>
-            <span className={styles.icon}>{icon}</span>
-            <strong>{parseInt(carbonEmissionsResult / value, 10)}</strong>{' '}
-            {description}
-          </p>
-        ))}
-      </div>
+      <IsLike
+        animation={animation}
+        carbonEmissionsResult={carbonEmissionsResult}
+      />
       <br />
       <button
         onClick={() => {
