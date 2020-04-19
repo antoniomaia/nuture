@@ -1,9 +1,9 @@
 .hero {
   text-align: center;
-  background: url('./secondary_pages_header.jpg') no-repeat;
   background-size: cover;
   height: 390px;
-
+  background: url('./secondary_pages_header.jpg') no-repeat fixed center;
+  background-size: cover;
   .heroinside {
     background: -webkit-gradient(
       linear,
