@@ -13,13 +13,9 @@ const About = () => {
           Ecological Earth was founded in 2020 and built on the vision that
           Sustainable Development should be a common tool for every user in
           every organization. With a team working for more than 5 years in
-          Environment and Business Intelligence, we have created a solution that
+          Environment and Business Intelligence, we are creating solutions that
           enables corporations/users to use a inovative footprint calculator in
           their everyday analysis and decision-making processes.
-          Ecological.Earth is a small team of humans concerned by our impact on
-          the planet. We put our minds thinking about climate change and our
-          mission is to build tools that help everyone understand and reduce
-          their carbon footprint and fight the climate crisis.
         </p>
         <p>
           We’re starting with a web app that makes it easy to calculate our
