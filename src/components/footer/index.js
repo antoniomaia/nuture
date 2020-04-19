@@ -12,28 +12,22 @@ const Footer = () => {
     <footer className={styles.footer}>
       <Logo />
 
-      <div class="main-footer">
-        <div class="block-footer social-links">
-          <Social />
-        </div>
+      <ul className={styles.links}>
+        <li>
+          <Link to={'/about'}>About Us </Link>
+        </li>
+        <li>
+          <Link to={'/terms-conditions'}>Terms & Conditions</Link>
+        </li>
+        <li>
+          <Link to={'/privacy-policy'}>Privacy Policy </Link>
+        </li>
+        <li>
+          <a href="mailto:theecologicalearth@gmail.com">Contact Us</a>
+        </li>
+      </ul>
 
-        <div class="block-footer page-links">
-          <ul className={styles.links}>
-            <li>
-              <Link to={'/about'}>About Us</Link>
-            </li>
-            <li>
-              <Link to={'/terms-conditions'}>Terms & Conditions</Link>
-            </li>
-            <li>
-              <Link to={'/privacy-policy'}>Privacy Policy</Link>
-            </li>
-            <li>early access</li>
-            <li>feedback</li>
-          </ul>
-        </div>
-      </div>
-      <SocialMedia />
+      <Social />
 
       <p className={styles.copyright}>
         <small>Ecological.Earth © 2020 All Rights Reserved.</small>

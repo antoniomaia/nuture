@@ -3,11 +3,11 @@
       display: flex;
       flex-direction: row;
       .icon {
-        margin: 5px;
+        margin: 10px;
         display: inline-block;
         svg{
-          fill: white;
-          height: 35px;
+          fill: #9ea7a1;
+          height: 25px;
           &:hover{
             fill: var(--primary-text-color);
           }
