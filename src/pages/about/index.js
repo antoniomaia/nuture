@@ -14,7 +14,7 @@ const About = () => {
           Sustainable Development should be a common tool for every user in
           every organization. With a team working for more than 5 years in
           Environment and Business Intelligence, we are creating solutions that
-          enables corporations/users to use a inovative footprint calculator in
+          enables corporations/users to use a innovative footprint calculator in
           their everyday analysis and decision-making processes.
         </p>
         <p>
