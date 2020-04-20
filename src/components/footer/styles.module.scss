@@ -17,13 +17,22 @@
     justify-content: space-evenly;
     margin: 60px 0 40px 0;
 
+    @media only screen and (max-device-width: 768px) {
+      flex-direction: column;
+    }
+
     li {
       color: var(--primary-text-color);
       list-style: none;
       border-left: 1px solid var(--primary-text-color);
+      
+      @media only screen and (max-device-width: 768px) {
+        border-left: none;
+        margin-bottom: 15px;
+      }
 
       &:nth-child(1){
-        border: none;
+          border: none;
       }
 
       a {
