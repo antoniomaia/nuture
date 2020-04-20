@@ -9,6 +9,7 @@ import Terms from './pages/terms-conditions';
 import Policy from './pages/privacy-policy';
 
 import DynamicTransition from './components/global/dynamic-transition';
+import Articles from './pages/articles';
 
 function App() {
   const location = useLocation();
@@ -21,6 +22,7 @@ function App() {
           <Route path="/about" exact component={About} />
           <Route path="/terms-conditions" exact component={Terms} />
           <Route path="/privacy-policy" exact component={Policy} />
+          <Route path="/articles" exact component={Articles} />
           <Route component={() => <h1>Oops! Page not found!</h1>} />
         </Switch>
       </DynamicTransition>
