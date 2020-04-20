@@ -10,7 +10,7 @@ const equivalentCarbonEmissions = [
     key: 'iphone',
     value: 0.079,
     icon: '📱',
-    description: 'iPhone X made',
+    description: 'iPhone X produced',
     duration: 500,
   },
   {
@@ -51,7 +51,7 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
     <section className={styles.root}>
       {!animation && (
         <Transition in={!animation} timeout={500}>
-          {state => (
+          {(state) => (
             <strong
               style={{
                 transition: `opacity 500ms linear`,
@@ -59,7 +59,7 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
                 ...transitionStyles[state],
               }}
             >
-              COMPARES TO
+              THE EQUIVALENT OF
             </strong>
           )}
         </Transition>
@@ -70,7 +70,7 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
             const footprint = parseInt(carbonEmissionsResult / value, 10);
             return (
               <Transition in={!animation} timeout={duration}>
-                {state => (
+                {(state) => (
                   <p
                     className={styles.equivalent_item}
                     style={{
