@@ -14,7 +14,7 @@ const Footer = () => {
 
       <ul className={styles.links}>
         <li>
-          <Link to={'/about'}>About Us </Link>
+          <Link to={'/about'}>About</Link>
         </li>
         <li>
           <Link to={'/terms-conditions'}>Terms & Conditions</Link>
@@ -23,7 +23,7 @@ const Footer = () => {
           <Link to={'/privacy-policy'}>Privacy Policy </Link>
         </li>
         <li>
-          <a href="mailto:theecologicalearth@gmail.com">Contact Us</a>
+          <a href="mailto:hello@ecological.earth">Contact</a>
         </li>
       </ul>
 
