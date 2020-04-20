@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import { carbonEmissionMealTypePerYear } from '../../../co2e/food/meals';
+import { carbonEmissionMealTypePerYear, MEALS } from '../../../co2e/food/meals';
 import {
   carbonEmissionTransportTypeWithDistance,
   carbonEmissionFlightType,
@@ -16,43 +16,67 @@ import styles from './styles.module.scss';
 
 import IsLike from './is-like';
 
-const Result = ({ answers, setAnswers }) => {
-  let [show, setShow] = useState({ 0: false, 1: false, 2: false });
+const Result = React.memo(({ answers, setAnswers }) => {
   const [animation, setAnimation] = useState(true);
   const resultEl = useRef(null);
-  const carbonEmissions =
-    carbonEmissionMealTypePerYear(answers.dietPreference) +
-    carbonEmissionTransportTypeWithDistance(
-      answers.travelMethod,
-      answers.travelDistancePerYear
-    ) +
-    carbonEmissionFlightType(
-      TRANSPORT.SHORT_HAUL_FLIGHT,
-      parseInt(answers.travelDomesticFlightsPerYear, 10) * 2
-    ) +
-    carbonEmissionFlightType(
-      TRANSPORT.LONG_HAUL_FLIGHT,
-      parseInt(answers.travelInternationalFlightsPerYear, 10) * 2
-    ) +
-    carbonEmissionsElectricity(answers.electricityKwhPerMonth) * 12 +
-    carbonEmissionsPurchase(answers.purchaseAmountPerMonth) * 12;
+
+  const carbonEmissions = useMemo(
+    () =>
+      carbonEmissionMealTypePerYear(
+        answers.dietPreference || MEALS.MEDIUM_MEAT
+      ) +
+      carbonEmissionTransportTypeWithDistance(
+        answers.travelMethod || TRANSPORT.CAR,
+        answers.travelDistancePerYear || 0
+      ) +
+      carbonEmissionFlightType(
+        TRANSPORT.SHORT_HAUL_FLIGHT,
+        (answers.travelDomesticFlightsPerYear || 0) * 2
+      ) +
+      carbonEmissionFlightType(
+        TRANSPORT.LONG_HAUL_FLIGHT,
+        (answers.travelInternationalFlightsPerYear || 0) * 2
+      ) +
+      carbonEmissionsElectricity(answers.electricityKwhPerMonth) * 12 +
+      carbonEmissionsPurchase(answers.purchaseAmountPerMonth) * 12,
+    [answers]
+  );
 
   const carbonEmissionsResult = parseFloat(carbonEmissions.toFixed(1));
+
+  const footprintResult = useMemo(
+    () => {
+      return (
+        <>
+          {carbonEmissionsResult > 0 && (
+            <p className={styles.result}>
+              <span className={styles.number} ref={resultEl}>
+                {animation
+                  ? animateValue(resultEl, 1, carbonEmissionsResult, 50, () =>
+                      setAnimation(false)
+                    )
+                  : carbonEmissionsResult}
+              </span>
+              <span>tons / year</span>
+            </p>
+          )}
+          {carbonEmissionsResult <= 0 && (
+            <>
+              <br />
+              <h2>Try again</h2>
+            </>
+          )}
+        </>
+      );
+    },
+    [carbonEmissionsResult]
+  );
 
   return (
     <section>
       <article className={styles.results_container}>
         <h3>Your carbon footprint is</h3>
-        <p className={styles.result}>
-          <span className={styles.number} ref={resultEl}>
-            {animation
-              ? animateValue(resultEl, 1, carbonEmissionsResult, 50, () =>
-                  setAnimation(false)
-                )
-              : carbonEmissionsResult}
-          </span>
-          <span>tons / year</span>
-        </p>
+        {footprintResult}
         <button
           onClick={() => {
             setAnswers(INITIAL_STATE);
@@ -68,7 +92,7 @@ const Result = ({ answers, setAnswers }) => {
       />
     </section>
   );
-};
+});
 
 Result.propTypes = {
   answers: PropTypes.shape({

@@ -63,7 +63,7 @@ export const carbonEmissionTransportTypeWithDistance = (
 const SHORT_HAUL_DISTANCE_THRESHOLD = 1500; // km
 const LONG_HAUL_DISTANCE_THRESHOLD = 2500; // km
 
-export const carbonEmissionFlightType = (flightType, numberOfFlights) => {
+export const carbonEmissionFlightType = (flightType, numberOfFlights = 0) => {
   const { SHORT_HAUL_FLIGHT, LONG_HAUL_FLIGHT } = TRANSPORT;
   switch (flightType) {
     case SHORT_HAUL_FLIGHT: {

@@ -9,12 +9,17 @@
     .equivalent_item {
       padding: 10px;
       display: flex;
-      flex-flow: column;
       max-width: 120px;
+      flex-flow: column;
       .icon {
         font-size: 50px;
       }
       font-size: 14px;
+      @media only screen and (min-device-width: 768px) {
+        margin: 20px 30px;
+        max-width: 150px;
+        width: 150px;
+      }
     }
     .tweet {
       height: 28px;
