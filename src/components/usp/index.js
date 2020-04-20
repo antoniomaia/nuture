@@ -1,8 +1,8 @@
-import React from "react";
-import cx from "classnames";
-import { Link } from "react-router-dom";
+import React from 'react';
+import cx from 'classnames';
+import { Link } from 'react-router-dom';
 
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
 const Usp = () => {
   return (

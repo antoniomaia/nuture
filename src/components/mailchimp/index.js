@@ -2,7 +2,6 @@ import React from 'react';
 import Mailchimp from 'react-mailchimp-form';
 import styles from './styles.module.scss';
 
-
 const SubscribeInput = () => {
   return (
     <section className={styles.mailchimp}>
