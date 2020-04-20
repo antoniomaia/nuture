@@ -14,9 +14,9 @@ const Terms = () => {
 
         <p>
           By accessing this website we assume you accept these terms and
-          conditions. Do not continue to use Ecological Eart if you do not
-          agree to take all of the terms and conditions stated on this page. Our
-          Terms and Conditions were created with the help of the{' '}
+          conditions. Do not continue to use Ecological Eart if you do not agree
+          to take all of the terms and conditions stated on this page. Our Terms
+          and Conditions were created with the help of the{' '}
           <a href="https://www.termsandconditionsgenerator.com">
             Terms And Conditions Generator
           </a>{' '}
@@ -49,9 +49,8 @@ const Terms = () => {
         </h3>
 
         <p>
-          We employ the use of cookies. By accessing Ecological Eart, you
-          agreed to use cookies in agreement with the Ecological's Privacy
-          Policy.
+          We employ the use of cookies. By accessing Ecological Eart, you agreed
+          to use cookies in agreement with the Ecological's Privacy Policy.
         </p>
 
         <p>

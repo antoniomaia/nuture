@@ -26,7 +26,7 @@ const CalculatorPage = () => {
     <section className={styles.root}>
       <div className={styles.middle}>
         <h2>Carbon Footprint Calculator</h2>
-        <br />
+        {/* <br />
         <p className={styles.paragraph}>
           A carbon footprint is the amount of greenhouse gases (primarily carbon
           dioxide) released into the atmosphere by a particular human action.
@@ -37,8 +37,7 @@ const CalculatorPage = () => {
           Our online calculator can give you a rough estimate of your carbon
           footprint based on your habits. Start by answering some questions.
         </p>
-        <br />
-        <span className={styles.emoji}>⬇️</span>
+        <br />*/}
         <Calculator answers={answers} setAnswers={setAnswers} />
       </div>
     </section>

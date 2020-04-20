@@ -66,25 +66,6 @@ const Result = ({ answers, setAnswers }) => {
         animation={animation}
         carbonEmissionsResult={carbonEmissionsResult}
       />
-      <br />
-      <p>
-        To help you better understand your footprint, the same amount compares
-        to the lifetime of 100 iPhone X
-      </p>
-      <p>
-        HELP US SPREAD THE WORD Share your results and help us make the .. more
-        aware of their impact, and what they can do about it.
-      </p>
-      <br />
-      <p>facebook, instagram</p>
-      <p>
-        We proudly annouce that we are working on the easiest and most user
-        friendly app to help you reduce the climate impact of your daily
-        choices.
-      </p>
-      <p>Sign up for beta access</p>
-      <input type="email" />
-      <button>Get Early Access!</button>
     </section>
   );
 };

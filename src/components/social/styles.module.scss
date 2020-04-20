@@ -1,19 +1,17 @@
 .root {
-  ul{
-      display: flex;
-      flex-direction: row;
-      .icon {
-        margin: 10px;
-        display: inline-block;
-        svg{
-          fill: #9ea7a1;
-          height: 25px;
-          &:hover{
-            fill: var(--primary-text-color);
-          }
+  ul {
+    display: flex;
+    flex-direction: row;
+    .icon {
+      margin: 10px;
+      display: inline-block;
+      svg {
+        fill: #9ea7a1;
+        height: 25px;
+        &:hover {
+          fill: var(--primary-text-color);
         }
       }
     }
+  }
 }
-
-

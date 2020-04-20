@@ -10,7 +10,7 @@ const equivalentCarbonEmissions = [
     key: 'iphone',
     value: 0.079,
     icon: '📱',
-    description: 'iPhone X produced',
+    description: 'iPhone X made',
     duration: 500,
   },
   {
@@ -24,10 +24,15 @@ const equivalentCarbonEmissions = [
     key: 'netflix',
     value: 0.0042,
     icon: '🖥️',
-    description: 'hours watching netflix',
+    description: 'hours watching Netflix',
     duration: 2500,
   },
 ];
+
+const textToShare = (total, number, share) => {
+  return `My carbon footprint is ${number} tons per year, which compares to ${number} ${share}. 
+	https://ecological.earth&hashtags=climatechange,carbonfootprint`;
+};
 
 const IsLike = ({ animation, carbonEmissionsResult }) => {
   const defaultStyle = {
@@ -61,33 +66,37 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
       )}
       <div className={styles.equivalent_container}>
         {equivalentCarbonEmissions.map(
-          ({ icon, value, description, duration, show }, index) => (
-            <Transition in={!animation} timeout={duration}>
-              {state => (
-                <p
-                  className={styles.equivalent_item}
-                  style={{
-                    transition: `opacity 500ms linear`,
-                    transitionDelay: `${duration}ms`,
-                    ...defaultStyle,
-                    ...transitionStyles[state],
-                  }}
-                >
-                  <span className={styles.icon}>{icon}</span>
-                  <strong>
-                    {parseInt(carbonEmissionsResult / value, 10)}
-                  </strong>{' '}
-                  {description}
-                  <a
-                    href="https://twitter.com/intent/tweet?text=Ecological.Earth"
-                    className={styles.tweet}
+          ({ icon, value, description, duration, show }, index) => {
+            const footprint = parseInt(carbonEmissionsResult / value, 10);
+            return (
+              <Transition in={!animation} timeout={duration}>
+                {state => (
+                  <p
+                    className={styles.equivalent_item}
+                    style={{
+                      transition: `opacity 500ms linear`,
+                      transitionDelay: `${duration}ms`,
+                      ...defaultStyle,
+                      ...transitionStyles[state],
+                    }}
                   >
-                    <img src={TwitterLogo} /> Tweet
-                  </a>
-                </p>
-              )}
-            </Transition>
-          )
+                    <span className={styles.icon}>{icon}</span>
+                    <strong>{footprint}</strong> {description}
+                    <a
+                      href={`https://twitter.com/intent/tweet?text=${textToShare(
+                        carbonEmissionsResult,
+                        footprint,
+                        icon + description
+                      )}`}
+                      className={styles.tweet}
+                    >
+                      <img src={TwitterLogo} /> Tweet
+                    </a>
+                  </p>
+                )}
+              </Transition>
+            );
+          }
         )}
       </div>
     </section>
