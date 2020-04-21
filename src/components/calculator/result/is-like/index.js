@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './styles.module.scss';
 import { Transition } from 'react-transition-group';
 import TwitterLogo from './Twitter_Logo_White.svg';
+import { Link } from 'react-router-dom';
 
 const equivalentCarbonEmissions = [
   {
@@ -51,7 +52,7 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
     <section className={styles.root}>
       {!animation && (
         <Transition in={!animation} timeout={500}>
-          {(state) => (
+          {state => (
             <strong
               style={{
                 transition: `opacity 500ms linear`,
@@ -70,7 +71,7 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
             const footprint = parseInt(carbonEmissionsResult / value, 10);
             return (
               <Transition in={!animation} timeout={duration}>
-                {(state) => (
+                {state => (
                   <p
                     className={styles.equivalent_item}
                     style={{
@@ -99,6 +100,7 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
           }
         )}
       </div>
+      <Link to={'/more-info-result'}>More info about the results</Link>
     </section>
   );
 };

@@ -1,5 +1,5 @@
 .root {
-  min-height: 400px;
+  min-height: 300px;
   padding-top: 10px;
   .equivalent_container {
     margin: 20px -20px;
@@ -42,6 +42,13 @@
       &:hover {
         background: #005fd1;
       }
+    }
+  }
+
+  a {
+    color: var(--primary-color);
+    &:hover {
+      color: var(--secondary-color);
     }
   }
 
