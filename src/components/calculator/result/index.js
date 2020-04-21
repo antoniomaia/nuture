@@ -15,6 +15,7 @@ import Firebase from "firebase";
 import config from "../../../config";
 import IsLike from './is-like';
 import GlobalAverage from './global-average';
+import { countries } from '../../../constants/countries';
 
 import styles from './styles.module.scss';
 
@@ -91,24 +92,15 @@ const Result = React.memo(({ answers, setAnswers }) => {
   useEffect(
     () => {
       saveValuesOnDb({
-        // TODO: Must reduce boilerplate!
-        carbonEmissionMeal:carbonEmissionMealTypePerYear(
-          answers.dietPreference || MEALS.MEDIUM_MEAT
-        ),
-        carbonEmissionTransport:carbonEmissionTransportTypeWithDistance(
-          answers.travelMethod || TRANSPORT.CAR,
-          answers.travelDistancePerYear || 0
-        ),
-        carbonEmissionDomesticFlight:carbonEmissionFlightType(
-          TRANSPORT.SHORT_HAUL_FLIGHT,
-          (answers.travelDomesticFlightsPerYear || 0) * 2
-        ),
-        carbonEmissionOInternacional:carbonEmissionFlightType(
-          TRANSPORT.LONG_HAUL_FLIGHT,
-          (answers.travelInternationalFlightsPerYear || 0) * 2
-        ),
-        carbonEmissionsElectricity:carbonEmissionsElectricity(answers.electricityKwhPerMonth) * 12,
-        carbonEmissionsPurchase:carbonEmissionsPurchase(answers.purchaseAmountPerMonth) * 12,
+        // TODO: Must change to name only if export o CSV
+        country: countries.find(c => c.countryCode === answers.country),
+        carbonEmissionMeal:answers.dietPreference,
+        travelMethod:answers.travelMethod,
+        travelDistancePerYear:answers.travelDistancePerYear,
+        travelDomesticFlightsPerYear:answers.travelDomesticFlightsPerYear,
+        travelInternationalFlightsPerYear:answers.travelInternationalFlightsPerYear,
+        electricityKwhPerMonth:answers.electricityKwhPerMonth,
+        purchaseAmountPerMonth:answers.purchaseAmountPerMonth,
         carbonEmissionsResult:carbonEmissionsResult})
     },
     []
