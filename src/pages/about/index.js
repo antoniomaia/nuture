@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Hero from '../../components/hero';
+import Emoji from '../../components/ui/emoji';
+
 import secondary_page_styles from '../styles.module.scss';
 import styles from './styles.module.scss';
 
@@ -32,7 +34,9 @@ const About = () => {
         <br />
         <div className={styles.team}>
           <h2>The team</h2>
-          <p>Located in 🇵🇹.</p>
+          <p>
+            Located in <Emoji symbol="🇵🇹" label={'Portugal'} />.
+          </p>
         </div>
       </div>
     </section>

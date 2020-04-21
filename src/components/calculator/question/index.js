@@ -6,11 +6,10 @@ const Question = ({ active = false, question, answers, setAnswers }) => {
   if (!active || !question) {
     return null;
   }
-  const { id, title, description, choices, answerType } = question;
+  const { id, title, choices, answerType } = question;
   return (
     <div className={styles.step}>
       <h4 className={styles.title}>{title}</h4>
-      {/* <p className={styles.description}>{description}</p> */}
       <AnswerOption
         id={id}
         answers={answers}

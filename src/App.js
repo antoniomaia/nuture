@@ -23,8 +23,8 @@ function App() {
           <Route path="/about" exact component={About} />
           <Route path="/terms-conditions" exact component={Terms} />
           <Route path="/privacy-policy" exact component={Policy} />
-          <Route path="/articles" exact component={Articles} />
-          <Route path="/more-info-result" exact component={InfoResults} />
+          <Route path="/climate-change" exact component={Articles} />
+          <Route path="/carbon-report-sources" exact component={InfoResults} />
           <Route component={() => <h1>Oops! Page not found!</h1>} />
         </Switch>
       </DynamicTransition>

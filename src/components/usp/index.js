@@ -2,6 +2,8 @@ import React from 'react';
 import cx from 'classnames';
 import { Link } from 'react-router-dom';
 
+import Emoji from '../ui/emoji';
+
 import styles from './styles.module.scss';
 
 const Usp = () => {
@@ -9,7 +11,7 @@ const Usp = () => {
     <div className={styles.usp}>
       <div className={styles.item}>
         <div className={styles.icon}>
-          <img src={'images/c.svg'} />
+          <img src={'images/c.svg'} alt={'calculate'} />
         </div>
         <div className={styles.text}>
           <h2>Calculate</h2>
@@ -18,14 +20,16 @@ const Usp = () => {
             your actions.
           </p>
           <p>
-            <Link to={'/calculator'}>Get started ➡️</Link>
+            <Link to={'/calculator'}>
+              Get started <Emoji symbol="➡️" label="right arrow" />️
+            </Link>
           </p>
         </div>
       </div>
 
       <div className={styles.building}>
         <div className={styles.icon}>
-          <img src={'images/b.svg'} />
+          <img src={'images/b.svg'} alt={'working'} />
         </div>
         <div className={styles.workingon}>We are working on</div>
       </div>
@@ -39,13 +43,13 @@ const Usp = () => {
           </p>
         </div>
         <div className={styles.icon}>
-          <img src={'images/s.svg'} />
+          <img src={'images/s.svg'} alt={'track'} />
         </div>
       </div>
 
       <div className={styles.item}>
         <div className={styles.icon}>
-          <img src={'images/r.svg'} />
+          <img src={'images/r.svg'} alt={'reduce'} />
         </div>
         <div className={styles.text}>
           <h2>Reduce</h2>
