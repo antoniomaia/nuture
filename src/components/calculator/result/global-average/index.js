@@ -26,28 +26,33 @@ const getWorldDataEmissions = (countryCode, result) => {
       c => c.entity.toLowerCase() === country.name.toLowerCase()
     );
   }
-  const data = [{ name: 'You', value: result }];
-  if (countryCode !== 'gb') {
-    const gbr = worldEmissions.find(c => c.code === 'GBR');
-    data.unshift({ name: 'U.K.', value: formatNumber(gbr.perCapita) });
+  const data = [];
+  if (countryCode !== 'cn') {
+    const cn = worldEmissions.find(c => c.code === 'CHN');
+    data.push({ name: cn.entity, value: formatNumber(cn.perCapita) });
   }
-  if (countryCode !== 'pe') {
-    const per = worldEmissions.find(c => c.code === 'PER');
-    data.unshift({ name: 'Peru', value: formatNumber(per.perCapita) });
+  if (countryCode !== 'br') {
+    const bra = worldEmissions.find(c => c.code === 'BRA');
+    data.push({ name: bra.entity, value: formatNumber(bra.perCapita) });
   }
+  if (countryCode !== 'us') {
+    const usa = worldEmissions.find(c => c.code === 'USA');
+    data.push({ name: 'U.S.', value: formatNumber(usa.perCapita) });
+  }
+  data.push({ name: 'You', value: result });
   if (countryEmissions) {
     data.push({
       name: countryEmissions.entity,
       value: formatNumber(countryEmissions.perCapita),
     });
   }
-  if (countryCode !== 'de') {
-    const de = worldEmissions.find(c => c.code === 'DEU');
-    data.push({ name: 'Germany', value: formatNumber(de.perCapita) });
+  if (countryCode !== 'fr') {
+    const fra = worldEmissions.find(c => c.code === 'FRA');
+    data.push({ name: fra.entity, value: formatNumber(fra.perCapita) });
   }
-  if (countryCode !== 'us') {
-    const usa = worldEmissions.find(c => c.code === 'USA');
-    data.push({ name: 'U.S.', value: formatNumber(usa.perCapita) });
+  if (countryCode !== 'cm') {
+    const cmr = worldEmissions.find(c => c.code === 'CMR');
+    data.push({ name: cmr.entity, value: formatNumber(cmr.perCapita) });
   }
   data.push({ name: 'World', value: formatNumber(4.789869769) });
 
