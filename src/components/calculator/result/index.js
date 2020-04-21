@@ -91,6 +91,7 @@ const Result = React.memo(({ answers, setAnswers }) => {
   useEffect(
     () => {
       saveValuesOnDb({
+        // TODO: Must reduce boilerplate!
         carbonEmissionMeal:carbonEmissionMealTypePerYear(
           answers.dietPreference || MEALS.MEDIUM_MEAT
         ),
