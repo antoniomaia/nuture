@@ -11,7 +11,7 @@ export const questions = [
   },
   {
     id: 'travelMethod',
-    title: 'Select the transport method you use most often',
+    title: 'Select the transport method you use most',
     description: '',
     choices: [
       { name: 'Car', key: TRANSPORT.CAR },

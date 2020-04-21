@@ -83,7 +83,7 @@ const Result = React.memo(({ answers, setAnswers }) => {
           }}
           className={styles.reset}
         >
-          <small>(reset)</small>
+          reset
         </button>
       </article>
       <IsLike
