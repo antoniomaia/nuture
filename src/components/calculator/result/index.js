@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useRef, useState, useMemo , useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 import { carbonEmissionMealTypePerYear, MEALS } from '../../../co2e/food/meals';
@@ -11,12 +11,17 @@ import { TRANSPORT } from '../../../co2e/transport';
 import { carbonEmissionsElectricity } from '../../../co2e/energy/electricity';
 import { carbonEmissionsPurchase } from '../../../co2e/purchase';
 import { animateValue } from '../../../utils';
+import Firebase from "firebase";
+import config from "../../../config";
 
 import styles from './styles.module.scss';
 
 import IsLike from './is-like';
 
 const Result = React.memo(({ answers, setAnswers }) => {
+  if (!Firebase.apps.length) {
+    Firebase.initializeApp(config);
+  }
   const [animation, setAnimation] = useState(true);
   const resultEl = useRef(null);
 
@@ -44,6 +49,17 @@ const Result = React.memo(({ answers, setAnswers }) => {
 
   const carbonEmissionsResult = parseFloat(carbonEmissions.toFixed(1));
 
+  
+
+  function saveValuesOnDb(value){
+    const key = localStorage.getItem("key");
+    if(!key){
+      const key2 = Firebase.database().ref().push({value}).key;
+      console.log("Data Saved!")
+      localStorage.setItem("key",key2);
+    }
+  } 
+
   const footprintResult = useMemo(
     () => {
       return (
@@ -56,6 +72,7 @@ const Result = React.memo(({ answers, setAnswers }) => {
                       setAnimation(false)
                     )
                   : carbonEmissionsResult}
+                {}
               </span>
               <span>tons / year</span>
             </p>
@@ -71,7 +88,30 @@ const Result = React.memo(({ answers, setAnswers }) => {
     },
     [carbonEmissionsResult]
   );
-
+  useEffect(
+    () => {
+      saveValuesOnDb({
+        carbonEmissionMeal:carbonEmissionMealTypePerYear(
+          answers.dietPreference || MEALS.MEDIUM_MEAT
+        ),
+        carbonEmissionTransport:carbonEmissionTransportTypeWithDistance(
+          answers.travelMethod || TRANSPORT.CAR,
+          answers.travelDistancePerYear || 0
+        ),
+        carbonEmissionDomesticFlight:carbonEmissionFlightType(
+          TRANSPORT.SHORT_HAUL_FLIGHT,
+          (answers.travelDomesticFlightsPerYear || 0) * 2
+        ),
+        carbonEmissionOInternacional:carbonEmissionFlightType(
+          TRANSPORT.LONG_HAUL_FLIGHT,
+          (answers.travelInternationalFlightsPerYear || 0) * 2
+        ),
+        carbonEmissionsElectricity:carbonEmissionsElectricity(answers.electricityKwhPerMonth) * 12,
+        carbonEmissionsPurchase:carbonEmissionsPurchase(answers.purchaseAmountPerMonth) * 12,
+        carbonEmissionsResult:carbonEmissionsResult})
+    },
+    []
+  );
   return (
     <section>
       <article className={styles.results_container}>
@@ -79,6 +119,7 @@ const Result = React.memo(({ answers, setAnswers }) => {
         {footprintResult}
         <button
           onClick={() => {
+            localStorage.clear();
             setAnswers(INITIAL_STATE);
           }}
           className={styles.reset}
