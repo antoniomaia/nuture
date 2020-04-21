@@ -31,7 +31,7 @@ const Usp = () => {
         <div className={styles.icon}>
           <img src={'images/b.svg'} alt={'working'} />
         </div>
-        <div className={styles.workingon}>We are working on</div>
+        <div className={styles.workingon}>we are working on</div>
       </div>
 
       <div className={cx(styles.item, styles.diagonal)}>

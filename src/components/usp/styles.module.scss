@@ -52,13 +52,18 @@
 }
 
 .building {
-  text-align: center;
+    text-align: center;
+    margin: 35px auto 35px auto;
+    padding: 45px 20px;
+    border-radius: 30px;
+    max-width: 375px;
+    background: var(--bg-second-light-color);
+    box-shadow: 0 14px 25px rgba(0, 0, 0, 0.13);
   img {
-    max-width: 300px;
-    float: inherit;
+    max-width: 275px;
   }
   .workingon {
-    font-size: 50px;
+    font-size: 40px;
     margin-top: 15px;
     font-weight: bold;
   }
@@ -100,15 +105,6 @@
   }
 
   .building {
-    margin-top: 75px;
-    img {
-      max-width: 450px;
-      float: left;
-      margin-right: 45px;
-    }
-    .workingon {
-      margin-top: 95px;
-      text-align: left;
-    }
+    padding: 45px;
   }
 }
