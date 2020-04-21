@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './styles.module.scss';
 
-const Navigation = ({ currentStep, handlePrevious, handleNext }) => {
+const Navigation = ({ currentStep, handlePrevious, handleNext, last }) => {
   return (
     <>
       {currentStep > 0 && (
@@ -11,7 +11,9 @@ const Navigation = ({ currentStep, handlePrevious, handleNext }) => {
         </button>
       )}
       <button onClick={handleNext} className={styles.next}>
-        {currentStep > 0 ? 'Next' : 'Start'}
+        {currentStep === 0 && 'Start'}
+        {currentStep > 0 && !last && 'Next'}
+        {last && 'Finish'}
       </button>
     </>
   );

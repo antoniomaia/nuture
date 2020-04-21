@@ -68,6 +68,7 @@ const Calculator = ({ answers, setAnswers }) => {
                 activeIndex={currentStep}
               />
               <Navigation
+                last={currentStep === questions.length - 1}
                 currentStep={currentStep}
                 handlePrevious={handlePrevious}
                 handleNext={handleNext}
