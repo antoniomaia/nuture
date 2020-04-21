@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import Hero from '../../components/hero';
+import Emoji from '../../components/ui/emoji';
+
 import secondary_page_styles from '../styles.module.scss';
 import styles from './styles.module.scss';
 
@@ -12,7 +13,7 @@ const InfoResults = () => {
       <div className={secondary_page_styles.body}>
         <article className={styles.articles}>
           <div className={styles.block}>
-            <span className={styles.icon}>📱</span>
+            <Emoji symbol="📱" label="phone" className={styles.icon} />
             <p>
               iPhone X produced: Thanks to Apple’s own environmental data, which
               can be found for each of Apple’s products on their environment
@@ -27,7 +28,7 @@ const InfoResults = () => {
             </p>
           </div>
           <div className={styles.block}>
-            <span className={styles.icon}>🌲</span>
+            <Emoji symbol="🌲" label="tree" className={styles.icon} />
             <p>
               Trees cut per year: According to the U.S. Energy Information
               Administration, one silver maple, will sequester about 400 pounds
@@ -41,7 +42,7 @@ const InfoResults = () => {
             </p>
           </div>
           <div className={styles.block}>
-            <span className={styles.icon}>🖥️</span>
+            <Emoji symbol="🖥️️" label="desktop" className={styles.icon} />
             <p>
               Hours watching Netflix: One study suggests that 420g of CO2 is
               emitted per every hour spent watching films on online streaming

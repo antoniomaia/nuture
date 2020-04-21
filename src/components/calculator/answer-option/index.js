@@ -1,6 +1,5 @@
 import React from 'react';
 import Select from 'react-select';
-import cx from 'classnames';
 
 import styles from './styles.module.scss';
 import SingleChoice from './single-choice';
@@ -21,7 +20,11 @@ const AnswerOption = ({ id, type, choices, answers, setAnswers }) => {
 
       return (
         <div className={styles.center}>
-          <img src={`flags/${answers.country}.svg`} className={styles.flag} />
+          <img
+            src={`flags/${answers.country}.svg`}
+            alt={'country flag'}
+            className={styles.flag}
+          />
           <Select
             value={country}
             placeholder={'Select country...'}

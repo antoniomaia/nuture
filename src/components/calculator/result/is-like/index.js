@@ -91,7 +91,7 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
                       )}`}
                       className={styles.tweet}
                     >
-                      <img src={TwitterLogo} /> Tweet
+                      <img src={TwitterLogo} alt={'Twitter logo'} /> Tweet
                     </a>
                   </p>
                 )}
