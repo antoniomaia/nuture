@@ -11,10 +11,10 @@ import { TRANSPORT } from '../../../co2e/transport';
 import { carbonEmissionsElectricity } from '../../../co2e/energy/electricity';
 import { carbonEmissionsPurchase } from '../../../co2e/purchase';
 import { animateValue } from '../../../utils';
+import IsLike from './is-like';
+import GlobalAverage from './global-average';
 
 import styles from './styles.module.scss';
-
-import IsLike from './is-like';
 
 const Result = React.memo(({ answers, setAnswers }) => {
   const [animation, setAnimation] = useState(true);
@@ -89,6 +89,10 @@ const Result = React.memo(({ answers, setAnswers }) => {
       <IsLike
         animation={animation}
         carbonEmissionsResult={carbonEmissionsResult}
+      />
+      <GlobalAverage
+        result={carbonEmissionsResult}
+        countryCode={answers.country}
       />
     </section>
   );
