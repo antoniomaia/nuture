@@ -2,8 +2,6 @@ import React from 'react';
 import cx from 'classnames';
 import { Link } from 'react-router-dom';
 
-import Emoji from '../ui/emoji';
-
 import styles from './styles.module.scss';
 
 const Usp = () => {
@@ -20,8 +18,11 @@ const Usp = () => {
             your actions.
           </p>
           <p>
-            <Link to={'/calculator'}>
+{/*             <Link to={'/calculator'}>
               Get started <Emoji symbol="➡️" label="right arrow" />️
+            </Link> */}
+            <Link className={styles.button} to={'/calculator'}>
+              Get started
             </Link>
           </p>
         </div>
