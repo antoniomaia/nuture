@@ -9,12 +9,12 @@ const Terms = () => {
       <div className={secondary_page_styles.body}>
         <p>
           These terms and conditions outline the rules and regulations for the
-          use of Ecological's Website, located at ecological.eart.
+          use of Ecological's Website, located at ecological.earth.
         </p>
 
         <p>
           By accessing this website we assume you accept these terms and
-          conditions. Do not continue to use Ecological Eart if you do not agree
+          conditions. Do not continue to use Ecological Earth if you do not agree
           to take all of the terms and conditions stated on this page. Our Terms
           and Conditions were created with the help of the{' '}
           <a href="https://www.termsandconditionsgenerator.com">
@@ -49,7 +49,7 @@ const Terms = () => {
         </h3>
 
         <p>
-          We employ the use of cookies. By accessing Ecological Eart, you agreed
+          We employ the use of cookies. By accessing Ecological Earth, you agreed
           to use cookies in agreement with the Ecological's Privacy Policy.
         </p>
 
@@ -67,18 +67,18 @@ const Terms = () => {
 
         <p>
           Unless otherwise stated, Ecological and/or its licensors own the
-          intellectual property rights for all material on Ecological Eart. All
+          intellectual property rights for all material on Ecological Earth. All
           intellectual property rights are reserved. You may access this from
-          Ecological Eart for your own personal use subjected to restrictions
+          Ecological Earth for your own personal use subjected to restrictions
           set in these terms and conditions.
         </p>
 
         <p>You must not:</p>
         <ul>
-          <li>Republish material from Ecological Eart</li>
-          <li>Sell, rent or sub-license material from Ecological Eart</li>
-          <li>Reproduce, duplicate or copy material from Ecological Eart</li>
-          <li>Redistribute content from Ecological Eart</li>
+          <li>Republish material from Ecological Earth</li>
+          <li>Sell, rent or sub-license material from Ecological Earth</li>
+          <li>Reproduce, duplicate or copy material from Ecological Earth</li>
+          <li>Redistribute content from Ecological Earth</li>
         </ul>
 
         <p>This Agreement shall begin on the date hereof.</p>
