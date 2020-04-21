@@ -31,7 +31,7 @@ const equivalentCarbonEmissions = [
 ];
 
 const textToShare = (total, number, share) => {
-  return `My carbon footprint is ${number} tons per year, which compares to ${number} ${share}. 
+  return `My carbon footprint is ${total} tons per year, which compares to ${number} ${share}. 
 	https://ecological.earth&hashtags=climatechange,carbonfootprint`;
 };
 
@@ -87,7 +87,7 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
                       href={`https://twitter.com/intent/tweet?text=${textToShare(
                         carbonEmissionsResult,
                         footprint,
-                        icon + description
+                        description
                       )}`}
                       className={styles.tweet}
                     >

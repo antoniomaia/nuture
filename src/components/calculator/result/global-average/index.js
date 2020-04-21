@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   ResponsiveContainer,
   BarChart,
@@ -55,7 +55,9 @@ const getWorldDataEmissions = (countryCode, result) => {
 };
 
 const WorldAverage = ({ result, countryCode }) => {
-  const data = getWorldDataEmissions(countryCode, result);
+  const data = useMemo(() => getWorldDataEmissions(countryCode, result), [
+    result,
+  ]);
   return (
     <div className={styles.root}>
       <div className={styles.container}>
