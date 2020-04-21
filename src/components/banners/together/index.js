@@ -11,7 +11,7 @@ const Together = () => {
         While we don’t have all the answers, we are building tools to help you
         get started.
       </p>
-      <Link className={styles.button} to={'/articles'}>
+      <Link className={styles.button} to={'/climate-change'}>
         Learn more
       </Link>
     </article>

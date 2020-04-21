@@ -100,7 +100,7 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
           }
         )}
       </div>
-      <Link to={'/more-info-result'}>More info about the results</Link>
+      <Link to={'/carbon-report-sources'}>More info about the results</Link>
     </section>
   );
 };

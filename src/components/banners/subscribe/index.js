@@ -10,15 +10,15 @@ const Subscribe = () => {
     <article className={styles.root}>
       <h3>Are you interested?</h3>
       <div className={styles.body}>
-        <p>Sign up here and get in touch</p>
-        <p>
-          <small>
-            We care about protecting your data. Here’s our{' '}
-            <Link to={'/privacy-policy'}>Privacy Policy</Link>.
-          </small>
-        </p>
+        <p>Sign up today to get early access</p>
       </div>
       <Mailchimp />
+      <p>
+        <small>
+          We care about protecting your data. Here’s our{' '}
+          <Link to={'/privacy-policy'}>Privacy Policy</Link>.
+        </small>
+      </p>
     </article>
   );
 };
