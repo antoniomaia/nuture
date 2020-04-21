@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import Logo from '../logo';
 import Social from '../social';
-import SocialMedia from './social-media';
 
 import styles from './styles.module.scss';
 
@@ -26,9 +25,7 @@ const Footer = () => {
           <a href="mailto:hello@ecological.earth">Contact</a>
         </li>
       </ul>
-
       <Social />
-
       <p className={styles.copyright}>
         <small>Ecological.Earth © 2020 All Rights Reserved.</small>
       </p>

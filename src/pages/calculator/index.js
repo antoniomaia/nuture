@@ -12,12 +12,12 @@ export const INITIAL_STATE = {
 
 const CalculatorPage = () => {
   const [answers, setAnswers] = useState(
-    JSON.parse(localStorage.getItem('answers')) || INITIAL_STATE
+    JSON.parse(sessionStorage.getItem('answersee')) || INITIAL_STATE
   );
 
   useEffect(
     () => {
-      localStorage.setItem('answers', JSON.stringify(answers));
+      sessionStorage.setItem('answersee', JSON.stringify(answers));
     },
     [answers]
   );
@@ -26,18 +26,6 @@ const CalculatorPage = () => {
     <section className={styles.root}>
       <div className={styles.middle}>
         <h2>Carbon Footprint Calculator</h2>
-        {/* <br />
-        <p className={styles.paragraph}>
-          A carbon footprint is the amount of greenhouse gases (primarily carbon
-          dioxide) released into the atmosphere by a particular human action.
-          That could be from anything - an activity, an item, a lifestyle, a
-          company, a country or even the whole world.
-        </p>
-        <p className={styles.paragraph}>
-          Our online calculator can give you a rough estimate of your carbon
-          footprint based on your habits. Start by answering some questions.
-        </p>
-        <br />*/}
         <Calculator answers={answers} setAnswers={setAnswers} />
       </div>
     </section>

@@ -1,9 +1,20 @@
 import React from 'react';
 import Select from 'react-select';
-import cx from 'classnames';
 
 import styles from './styles.module.scss';
 import SingleChoice from './single-choice';
+
+// https://react-select.com/styles#overriding-the-theme
+const selectTheme = theme => ({
+  ...theme,
+  borderRadius: 8,
+  colors: {
+    ...theme.colors,
+    primary25: '#eef6ee',
+    primary: '#277a21',
+    primary50: '#f4f4fa',
+  },
+});
 
 const AnswerOption = ({ id, type, choices, answers, setAnswers }) => {
   switch (type) {
@@ -21,13 +32,18 @@ const AnswerOption = ({ id, type, choices, answers, setAnswers }) => {
 
       return (
         <div className={styles.center}>
-          <img src={`flags/${answers.country}.svg`} className={styles.flag} />
+          <img
+            src={`flags/${answers.country}.svg`}
+            alt={'country flag'}
+            className={styles.flag}
+          />
           <Select
             value={country}
             placeholder={'Select country...'}
             options={options}
             className={styles.country_dropdown}
             onChange={onCountryChange}
+            theme={selectTheme}
           />
         </div>
       );
@@ -72,6 +88,7 @@ const AnswerOption = ({ id, type, choices, answers, setAnswers }) => {
           <Select
             defaultValue={metrics[0]}
             options={metrics}
+            theme={selectTheme}
             styles={{
               container: (provided, state) => ({
                 ...provided,

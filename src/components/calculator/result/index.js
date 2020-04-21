@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useRef, useState, useMemo , useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 import { carbonEmissionMealTypePerYear, MEALS } from '../../../co2e/food/meals';
@@ -11,12 +11,18 @@ import { TRANSPORT } from '../../../co2e/transport';
 import { carbonEmissionsElectricity } from '../../../co2e/energy/electricity';
 import { carbonEmissionsPurchase } from '../../../co2e/purchase';
 import { animateValue } from '../../../utils';
+import Firebase from "firebase";
+import config from "../../../config";
 import IsLike from './is-like';
 import GlobalAverage from './global-average';
+import { countries } from '../../../constants/countries';
 
 import styles from './styles.module.scss';
 
 const Result = React.memo(({ answers, setAnswers }) => {
+  if (!Firebase.apps.length) {
+    Firebase.initializeApp(config);
+  }
   const [animation, setAnimation] = useState(true);
   const resultEl = useRef(null);
 
@@ -44,6 +50,17 @@ const Result = React.memo(({ answers, setAnswers }) => {
 
   const carbonEmissionsResult = parseFloat(carbonEmissions.toFixed(1));
 
+  
+
+  function saveValuesOnDb(value){
+    const key = localStorage.getItem("key");
+    if(!key){
+      const key2 = Firebase.database().ref().push({value}).key;
+      console.log("Data Saved!")
+      localStorage.setItem("key",key2);
+    }
+  } 
+
   const footprintResult = useMemo(
     () => {
       return (
@@ -56,6 +73,7 @@ const Result = React.memo(({ answers, setAnswers }) => {
                       setAnimation(false)
                     )
                   : carbonEmissionsResult}
+                {}
               </span>
               <span>tons / year</span>
             </p>
@@ -71,7 +89,22 @@ const Result = React.memo(({ answers, setAnswers }) => {
     },
     [carbonEmissionsResult]
   );
-
+  useEffect(
+    () => {
+      saveValuesOnDb({
+        // TODO: Must change to name only if export o CSV
+        country: countries.find(c => c.countryCode === answers.country),
+        carbonEmissionMeal:answers.dietPreference,
+        travelMethod:answers.travelMethod,
+        travelDistancePerYear:answers.travelDistancePerYear,
+        travelDomesticFlightsPerYear:answers.travelDomesticFlightsPerYear,
+        travelInternationalFlightsPerYear:answers.travelInternationalFlightsPerYear,
+        electricityKwhPerMonth:answers.electricityKwhPerMonth,
+        purchaseAmountPerMonth:answers.purchaseAmountPerMonth,
+        carbonEmissionsResult:carbonEmissionsResult})
+    },
+    []
+  );
   return (
     <section>
       <article className={styles.results_container}>
@@ -79,6 +112,7 @@ const Result = React.memo(({ answers, setAnswers }) => {
         {footprintResult}
         <button
           onClick={() => {
+            localStorage.clear();
             setAnswers(INITIAL_STATE);
           }}
           className={styles.reset}
