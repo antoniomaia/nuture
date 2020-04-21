@@ -45,9 +45,9 @@
     }
   }
 
-  a{
+  a {
     color: var(--primary-color);
-    &:hover{
+    &:hover {
       color: var(--secondary-color);
     }
   }
@@ -68,5 +68,4 @@
   .fade-exit-active {
     transition: opacity 200ms;
   }
-
 }

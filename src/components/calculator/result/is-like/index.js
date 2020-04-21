@@ -52,7 +52,7 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
     <section className={styles.root}>
       {!animation && (
         <Transition in={!animation} timeout={500}>
-          {(state) => (
+          {state => (
             <strong
               style={{
                 transition: `opacity 500ms linear`,
@@ -71,7 +71,7 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
             const footprint = parseInt(carbonEmissionsResult / value, 10);
             return (
               <Transition in={!animation} timeout={duration}>
-                {(state) => (
+                {state => (
                   <p
                     className={styles.equivalent_item}
                     style={{
