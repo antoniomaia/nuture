@@ -45,6 +45,13 @@
     }
   }
 
+  a{
+    color: var(--primary-color);
+    &:hover{
+      color: var(--secondary-color);
+    }
+  }
+
   .fade-enter {
     opacity: 0;
   }
@@ -61,4 +68,5 @@
   .fade-exit-active {
     transition: opacity 200ms;
   }
+
 }

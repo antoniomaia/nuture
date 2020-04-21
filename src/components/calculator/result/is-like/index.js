@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './styles.module.scss';
 import { Transition } from 'react-transition-group';
 import TwitterLogo from './Twitter_Logo_White.svg';
+import { Link } from 'react-router-dom';
 
 const equivalentCarbonEmissions = [
   {
@@ -99,6 +100,7 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
           }
         )}
       </div>
+      <Link to={'/more-info-result'}>More info about the results</Link>
     </section>
   );
 };
