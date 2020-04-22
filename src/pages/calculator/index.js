@@ -12,12 +12,12 @@ export const INITIAL_STATE = {
 
 const CalculatorPage = () => {
   const [answers, setAnswers] = useState(
-    JSON.parse(sessionStorage.getItem('answersee')) || INITIAL_STATE
+    JSON.parse(sessionStorage.getItem('answers_ee')) || INITIAL_STATE
   );
 
   useEffect(
     () => {
-      sessionStorage.setItem('answersee', JSON.stringify(answers));
+      sessionStorage.setItem('answers_ee', JSON.stringify(answers));
     },
     [answers]
   );

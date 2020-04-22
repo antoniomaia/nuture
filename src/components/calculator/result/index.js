@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo , useEffect} from 'react';
+import React, { useRef, useState, useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { carbonEmissionMealTypePerYear, MEALS } from '../../../co2e/food/meals';
@@ -11,8 +11,8 @@ import { TRANSPORT } from '../../../co2e/transport';
 import { carbonEmissionsElectricity } from '../../../co2e/energy/electricity';
 import { carbonEmissionsPurchase } from '../../../co2e/purchase';
 import { animateValue } from '../../../utils';
-import Firebase from "firebase";
-import config from "../../../config";
+import Firebase from 'firebase';
+import config from '../../../config';
 import IsLike from './is-like';
 import GlobalAverage from './global-average';
 import { countries } from '../../../constants/countries';
@@ -48,63 +48,76 @@ const Result = React.memo(({ answers, setAnswers }) => {
     [answers]
   );
 
-  const carbonEmissionsResult = parseFloat(carbonEmissions.toFixed(1));
+  let carbonEmissionsResult = parseFloat(carbonEmissions.toFixed(1));
+  if (carbonEmissionsResult > 0) {
+    carbonEmissionsResult += +1;
+  }
 
-  
-
-  function saveValuesOnDb(value){
-    const key = localStorage.getItem("key");
-    if(!key){
-      const key2 = Firebase.database().ref().push({value}).key;
-      console.log("Data Saved!")
-      localStorage.setItem("key",key2);
+  function saveValuesOnDb(value) {
+    const key = sessionStorage.getItem('key_ee');
+    if (!key) {
+      const key2 = Firebase.database().ref().push({ value }).key;
+      console.log('Data Saved!');
+      sessionStorage.setItem('key_ee', key2);
     }
-  } 
+  }
 
-  const footprintResult = useMemo(
-    () => {
-      return (
-        <>
-          {carbonEmissionsResult > 0 && (
-            <p className={styles.result}>
-              <span className={styles.number} ref={resultEl}>
-                {animation
-                  ? animateValue(resultEl, 1, carbonEmissionsResult, 50, () =>
-                      setAnimation(false)
-                    )
-                  : carbonEmissionsResult}
-                {}
-              </span>
-              <span>tons / year</span>
-            </p>
-          )}
-          {carbonEmissionsResult <= 0 && (
-            <>
-              <br />
-              <h2>Try again</h2>
-            </>
-          )}
-        </>
-      );
-    },
-    [carbonEmissionsResult]
-  );
-  useEffect(
-    () => {
-      saveValuesOnDb({
-        // TODO: Must change to name only if export o CSV
-        country: countries.find(c => c.countryCode === answers.country),
-        carbonEmissionMeal:answers.dietPreference === undefined ? "none" : answers.dietPreference,
-        travelMethod:answers.travelMethod === undefined ? "none" : answers.travelMethod,
-        travelDistancePerYear:answers.travelDistancePerYear === undefined ? "none" : answers.travelDistancePerYear,
-        travelDomesticFlightsPerYear:answers.travelDomesticFlightsPerYear === undefined ? "none" : answers.travelDomesticFlightsPerYear,
-        travelInternationalFlightsPerYear:answers.travelInternationalFlightsPerYear === undefined ? "none" : answers.travelInternationalFlightsPerYear,
-        electricityKwhPerMonth:answers.electricityKwhPerMonth === undefined ? "none" : answers.electricityKwhPerMonth,
-        purchaseAmountPerMonth:answers.purchaseAmountPerMonth === undefined ? "none" : answers.purchaseAmountPerMonth,
-        carbonEmissionsResult:carbonEmissionsResult})
-    },
-    []
-  );
+  const footprintResult = useMemo(() => {
+    return (
+      <>
+        {carbonEmissionsResult > 0 && (
+          <p className={styles.result}>
+            <span className={styles.number} ref={resultEl}>
+              {animation
+                ? animateValue(resultEl, 1, carbonEmissionsResult, 50, () =>
+                    setAnimation(false)
+                  )
+                : carbonEmissionsResult}
+              {}
+            </span>
+            <span>tons / year</span>
+          </p>
+        )}
+        {carbonEmissionsResult <= 0 && (
+          <>
+            <br />
+            <h2>Try again</h2>
+          </>
+        )}
+      </>
+    );
+  }, [carbonEmissionsResult]);
+  useEffect(() => {
+    saveValuesOnDb({
+      // TODO: Must change to name only if export o CSV
+      country: countries.find((c) => c.countryCode === answers.country),
+      carbonEmissionMeal:
+        answers.dietPreference === undefined ? 'none' : answers.dietPreference,
+      travelMethod:
+        answers.travelMethod === undefined ? 'none' : answers.travelMethod,
+      travelDistancePerYear:
+        answers.travelDistancePerYear === undefined
+          ? 'none'
+          : answers.travelDistancePerYear,
+      travelDomesticFlightsPerYear:
+        answers.travelDomesticFlightsPerYear === undefined
+          ? 'none'
+          : answers.travelDomesticFlightsPerYear,
+      travelInternationalFlightsPerYear:
+        answers.travelInternationalFlightsPerYear === undefined
+          ? 'none'
+          : answers.travelInternationalFlightsPerYear,
+      electricityKwhPerMonth:
+        answers.electricityKwhPerMonth === undefined
+          ? 'none'
+          : answers.electricityKwhPerMonth,
+      purchaseAmountPerMonth:
+        answers.purchaseAmountPerMonth === undefined
+          ? 'none'
+          : answers.purchaseAmountPerMonth,
+      carbonEmissionsResult: carbonEmissionsResult,
+    });
+  }, []);
   return (
     <section>
       <article className={styles.results_container}>
@@ -112,7 +125,7 @@ const Result = React.memo(({ answers, setAnswers }) => {
         {footprintResult}
         <button
           onClick={() => {
-            localStorage.clear();
+            sessionStorage.clear();
             setAnswers(INITIAL_STATE);
           }}
           className={styles.reset}
