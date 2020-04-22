@@ -16,6 +16,7 @@ import config from '../../../config';
 import IsLike from './is-like';
 import GlobalAverage from './global-average';
 import { countries } from '../../../constants/countries';
+import SubscribeResult from "../../banners/subscribe-result";
 
 import styles from './styles.module.scss';
 
@@ -141,6 +142,7 @@ const Result = React.memo(({ answers, setAnswers }) => {
         result={carbonEmissionsResult}
         countryCode={answers.country}
       />
+      <SubscribeResult />
     </section>
   );
 });

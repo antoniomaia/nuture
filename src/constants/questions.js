@@ -7,7 +7,7 @@ export const questions = [
     id: 'country',
     title: 'What country do you live in?',
     description: (
-      <small>
+      <>
         Country data from{' '}
         <a
           href={'https://ourworldindata.org/per-capita-co2'}
@@ -17,7 +17,7 @@ export const questions = [
           OWID
         </a>{' '}
         used to show comparisons of your footprint.
-      </small>
+      </>
     ),
     choices: countries,
     answerType: 'dropdown',

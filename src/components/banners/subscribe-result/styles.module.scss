@@ -1,0 +1,20 @@
+.root {
+  padding: 80px 20px;
+  text-align: center;
+  color: var(--primary-text-color);
+  max-width: 700px;
+  margin: 50px 20px 100px 20px;
+  background: #f6f6f6;
+  h3 {
+    font-size: 28px;
+  }
+  .body {
+    margin: 15px;
+  }
+  a {
+    color: var(--primary-color);
+  }
+  @media only screen and (min-device-width: 768px) {
+    margin: 50px auto 100px auto;
+  }
+}
