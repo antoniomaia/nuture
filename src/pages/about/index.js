@@ -35,7 +35,7 @@ const About = () => {
         <div className={styles.team}>
           <h2>The team</h2>
           <p>
-            Located in <Emoji symbol="🇵🇹" label={'Portugal'} />.
+            Located in <Emoji symbol="🇵🇹" label={'Portugal'} />
           </p>
         </div>
       </div>
