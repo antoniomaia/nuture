@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 import Layout from './pages/layout';
 import Home from './pages/home';
@@ -12,13 +13,26 @@ import InfoResults from './pages/info-results';
 import DynamicTransition from './components/global/dynamic-transition';
 import Articles from './pages/articles';
 
+const onPageLoad = (path) => {
+  ReactGA.pageview(path);
+};
+
 function App() {
   const location = useLocation();
+
+  useEffect(() => {
+    onPageLoad(location.pathname);
+  }, [location]);
+
   return (
     <Layout>
       <DynamicTransition location={location}>
         <Switch location={location}>
-          <Route path="/" component={Home} exact />
+          <Route
+            path="/"
+            render={(props) => <Home {...props} onPageLoad={onPageLoad('/')} />}
+            exact
+          />
           <Route path="/calculator" exact component={Calculator} />
           <Route path="/about" exact component={About} />
           <Route path="/terms-conditions" exact component={Terms} />
