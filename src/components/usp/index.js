@@ -18,7 +18,7 @@ const Usp = () => {
             your actions.
           </p>
           <p>
-{/*             <Link to={'/calculator'}>
+            {/*             <Link to={'/calculator'}>
               Get started <Emoji symbol="➡️" label="right arrow" />️
             </Link> */}
             <Link className={styles.button} to={'/calculator'}>
@@ -28,16 +28,18 @@ const Usp = () => {
         </div>
       </div>
 
-      <div className={styles.building}>
+      {/*      <div className={styles.building}>
         <div className={styles.icon}>
           <img src={'images/b.svg'} alt={'working'} />
         </div>
         <div className={styles.workingon}>we are working on</div>
-      </div>
+      </div>*/}
 
       <div className={cx(styles.item, styles.diagonal)}>
         <div className={styles.text}>
-          <h2>Track</h2>
+          <h2>
+            Track <sup className={styles.coming_soon}>Coming soon</sup>
+          </h2>
           <p>
             We will help you tracking your emissions over time, making it easy
             for you to see how you’re doing against global reduction targets.
@@ -53,7 +55,9 @@ const Usp = () => {
           <img src={'images/r.svg'} alt={'reduce'} />
         </div>
         <div className={styles.text}>
-          <h2>Reduce</h2>
+          <h2>
+            Reduce <sup className={styles.coming_soon}>Coming soon</sup>
+          </h2>
           <p>
             We will give you tips and feedback on your progress towards a lower
             carbon lifestyle
