@@ -103,9 +103,9 @@ export const questions = [
     title: 'How much do you spend on new stuff in a month?',
     description: '',
     choices: [
-      { value: 100, name: 'A little', key: '30' },
-      { value: 230, name: 'Average', key: '80' },
-      { value: 350, name: 'A lot', key: '300' },
+      { value: 100, name: 'A bit (€30)', key: '30' },
+      { value: 230, name: 'Average (€80)', key: '80' },
+      { value: 350, name: 'A lot (€300)', key: '300' },
       { value: 'manual', name: 'Other (€)', key: 'other' },
     ],
     answerType: 'single-choice',
