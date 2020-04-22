@@ -31,7 +31,7 @@ const equivalentCarbonEmissions = [
 ];
 
 const textToShare = (total, number, share) => {
-  return `My carbon footprint is ${total} tons per year, which compares to ${number} ${share}. 
+  return `My carbon footprint is ${total} tons per year, which is the equivalent of ${number} ${share}. 
 	https://ecological.earth&hashtags=climatechange,carbonfootprint,ecologicalearth,earthday`;
 };
 
