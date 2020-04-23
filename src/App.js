@@ -12,9 +12,10 @@ import InfoResults from './pages/info-results';
 
 import DynamicTransition from './components/global/dynamic-transition';
 import Articles from './pages/articles';
+import { isProduction } from './utils/env';
 
 const onPageLoad = (path) => {
-  ReactGA.pageview(path);
+  if (isProduction) ReactGA.pageview(path);
 };
 
 function App() {

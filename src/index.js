@@ -6,8 +6,9 @@ import ReactGA from 'react-ga';
 import App from './App';
 import ScrollRestoration from './components/global/scroll-restoration';
 import * as serviceWorker from './serviceWorker';
+import { isProduction } from './utils/env';
 
-ReactGA.initialize('UA-164078398-1');
+if (isProduction) ReactGA.initialize('UA-164078398-1');
 
 ReactDOM.render(
   <BrowserRouter>
