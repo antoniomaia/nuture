@@ -21,7 +21,7 @@ import SubscribeResult from '../../banners/subscribe-result';
 import styles from './styles.module.scss';
 import { isProduction } from '../../../utils/env';
 
-const Result = React.memo(({ answers, setAnswers }) => {
+const Result = React.memo(({ answers, setAnswers, handlePrevious }) => {
   if (!Firebase.apps.length) {
     Firebase.initializeApp(config);
   }
@@ -129,6 +129,9 @@ const Result = React.memo(({ answers, setAnswers }) => {
       <article className={styles.results_container}>
         <h3>Your carbon footprint is</h3>
         {footprintResult}
+        <button onClick={handlePrevious} className={styles.back}>
+          back
+        </button>
         <button
           onClick={() => {
             sessionStorage.clear();
