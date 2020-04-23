@@ -33,7 +33,7 @@ const InfoResults = () => {
             <p>
               <strong>Trees cut per year:</strong> According to the U.S. Energy
               Information Administration, one silver maple, will sequester about
-              400 pounds of carbon dioxide in its lifetime. Source:{' '}
+              400 pounds of carbon dioxide in 25 years. Source:{' '}
               <a
                 href="https://www.sierraclub.org/sierra/2016-2-march-april/ask-mr-green/how-much-carbon-do-trees-really-store"
                 target="blank"

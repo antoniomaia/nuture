@@ -18,7 +18,7 @@ const equivalentCarbonEmissions = [
     key: 'tree',
     value: 0.181,
     icon: '🌲',
-    description: 'trees cut per year',
+    description: 'silver maple trees collect in 25 years',
     duration: 1500,
   },
   {
@@ -82,7 +82,8 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
                     }}
                   >
                     <span className={styles.icon}>{icon}</span>
-                    <strong>{footprint}</strong> {description}
+                    <strong>{footprint}</strong>
+                    <span>{description}</span> 
                     <a
                       href={`https://twitter.com/intent/tweet?text=${textToShare(
                         carbonEmissionsResult,
@@ -100,7 +101,7 @@ const IsLike = ({ animation, carbonEmissionsResult }) => {
           }
         )}
       </div>
-      <Link to={'/carbon-report-sources'}>More info about the results</Link>
+      <Link className={styles.button} to={'/carbon-report-sources'}>More info about the results</Link>
     </section>
   );
 };
