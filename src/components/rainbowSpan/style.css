@@ -6,11 +6,6 @@
   -o-background-clip: text;
   background-clip: text;
   color: transparent;
-  transition:background-position 3s;
-  -ms-transition:background-position 3s;
-  -moz-transition:background-position 3s;
-  -o-transition:background-position 3s;
-  -webkit-transition:background-position 3s; 
 }
 
 .rainbow.position-0{
@@ -19,10 +14,20 @@
 
 .rainbow.position-1{
   background-position: 0 40%;
+  transition:background-position 2s;
+  -ms-transition:background-position 2s;
+  -moz-transition:background-position 2s;
+  -o-transition:background-position 2s;
+  -webkit-transition:background-position 2s;
 }
 
 .rainbow.position-2{
   background-position: 0 80%;
+  transition:background-position 1s;
+  -ms-transition:background-position 1s;
+  -moz-transition:background-position 1s;
+  -o-transition:background-position 1s;
+  -webkit-transition:background-position 1s;
 }
 
 
