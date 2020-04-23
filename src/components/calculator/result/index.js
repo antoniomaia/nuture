@@ -16,9 +16,10 @@ import config from '../../../config';
 import IsLike from './is-like';
 import GlobalAverage from './global-average';
 import { countries } from '../../../constants/countries';
-import SubscribeResult from "../../banners/subscribe-result";
+import SubscribeResult from '../../banners/subscribe-result';
 
 import styles from './styles.module.scss';
+import { isProduction } from '../../../utils/env';
 
 const Result = React.memo(({ answers, setAnswers }) => {
   if (!Firebase.apps.length) {
@@ -89,35 +90,39 @@ const Result = React.memo(({ answers, setAnswers }) => {
     );
   }, [carbonEmissionsResult]);
   useEffect(() => {
-    saveValuesOnDb({
-      // TODO: Must change to name only if export o CSV
-      country: countries.find((c) => c.countryCode === answers.country),
-      carbonEmissionMeal:
-        answers.dietPreference === undefined ? 'none' : answers.dietPreference,
-      travelMethod:
-        answers.travelMethod === undefined ? 'none' : answers.travelMethod,
-      travelDistancePerYear:
-        answers.travelDistancePerYear === undefined
-          ? 'none'
-          : answers.travelDistancePerYear,
-      travelDomesticFlightsPerYear:
-        answers.travelDomesticFlightsPerYear === undefined
-          ? 'none'
-          : answers.travelDomesticFlightsPerYear,
-      travelInternationalFlightsPerYear:
-        answers.travelInternationalFlightsPerYear === undefined
-          ? 'none'
-          : answers.travelInternationalFlightsPerYear,
-      electricityKwhPerMonth:
-        answers.electricityKwhPerMonth === undefined
-          ? 'none'
-          : answers.electricityKwhPerMonth,
-      purchaseAmountPerMonth:
-        answers.purchaseAmountPerMonth === undefined
-          ? 'none'
-          : answers.purchaseAmountPerMonth,
-      carbonEmissionsResult: carbonEmissionsResult,
-    });
+    if (isProduction) {
+      saveValuesOnDb({
+        // TODO: Must change to name only if export o CSV
+        country: countries.find((c) => c.countryCode === answers.country),
+        carbonEmissionMeal:
+          answers.dietPreference === undefined
+            ? 'none'
+            : answers.dietPreference,
+        travelMethod:
+          answers.travelMethod === undefined ? 'none' : answers.travelMethod,
+        travelDistancePerYear:
+          answers.travelDistancePerYear === undefined
+            ? 'none'
+            : answers.travelDistancePerYear,
+        travelDomesticFlightsPerYear:
+          answers.travelDomesticFlightsPerYear === undefined
+            ? 'none'
+            : answers.travelDomesticFlightsPerYear,
+        travelInternationalFlightsPerYear:
+          answers.travelInternationalFlightsPerYear === undefined
+            ? 'none'
+            : answers.travelInternationalFlightsPerYear,
+        electricityKwhPerMonth:
+          answers.electricityKwhPerMonth === undefined
+            ? 'none'
+            : answers.electricityKwhPerMonth,
+        purchaseAmountPerMonth:
+          answers.purchaseAmountPerMonth === undefined
+            ? 'none'
+            : answers.purchaseAmountPerMonth,
+        carbonEmissionsResult: carbonEmissionsResult,
+      });
+    }
   }, []);
   return (
     <section>
