@@ -17,6 +17,8 @@ import IsLike from './is-like';
 import GlobalAverage from './global-average';
 import { countries } from '../../../constants/countries';
 import SubscribeResult from "../../banners/subscribe-result";
+import RainbowSpan from '../../rainbowSpan';
+import { worldEmissions } from '../../../co2e/world/co-emissions-per-capita';
 
 import styles from './styles.module.scss';
 
@@ -54,6 +56,8 @@ const Result = React.memo(({ answers, setAnswers }) => {
     carbonEmissionsResult += +1;
   }
 
+  
+
   function saveValuesOnDb(value) {
     const key = sessionStorage.getItem('key_ee');
     if (!key) {
@@ -63,18 +67,30 @@ const Result = React.memo(({ answers, setAnswers }) => {
     }
   }
 
+
+  const countryCode = answers.country;
+  const countryName = countries.find(country => country.countryCode === countryCode).name;
+  const countryCO = worldEmissions.find(country => country.entity === countryName);
+  let countryCoefficientPollution = 0;
+  if (countryCO) {
+    const x = carbonEmissionsResult / countryCO.perCapita;
+    const RED_ALERT = 90;
+    const YELLOW_ALERT = 50;
+    countryCoefficientPollution = x > 1.2 ? RED_ALERT / carbonEmissionsResult : x < 1 ? 0 : YELLOW_ALERT / carbonEmissionsResult;
+  }
+
   const footprintResult = useMemo(() => {
     return (
       <>
         {carbonEmissionsResult > 0 && (
           <p className={styles.result}>
             <span className={styles.number} ref={resultEl}>
-              {animation
-                ? animateValue(resultEl, 1, carbonEmissionsResult, 50, () =>
-                    setAnimation(false)
-                  )
-                : carbonEmissionsResult}
-              {}
+                {animation
+                  ? animateValue(resultEl, countryCoefficientPollution, 1, carbonEmissionsResult, 50, () =>
+                      setAnimation(false)
+                    )
+                  : carbonEmissionsResult}
+                {}
             </span>
             <span>tons / year</span>
           </p>
