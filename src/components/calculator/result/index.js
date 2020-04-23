@@ -17,7 +17,6 @@ import IsLike from './is-like';
 import GlobalAverage from './global-average';
 import { countries } from '../../../constants/countries';
 import SubscribeResult from "../../banners/subscribe-result";
-import RainbowSpan from '../../rainbowSpan';
 import { worldEmissions } from '../../../co2e/world/co-emissions-per-capita';
 
 import styles from './styles.module.scss';
