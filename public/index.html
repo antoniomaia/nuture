@@ -2,13 +2,52 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="https://ecological.earth/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Ecological.Earth | How big is your carbon footprint?" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
-    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/3edb599a903504d7d77bbe3f7/0cd777fd6efdc46a41838cacc.js");</script>
+    <!-- Primary Meta Tags -->
+    <title>Ecological.Earth</title>
+    <meta name="title" content="Ecological.Earth" />
+    <meta
+      name="description"
+      content="How big is your carbon footprint? Understand your CO2 emissions and live a more sustainable life. Take your first step with our environmental footprint calculator."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ecological.earth/" />
+    <meta property="og:title" content="Ecological.Earth" />
+    <meta
+      property="og:description"
+      content="How big is your carbon footprint? Understand your CO2 emissions and live a more sustainable life. Take your first step with our environmental footprint calculator."
+    />
+    <meta property="og:image" content="https://ecological.earth/share.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://ecological.earth/" />
+    <meta property="twitter:title" content="Ecological.Earth" />
+    <meta
+      property="twitter:description"
+      content="How big is your carbon footprint? Understand your CO2 emissions and live a more sustainable life. Take your first step with our environmental footprint calculator."
+    />
+    <meta property="twitter:image" content="https://ecological.earth/share.png" />
+
+    <script id="mcjs">
+      !(function (c, h, i, m, p) {
+        (m = c.createElement(h)),
+          (p = c.getElementsByTagName(h)[0]),
+          (m.async = 1),
+          (m.src = i),
+          p.parentNode.insertBefore(m, p);
+      })(
+        document,
+        'script',
+        'https://chimpstatic.com/mcjs-connected/js/users/3edb599a903504d7d77bbe3f7/0cd777fd6efdc46a41838cacc.js'
+      );
+    </script>
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -28,21 +67,24 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <script>window.twttr = (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0],
-              t = window.twttr || {};
-      if (d.getElementById(id)) return t;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js, fjs);
+    <script>
+      window.twttr = (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0],
+          t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
 
-      t._e = [];
-      t.ready = function(f) {
-        t._e.push(f);
-      };
+        t._e = [];
+        t.ready = function (f) {
+          t._e.push(f);
+        };
 
-      return t;
-    }(document, "script", "twitter-wjs"));</script>
+        return t;
+      })(document, 'script', 'twitter-wjs');
+    </script>
   </body>
 </html>
