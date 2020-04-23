@@ -18,7 +18,7 @@ const equivalentCarbonEmissions = [
     key: 'tree',
     value: 0.181,
     icon: '🌲',
-    description: 'silver maple trees collect in 25 years',
+    description: 'trees cut with 25 years',
     duration: 1500,
   },
   {
