@@ -91,9 +91,9 @@ export const questions = [
     title: 'How much energy (kWh) do you use in a month?',
     description: '',
     choices: [
-      { value: 100, name: 'A little', key: '100' },
-      { value: 230, name: 'Average', key: '230' },
-      { value: 350, name: 'A lot', key: '350' },
+      { value: 100, name: 'A little (100 kWh)', key: '100' },
+      { value: 230, name: 'Average (230 kWh)', key: '230' },
+      { value: 350, name: 'A lot (350 kWh)', key: '350' },
       { value: 'manual', name: 'Other (kWh)', key: 'other' },
     ],
     answerType: 'single-choice',
@@ -103,7 +103,7 @@ export const questions = [
     title: 'How much do you spend on new stuff in a month?',
     description: '',
     choices: [
-      { value: 100, name: 'A bit (€30)', key: '30' },
+      { value: 100, name: 'A little (€30)', key: '30' },
       { value: 230, name: 'Average (€80)', key: '80' },
       { value: 350, name: 'A lot (€300)', key: '300' },
       { value: 'manual', name: 'Other (€)', key: 'other' },
