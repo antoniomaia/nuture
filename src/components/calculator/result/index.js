@@ -28,7 +28,7 @@ const Result = React.memo(({ answers, setAnswers, handlePrevious }) => {
   }
   const [animation, setAnimation] = useState(true);
   const resultEl = useRef(null);
-
+  let answerReference = "";
   const carbonEmissions = useMemo(
     () =>
       carbonEmissionMealTypePerYear(
@@ -76,7 +76,11 @@ const Result = React.memo(({ answers, setAnswers, handlePrevious }) => {
     const x = carbonEmissionsResult / countryCO.perCapita;
     const RED_ALERT = 90;
     const YELLOW_ALERT = 50;
+    const belowResultPhrase = "You are in the good path, keep going!";
+    const mediumResultPhrase = "Average? Not bad, but we can help to improve it?";
+    const highResultPhrase = "What are you doing? We can help you, join US!";
     countryCoefficientPollution = x > 1.2 ? RED_ALERT / carbonEmissionsResult : x < 1 ? 0 : YELLOW_ALERT / carbonEmissionsResult;
+    answerReference = x > 1.2 ? highResultPhrase : x < 1 ? belowResultPhrase : mediumResultPhrase;
   }
 
   const footprintResult = useMemo(() => {
@@ -142,7 +146,7 @@ const Result = React.memo(({ answers, setAnswers, handlePrevious }) => {
   return (
     <section>
       <article className={styles.results_container}>
-        <h3>Your carbon footprint is</h3>
+        <h3>{answerReference}</h3>
         {footprintResult}
         <button onClick={handlePrevious} className={styles.back}>
           back
