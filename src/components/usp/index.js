@@ -18,9 +18,6 @@ const Usp = () => {
             your actions.
           </p>
           <p>
-            {/*             <Link to={'/calculator'}>
-              Get started <Emoji symbol="➡️" label="right arrow" />️
-            </Link> */}
             <Link className={styles.button} to={'/calculator'}>
               Get started
             </Link>

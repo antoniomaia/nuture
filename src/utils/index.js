@@ -8,7 +8,7 @@ export const jumpTo = element => () => {
   }
 };
 
-export const animateValue = (ref, start, end, duration, callback) => {
+export const animateValue = (ref, countryCoefficient, start, end, duration, callback) => {
   const range = end - start;
   let current = start;
   const increment = end > start ? 0.1 : -0.1;
@@ -18,6 +18,7 @@ export const animateValue = (ref, start, end, duration, callback) => {
     const fixedCurrent = current.toFixed(1);
     if (ref.current) {
       ref.current.innerText = fixedCurrent;
+      ref.current.style.backgroundPositionY = `${fixedCurrent*countryCoefficient}%`;
     }
     if (fixedCurrent == end) {
       clearInterval(timer);

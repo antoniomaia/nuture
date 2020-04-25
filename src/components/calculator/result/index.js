@@ -17,6 +17,7 @@ import IsLike from './is-like';
 import GlobalAverage from './global-average';
 import { countries } from '../../../constants/countries';
 import SubscribeResult from '../../banners/subscribe-result';
+import { worldEmissions } from '../../../co2e/world/co-emissions-per-capita';
 
 import styles from './styles.module.scss';
 import { isProduction } from '../../../utils/env';
@@ -27,7 +28,7 @@ const Result = React.memo(({ answers, setAnswers, handlePrevious }) => {
   }
   const [animation, setAnimation] = useState(true);
   const resultEl = useRef(null);
-
+  let answerReference = "";
   const carbonEmissions = useMemo(
     () =>
       carbonEmissionMealTypePerYear(
@@ -55,6 +56,8 @@ const Result = React.memo(({ answers, setAnswers, handlePrevious }) => {
     carbonEmissionsResult += +1;
   }
 
+  
+
   function saveValuesOnDb(value) {
     const key = sessionStorage.getItem('key_ee');
     if (!key) {
@@ -64,18 +67,34 @@ const Result = React.memo(({ answers, setAnswers, handlePrevious }) => {
     }
   }
 
+
+  const countryCode = answers.country;
+  const countryName = countries.find(country => country.countryCode === countryCode).name;
+  const countryCO = worldEmissions.find(country => country.entity === countryName);
+  let countryCoefficientPollution = 0;
+  if (countryCO) {
+    const x = carbonEmissionsResult / countryCO.perCapita;
+    const RED_ALERT = 90;
+    const YELLOW_ALERT = 50;
+    const belowResultPhrase = "You are in the good path, keep going!";
+    const mediumResultPhrase = "Average? Not bad, but we can help to improve it?";
+    const highResultPhrase = "What are you doing? We can help you, join US!";
+    countryCoefficientPollution = x > 1.2 ? RED_ALERT / carbonEmissionsResult : x < 1 ? 0 : YELLOW_ALERT / carbonEmissionsResult;
+    answerReference = x > 1.2 ? highResultPhrase : x < 1 ? belowResultPhrase : mediumResultPhrase;
+  }
+
   const footprintResult = useMemo(() => {
     return (
       <>
         {carbonEmissionsResult > 0 && (
           <p className={styles.result}>
             <span className={styles.number} ref={resultEl}>
-              {animation
-                ? animateValue(resultEl, 1, carbonEmissionsResult, 50, () =>
-                    setAnimation(false)
-                  )
-                : carbonEmissionsResult}
-              {}
+                {animation
+                  ? animateValue(resultEl, countryCoefficientPollution, 1, carbonEmissionsResult, 50, () =>
+                      setAnimation(false)
+                    )
+                  : carbonEmissionsResult}
+                {}
             </span>
             <span>tons / year</span>
           </p>
@@ -127,7 +146,7 @@ const Result = React.memo(({ answers, setAnswers, handlePrevious }) => {
   return (
     <section>
       <article className={styles.results_container}>
-        <h3>Your carbon footprint is</h3>
+        <h3>{answerReference}</h3>
         {footprintResult}
         <button onClick={handlePrevious} className={styles.back}>
           back
