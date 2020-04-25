@@ -3,6 +3,7 @@ import Select from 'react-select';
 
 import styles from './styles.module.scss';
 import SingleChoice from './single-choice';
+import Emoji from '../../ui/emoji';
 
 // https://react-select.com/styles#overriding-the-theme
 const selectTheme = theme => ({
@@ -26,17 +27,25 @@ const AnswerOption = ({ id, type, choices, answers, setAnswers }) => {
       const onCountryChange = value => {
         setAnswers('country', value.value)();
       };
+
       const country = options.find(
         element => element.value === answers.country
-      );
+      ) || { label: 'World', value: 'world' };
 
       return (
         <div className={styles.center}>
-          <img
-            src={`flags/${answers.country}.svg`}
-            alt={'country flag'}
-            className={styles.flag}
-          />
+          <div className={styles.flag_container}>
+            {answers.country !== 'world' && (
+              <img
+                src={`flags/${answers.country}.svg`}
+                alt={'country flag'}
+                className={styles.flag}
+              />
+            )}
+            {answers.country === 'world' && (
+              <Emoji symbol={'🌍'} alt={'World'} className={styles.world} />
+            )}
+          </div>
           <Select
             value={country}
             placeholder={'Select country...'}

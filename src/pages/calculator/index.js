@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 
 export const INITIAL_STATE = {
   activeQuestionIndex: 0,
-  country: 'af',
+  country: 'world',
   travelDistancePerYear: 15000,
 };
 
