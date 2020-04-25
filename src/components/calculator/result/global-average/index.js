@@ -7,8 +7,6 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
-  LabelList,
 } from 'recharts';
 
 import { worldEmissions } from '../../../../co2e/world/co-emissions-per-capita';

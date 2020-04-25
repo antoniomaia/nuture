@@ -4,8 +4,15 @@
   flex-flow: column;
 }
 
-.flag {
-  width: 50px;
+.flag_container {
+  min-height: 80px;
+  .flag {
+    margin-top: 18px;
+    width: 50px;
+  }
+  .world {
+    font-size: 50px;
+  }
 }
 
 .country_dropdown {
