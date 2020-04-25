@@ -12,7 +12,7 @@ export const questions = [
         <a
           href={'https://ourworldindata.org/per-capita-co2'}
           target="_blank"
-          // rel="noreferrer noopener"
+          rel="noreferrer noopener"
         >
           OWID
         </a>{' '}
@@ -38,7 +38,7 @@ export const questions = [
   {
     id: 'travelDistancePerYear',
     title: 'What is your average travel distance per year?',
-    description: '',
+    description: 'Distance relative to previous selected method.',
     choices: [{ value: 'manual', name: '' }],
     answerType: 'input',
   },

@@ -30,7 +30,7 @@ const AnswerOption = ({ id, type, choices, answers, setAnswers }) => {
 
       const country = options.find(
         element => element.value === answers.country
-      ) || { label: 'World', value: 'world' };
+      ) || { label: 'World Average', value: 'world' };
 
       return (
         <div className={styles.center}>
