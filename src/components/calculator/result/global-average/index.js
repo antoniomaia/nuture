@@ -52,8 +52,9 @@ const getWorldDataEmissions = (countryCode, result) => {
     const cmr = worldEmissions.find(c => c.code === 'CMR');
     data.push({ name: cmr.entity, value: formatNumber(cmr.perCapita) });
   }
-  data.push({ name: 'World', value: formatNumber(4.789869769) });
-
+  if (countryCode !== 'world') {
+    data.push({ name: 'World', value: formatNumber(4.789869769) });
+  }
   return data;
 };
 

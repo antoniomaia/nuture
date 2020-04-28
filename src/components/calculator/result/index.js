@@ -68,6 +68,7 @@ const Result = React.memo(({ answers, setAnswers, handlePrevious }) => {
   }
 
   const countryCode = answers.country;
+  countries.push({ name: 'World', countryCode: 'world' });
   const countryName = countries.find(
     country => country.countryCode === countryCode
   ).name;
