@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 import Logo from '../logo';
 
@@ -37,6 +37,7 @@ const Header = () => {
   return (
     <header className={cx(styles.header, { [styles.solid]: isSolid })}>
       <Logo type={isSolid ? 'black' : 'white'} />
+      <Link to={'/blog'} className={styles.blog}>Blog</Link>
     </header>
   );
 };
