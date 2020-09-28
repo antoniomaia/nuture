@@ -9,6 +9,7 @@ import About from './pages/about';
 import Terms from './pages/terms-conditions';
 import Policy from './pages/privacy-policy';
 import InfoResults from './pages/info-results';
+import Blog from './pages/blog';
 
 import DynamicTransition from './components/global/dynamic-transition';
 import Articles from './pages/articles';
@@ -40,6 +41,7 @@ function App() {
           <Route path="/privacy-policy" exact component={Policy} />
           <Route path="/climate-change" exact component={Articles} />
           <Route path="/carbon-report-sources" exact component={InfoResults} />
+          <Route path="/blog" exact component={Blog} />
           <Route component={() => <h1>Oops! Page not found!</h1>} />
         </Switch>
       </DynamicTransition>
