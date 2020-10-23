@@ -22,6 +22,7 @@ import { worldEmissions } from '../../../co2e/world/co-emissions-per-capita';
 import styles from './styles.module.scss';
 import { isProduction } from '../../../utils/env';
 
+let dateTime = Date.now();
 const Result = React.memo(({ answers, setAnswers, handlePrevious }) => {
   if (!Firebase.apps.length) {
     Firebase.initializeApp(config);
@@ -163,6 +164,7 @@ const Result = React.memo(({ answers, setAnswers, handlePrevious }) => {
             ? 'none'
             : answers.purchaseAmountPerMonth,
         carbonEmissionsResult: carbonEmissionsResult,
+        currentDateTime:dateTime,
       });
     }
   }, []);
@@ -208,6 +210,7 @@ Result.propTypes = {
     dietPreference: PropTypes.string,
     electricityKwhPerMonth: PropTypes.number,
     purchaseAmountPerMonth: PropTypes.number,
+    currentDateTime: PropTypes.string,
   }),
 };
 
@@ -222,6 +225,7 @@ Result.defaultProps = {
     dietPreference: 'lowMeat',
     electricityKwhPerMonth: 0,
     purchaseAmountPerMonth: 0,
+    currentDateTime: dateTime,
   }),
 };
 
