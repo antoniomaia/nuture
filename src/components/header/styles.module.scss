@@ -1,12 +1,35 @@
 .header {
   height: 30px;
   font-size: calc(10px + 2vmin);
-  padding: 10px 20px;
+  padding: 2rem 1rem;
   background: transparent;
   position: fixed;
   width: 100%;
   z-index: 1;
-  margin: 2rem 2rem 2rem 4rem;
+  padding: 2rem;
+  @media only screen and (min-width: 768px) {
+    height: 65px;
+    padding: 0 4rem;
+
+  }
+
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  align-items: center;
+
+  .button {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    line-height: 1rem;
+    font-size: 1rem;
+    @media only screen and (min-width: 768px) {
+      padding: 0.5rem 1rem;
+    }
+  }
 }
 
 .solid {
