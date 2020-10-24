@@ -2,14 +2,14 @@ import React from 'react';
 
 import Hero from '../../components/hero';
 import Usp from '../../components/usp';
-import TogetherBanner from '../../components/banners/together';
 import Subscribe from '../../components/banners/subscribe';
+import Benefits from '../../components/benefits';
 
 const Home = () => {
   return (
     <>
       <Hero.Primary />
-      <TogetherBanner />
+      <Benefits />
       <Usp />
       <Subscribe />
     </>
