@@ -4,6 +4,7 @@ import Hero from '../../components/hero';
 import Usp from '../../components/usp';
 import TogetherBanner from '../../components/banners/together';
 import Subscribe from '../../components/banners/subscribe';
+import FormPage from "../form";
 
 const Home = () => {
   return (
@@ -11,7 +12,8 @@ const Home = () => {
       <Hero.Primary />
       <TogetherBanner />
       <Usp />
-      <Subscribe />
+      {/*<Subscribe />*/}
+      <FormPage/>
     </>
   );
 };
