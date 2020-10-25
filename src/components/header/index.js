@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
-import { useLocation } from 'react-router-dom';
-
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '../logo';
 
 import styles from './styles.module.scss';
@@ -11,7 +10,7 @@ const Header = () => {
   const location = useLocation();
 
   const onScrollEventListener = () => {
-    if (window.pageYOffset > 500) {
+    if (window.pageYOffset > 100) {
       setIsSolid(true);
     } else {
       setIsSolid(false);
@@ -37,6 +36,7 @@ const Header = () => {
   return (
     <header className={cx(styles.header, { [styles.solid]: isSolid })}>
       <Logo type={isSolid ? 'black' : 'white'} />
+      <Link to="/calculator" className={styles.button}>calculator</Link>
     </header>
   );
 };
