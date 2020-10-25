@@ -18,7 +18,7 @@ const DynamicTransition = ({ children, location }) => {
         })
       }
     >
-      <CSSTransition key={location.key}>{children}</CSSTransition>
+      <CSSTransition key={location.key} timeout={300}>{children}</CSSTransition>
     </TransitionGroup>
   );
 };

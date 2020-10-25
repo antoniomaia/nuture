@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import logoB from './logo_text.svg';
-
+import LogoIcon from '../ui/icons/logo';
 import styles from './styles.module.scss';
 
 const Logo = () => {
   return (
     <section className={styles.root}>
-      <Link to={'/'}>
-        <img src={logoB} className={styles.logo} alt="logo" />
+      <Link to={'/'} className={styles.logo}>
+        <LogoIcon/>
       </Link>
     </section>
   );
