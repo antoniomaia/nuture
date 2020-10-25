@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Hero from '../../components/hero';
 import Emoji from '../../components/ui/emoji';
@@ -11,24 +12,32 @@ const About = () => {
     <section className={secondary_page_styles.simple_page_container}>
       <Hero.Secondary headline={'About us'} />
       <div className={secondary_page_styles.body}>
+        <h4>
+          <span>Ecological Earth</span> was founded with the mission to provide
+          the tools necessary for individuals and organizations to build a
+          sustainable future and join the path of carbon neutrality.
+        </h4>
         <p>
-          Ecological Earth was founded in 2020 and built on the vision that
-          Sustainable Development should be a common tool for every user in
-          every organization. With a team working for more than 5 years in
-          Environment and Business Intelligence, we are creating solutions that
-          enables corporations/users to use a innovative footprint calculator in
-          their everyday analysis and decision-making processes.
+          Our team of engineers combine the passion of software and environment
+          to create solutions that{' '}
+          <strong>help everyone on the path to carbon neutrality</strong>.
         </p>
         <p>
-          We’re starting with a web app that makes it easy to calculate our
-          carbon footprint. It’s a simple calculator that gives us a rough
-          estimate of our carbon footprint based on our habits.
+          For individuals, we've created a calculator that gives individuals an
+          estimate of the carbon footprint based on daily actions. To give it a
+          try please click <Link to={'/calculator'}>here</Link>.
         </p>
         <p>
-          Try it out and let us know what you think. Give us feedback. We’re
-          here for you. Help us improve and if you have any question, idea or
-          kind words please drop us a message at email and we will get back as
-          soon as we can!
+          Currently, we are focusing on the corporate world, creating a{' '}
+          <strong>simple and affordable software solution</strong> to help
+          businesses achieve their carbon neutrality. This allows a direct
+          intervention where carbon emissions are most intensive.
+        </p>
+        <p>
+          Our vision is the creation of a{' '}
+          <strong>worldwide symbiosis of carbon neutral businesses</strong>. We
+          believe in the interaction and partnerships of companies that share
+          the same vision, restoring the balance of our planet.
         </p>
         <br />
         <br />
