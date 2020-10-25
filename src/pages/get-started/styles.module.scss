@@ -28,6 +28,12 @@
       margin-top: 1rem;
       font-size: 1.2rem;
     }
+    a {
+      color: var(--primary-color);
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   @media only screen and (min-width: 768px) {

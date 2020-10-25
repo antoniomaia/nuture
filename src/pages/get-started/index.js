@@ -2,6 +2,7 @@ import React from 'react';
 
 import Form from '../../components/form';
 import styles from './styles.module.scss';
+import {Link} from "react-router-dom";
 
 const GetStarted = () => {
   return (
@@ -17,7 +18,7 @@ const GetStarted = () => {
           contact you about our products and services. You may unsubscribe from
           these communications at any time. For information on how to
           unsubscribe, as well as our privacy practices and commitment to
-          protecting your privacy, please review our Privacy Policy.
+          protecting your privacy, please review our <Link to={'/privacy-policy'}>Privacy Policy </Link>
         </p>
       </div>
     </div>
