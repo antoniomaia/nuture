@@ -13,6 +13,10 @@
   justify-content: center;
   max-width: 1050px;
   @media only screen and (min-width: 768px) {
+    background: url('./earth.svg') no-repeat 95%;
+    height: 700px;
+  }
+  @media only screen and (min-width: 1050px) {
     background: url('./earth.svg') no-repeat 100%;
     height: 700px;
   }

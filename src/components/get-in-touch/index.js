@@ -1,10 +1,12 @@
 import React from 'react';
 
 import styles from './styles.module.scss';
+import Send from '../ui/icons/send';
 
 const GetInTouch = () => {
   return (
     <section className={styles.getInTouch}>
+      <Send />
       <h4>Get in touch</h4>
       <ul>
         <li>

@@ -6,7 +6,12 @@
   justify-content: center;
   align-items: center;
   max-width: 800px;
+  svg {
+    height: 50px;
+    fill: var(--primary-color);
+  }
   h4 {
+    margin-top: 1rem;
     color: var(--primary-text-color);
     font-size: 2rem;
     font-weight: normal;
