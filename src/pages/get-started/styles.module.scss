@@ -1,0 +1,43 @@
+.getStarted {
+  position: relative;
+  padding: 7rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: auto;
+  .form {
+    order: 2;
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    background: var(--bg-second-light-color);
+    border-radius: 8px;
+    align-self: center;
+  }
+  .info {
+    order: 1;
+    width: 100%;
+    padding: 1rem 2rem;
+    max-width: 500px;
+    align-self: center;
+    margin-bottom: 2rem;
+    h3 {
+      font-size: 2.8rem;
+    }
+    p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    .form {
+      order: 1;
+    }
+    .info {
+      align-self: flex-start;
+      order: 2;
+    }
+  }
+}

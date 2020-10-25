@@ -14,6 +14,7 @@ import DynamicTransition from './components/global/dynamic-transition';
 import Articles from './pages/articles';
 import { isProduction } from './utils/env';
 import NotFound from './pages/not-found';
+import GetStarted from './pages/get-started';
 
 const onPageLoad = (path) => {
   if (isProduction) ReactGA.pageview(path);
@@ -29,17 +30,17 @@ function App() {
   useEffect(() => {
     /* Chat script */
     const scriptChat = document.createElement('script');
-    scriptChat.type="text/javascript"
-    scriptChat.id="hs-scriptChat-loader"
+    scriptChat.type = 'text/javascript';
+    scriptChat.id = 'hs-scriptChat-loader';
     scriptChat.async = true;
     scriptChat.defer = true;
-    scriptChat.src = "https://js.hs-scripts.com/8698910.js";
+    scriptChat.src = 'https://js.hs-scripts.com/8698910.js';
 
     document.body.appendChild(scriptChat);
 
     return () => {
       document.body.appendChild(scriptChat);
-    }
+    };
   }, []);
 
   return (
@@ -57,6 +58,7 @@ function App() {
           <Route path="/privacy-policy" exact component={Policy} />
           <Route path="/climate-change" exact component={Articles} />
           <Route path="/carbon-report-sources" exact component={InfoResults} />
+          <Route path="/get-started" exact component={GetStarted} />
           <Route component={NotFound} />
         </Switch>
       </DynamicTransition>

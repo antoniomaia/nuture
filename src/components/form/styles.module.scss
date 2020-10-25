@@ -1,0 +1,21 @@
+.root {
+  position: relative;
+  padding: 0;
+  text-align: center;
+  color: var(--primary-text-color);
+
+  h3 {
+    font-size: 28px;
+  }
+  .body {
+    margin: 15px;
+  }
+  a {
+    color: var(--primary-color);
+  }
+
+  .placeholder {
+      color: red;
+
+  }
+}

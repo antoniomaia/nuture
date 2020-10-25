@@ -21,7 +21,7 @@ const Primary = () => {
         <p className={styles.sub_heading}>
           All the tools you need to start your path to carbon neutral are here!
         </p>
-        <Link to={'/calculator'}>Get a quote</Link>
+        <Link to={'/get-started'}>Get a quote</Link>
       </div>
     </section>
   );
