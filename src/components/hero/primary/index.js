@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
-import { Link } from 'react-router-dom';
 
+import Link from '../../ui/link';
 import styles from './styles.module.scss';
 
 const Primary = () => {
@@ -21,13 +21,8 @@ const Primary = () => {
         <p className={styles.sub_heading}>
           All the tools you need to start your path to carbon neutral are here!
         </p>
-        <div className={styles.cta_container}>
-          <Link className={styles.button} to={'/calculator'}>
-            Get a quote
-          </Link>
-        </div>
+        <Link to={'/calculator'}>Get a quote</Link>
       </div>
-      <div className={styles.waves}></div>
     </section>
   );
 };

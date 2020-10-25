@@ -96,8 +96,8 @@ const Measure = () => {
       <path
         fill="none"
         stroke="#277a21"
-        stroke-miterlimit="10"
-        stroke-width="4"
+        strokeMiterlimit="10"
+        strokeWidth="4"
         d="M228 623l113-86"
       />
       <circle
@@ -106,8 +106,8 @@ const Measure = () => {
         r="14.76"
         fill="none"
         stroke="#3f3d56"
-        stroke-miterlimit="10"
-        stroke-width="2"
+        strokeMiterlimit="10"
+        strokeWidth="2"
       />
       <circle cx="416.54" cy="370.35" r="14.76" fill="#3f3d56" />
       <circle cx="168.22" cy="331.17" r="42.78" fill="#f2f2f2" />

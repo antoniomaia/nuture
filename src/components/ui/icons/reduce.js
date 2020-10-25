@@ -9,7 +9,7 @@ const Reduce = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0)">
+      <g clipPath="url(#clip0)">
         <path
           d="M763.63 576.53c66.87 0 121.08-5.37 121.08-12 0-6.62-54.21-12-121.08-12s-121.08 5.38-121.08 12c0 6.63 54.2 12 121.08 12zM74.99 565c23.95 0 43.36-2.69 43.36-6s-19.41-6-43.36-6-43.36 2.69-43.36 6 19.41 6 43.36 6zM567.57 0H0v284.75h567.57V0z"
           fill="#E6E6E6"
@@ -106,9 +106,9 @@ const Reduce = () => {
         />
       </g>
       <defs>
-        <clipPath id="clip0">
+        <clip-path id="clip0">
           <path fill="#fff" d="M0 0h884.71v576.53H0z" />
-        </clipPath>
+        </clip-path>
       </defs>
     </svg>
   );

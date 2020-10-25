@@ -49,7 +49,7 @@ const HowItWorks = () => {
 
       <div className={styles.step_container}>
         {steps.map((step) => (
-          <div className={styles.step}>
+          <div key={step.number} className={styles.step}>
             <div className={styles.number}><div>{step.number}</div></div>
             <div className={styles.info}>
               <span className={styles.icon}>{step.icon}</span>

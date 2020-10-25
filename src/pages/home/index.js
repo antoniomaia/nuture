@@ -4,6 +4,7 @@ import Hero from '../../components/hero';
 import Subscribe from '../../components/banners/subscribe';
 import Benefits from '../../components/benefits';
 import HowItWorks from '../../components/how-it-works';
+import System from '../../components/banners/system';
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Hero.Primary />
       <Benefits />
       <HowItWorks />
+      <System />
       <Subscribe />
     </>
   );
