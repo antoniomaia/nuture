@@ -28,11 +28,11 @@
       margin-top: 1rem;
       font-size: 1.2rem;
     }
-    a {
-      color: var(--primary-color);
-      &:hover {
-        text-decoration: underline;
-      }
+  }
+  a {
+    color: var(--primary-color);
+    &:hover {
+      text-decoration: underline;
     }
   }
 
