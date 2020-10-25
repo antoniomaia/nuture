@@ -107,29 +107,6 @@
   display: flex;
 }
 
-.button {
-  background-color: var(--primary-color);
-  text-align: center;
-  font-size: 1.25rem;
-  letter-spacing: 2.5px;
-  text-decoration: none;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  color: white;
-  min-width: 60px;
-  border-radius: 6px;
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-  padding: 15px 40px;
-}
-
-.button:hover {
-  background-color: var(--primary-color);
-  box-shadow: 0px 15px 20px rgba(39, 122, 33, 0.4);
-  color: #fff;
-  transform: translateY(-7px);
-}
-
 @media only screen and (min-device-width: 768px) {
   .hero {
     padding: 20px;
