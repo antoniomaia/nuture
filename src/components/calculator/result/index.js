@@ -63,7 +63,6 @@ const Result = React.memo(({ answers, setAnswers, handlePrevious }) => {
       const key2 = Firebase.database()
         .ref()
         .push({ value }).key;
-      console.log('Data Saved!');
       sessionStorage.setItem('key_ee', key2);
     }
   }
