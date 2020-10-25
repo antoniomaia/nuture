@@ -25,6 +25,22 @@ function App() {
     onPageLoad(location.pathname);
   }, [location]);
 
+  useEffect(() => {
+    /* Chat script */
+    const scriptChat = document.createElement('script');
+    scriptChat.type="text/javascript"
+    scriptChat.id="hs-scriptChat-loader"
+    scriptChat.async = true;
+    scriptChat.defer = true;
+    scriptChat.src = "https://js.hs-scripts.com/8698910.js";
+
+    document.body.appendChild(scriptChat);
+
+    return () => {
+      document.body.appendChild(scriptChat);
+    }
+  }, []);
+
   return (
     <Layout>
       <DynamicTransition location={location}>
