@@ -1,19 +1,19 @@
 import React from 'react';
 
 import Hero from '../../components/hero';
-import Usp from '../../components/usp';
-import TogetherBanner from '../../components/banners/together';
 import Subscribe from '../../components/banners/subscribe';
-import FormPage from "../form";
+import Benefits from '../../components/benefits';
+import HowItWorks from '../../components/how-it-works';
+import System from '../../components/banners/system';
 
 const Home = () => {
   return (
     <>
       <Hero.Primary />
-      <TogetherBanner />
-      <Usp />
-      {/*<Subscribe />*/}
-      <FormPage/>
+      <Benefits />
+      <HowItWorks />
+      <System />
+      <Subscribe />
     </>
   );
 };

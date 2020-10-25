@@ -5,9 +5,18 @@
 }
 
 .logo {
-  height: 30px;
-  pointer-events: none;
+  height: 35px;
+  svg {
+    height: 35px;
+    width: auto;
+  }
   padding-right: 10px;
+  @media only screen and (min-width: 768px) {
+    height: 45px;
+    svg {
+      height: 45px;
+    }
+  }
 }
 
 footer {

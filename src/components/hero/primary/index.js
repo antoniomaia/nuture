@@ -1,21 +1,27 @@
 import React from 'react';
 import cx from 'classnames';
-import { Link } from 'react-router-dom';
 
+import Link from '../../ui/link';
 import styles from './styles.module.scss';
 
 const Primary = () => {
   return (
-    <section className={cx(styles.root, styles.hero)}>
-      <h1 className={styles.headline}>How big is your carbon footprint?</h1>
-      <p className={styles.sub_heading}>
-        Understand your CO2 emissions and live a more sustainable life. Take
-        your first step with our environmental footprint calculator.
-      </p>
-      <div className={styles.cta_container}>
-        <Link className={styles.button} to={'/calculator'}>
-          Start
-        </Link>
+    <section className={styles.hero_container}>
+      <div className={cx(styles.root, styles.hero)}>
+        <ul>
+          <li>Measure</li>
+          <li>Reduce</li>
+          <li>Offset</li>
+          <li>Share</li>
+        </ul>
+        <h1 className={styles.headline}>
+          your company <br />
+          carbon footprint
+        </h1>
+        <p className={styles.sub_heading}>
+          All the tools you need to start your path to carbon neutral are here!
+        </p>
+        <Link to={'/calculator'}>Get a quote</Link>
       </div>
     </section>
   );
