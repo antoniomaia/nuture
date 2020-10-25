@@ -13,7 +13,6 @@ const Home = () => {
       <Benefits />
       <HowItWorks />
       <System />
-      <Subscribe />
     </>
   );
 };
