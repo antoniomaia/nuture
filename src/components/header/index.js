@@ -36,7 +36,7 @@ const Header = () => {
   return (
     <header className={cx(styles.header, { [styles.solid]: isSolid })}>
       <Logo type={isSolid ? 'black' : 'white'} />
-      <Link to="/calculator" className={styles.button}>calculator</Link>
+      <Link to="/calculator" className={styles.button}>Try the Individual Calculator</Link>
     </header>
   );
 };
