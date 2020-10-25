@@ -13,6 +13,7 @@ import InfoResults from './pages/info-results';
 import DynamicTransition from './components/global/dynamic-transition';
 import Articles from './pages/articles';
 import { isProduction } from './utils/env';
+import NotFound from './pages/not-found';
 
 const onPageLoad = (path) => {
   if (isProduction) ReactGA.pageview(path);
@@ -56,7 +57,7 @@ function App() {
           <Route path="/privacy-policy" exact component={Policy} />
           <Route path="/climate-change" exact component={Articles} />
           <Route path="/carbon-report-sources" exact component={InfoResults} />
-          <Route component={() => <h1>Oops! Page not found!</h1>} />
+          <Route component={NotFound} />
         </Switch>
       </DynamicTransition>
     </Layout>
