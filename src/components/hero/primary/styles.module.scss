@@ -4,9 +4,9 @@
 }
 
 .root {
-  background: url('./earth.svg') no-repeat 80% 23%;
+  background: url('./earth.svg') no-repeat 80% 20%;
   background-size: 40%;
-  height: 750px;
+  height: 550px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -14,6 +14,7 @@
   max-width: 1050px;
   @media only screen and (min-width: 768px) {
     background: url('./earth.svg') no-repeat 100%;
+    height: 700px;
   }
 }
 
@@ -24,12 +25,12 @@
   ul {
     display: block;
     line-height: 67px;
-    height: 55px;
+    height: 67px;
     margin-bottom: 0;
     padding-left: 0;
     position: relative;
     list-style: none;
-    margin-top: 2rem;
+    margin-top: 4rem;
   }
 
   ul li {
@@ -79,12 +80,13 @@
 
 @media only screen and (min-width: 768px) {
   .hero ul {
-    margin-top: 8rem;
+    margin-top: 0;
   }
+
   .hero ul li {
     font-size: 60px;
-    line-height: 67px;
   }
+
   .headline {
     font-size: 60px;
   }

@@ -5,6 +5,7 @@ import Measure from '../ui/icons/measure';
 import Reduce from '../ui/icons/reduce';
 import Offset from '../ui/icons/offset';
 import Share from '../ui/icons/share';
+import Title from '../ui/text/title';
 
 const steps = [
   {
@@ -37,10 +38,10 @@ const steps = [
   },
 ];
 
-const HowItWorks = (props) => {
+const HowItWorks = () => {
   return (
     <section className={styles.root}>
-      <h3 className={styles.title}>How it works</h3>
+      <Title>How it works</Title>
       <p className={styles.desc}>
         We enable businesses to measure, reduce, offset, and share their
         commitment to a worldwide symbiosis of carbon neutral companies.
