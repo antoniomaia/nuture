@@ -3,15 +3,29 @@ import styles from './styles.module.scss';
 import Title from '../ui/text/title';
 
 const benefits = [
-  { title: 'Simple', description: 'Become carbon neutral in 5 minutes' },
-  { title: 'Trusted', description: 'Share our badge with your customers' },
-  { title: 'Affordable', description: 'In all sectors without extra expenses' },
+  {
+    title: 'Simple',
+    description:
+      'With an intuitive approach become carbon neutral in 5 minutes',
+  },
+  {
+    title: 'Trusted',
+    description:
+      'The Ecological Earth badge means you can share your climate status with confidence',
+  },
+  {
+    title: 'Affordable',
+    description:
+      'Without the need to hire external consultants, going carbon neutral is now accessible to every business',
+  },
 ];
 
 const Benefits = () => {
   return (
     <section className={styles.container}>
-      <Title>Our product</Title>
+      <Title>
+        <strong>Our product</strong>
+      </Title>
       <div>
         {benefits.map((item) => (
           <article key={item.title} className={styles.benefit}>

@@ -17,7 +17,10 @@
     grid-area: calculator;
     text-align: center;
     color: var(--primary-text-color);
-
+    a,
+    small {
+      color: var(--primary-text-color);
+    }
     h2 {
       font-size: 32px;
     }
@@ -29,6 +32,16 @@
     h2,
     p {
       color: inherit;
+    }
+
+    .explanation {
+      font-size: 1.2rem;
+      line-height: 1.4rem;
+      max-width: 800px;
+      margin: 1rem auto 2rem auto;
+      a {
+        color: var(--primary-text-color);
+      }
     }
   }
   .emoji {

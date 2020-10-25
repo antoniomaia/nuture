@@ -41,16 +41,20 @@ const steps = [
 const HowItWorks = () => {
   return (
     <section className={styles.root}>
-      <Title>How it works</Title>
+      <Title>
+        <strong>How it works</strong>
+      </Title>
       <p className={styles.desc}>
-        We enable businesses to measure, reduce, offset, and share their
-        commitment to a worldwide symbiosis of carbon neutral companies.
+        Our innovative solution helps your business along the way to carbon
+        neutral. Forget complex spreadsheets, we've created a simple tool that's
+        easy to use.
       </p>
-
       <div className={styles.step_container}>
         {steps.map((step) => (
           <div key={step.number} className={styles.step}>
-            <div className={styles.number}><div>{step.number}</div></div>
+            <div className={styles.number}>
+              <div>{step.number}</div>
+            </div>
             <div className={styles.info}>
               <span className={styles.icon}>{step.icon}</span>
               <p className={styles.name}>{step.name}</p>

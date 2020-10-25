@@ -19,7 +19,8 @@ const Primary = () => {
           carbon footprint
         </h1>
         <p className={styles.sub_heading}>
-          All the tools you need to start your path to carbon neutral are here!
+          All the tools you need to become a certified carbon neutral business
+          are here, start taking climate action now!
         </p>
         <Link to={'/get-started'}>Get a quote</Link>
       </div>
