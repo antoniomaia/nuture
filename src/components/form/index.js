@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import useHubspotForm from '@aaronhayes/react-use-hubspot-form';
 import styles from './styles.module.scss';
 
-const FormPage = () => {
+const Form = () => {
   const { loaded, error, formCreated } = useHubspotForm({
     portalId: '8698910',
     formId: 'd42a0356-ce31-4200-8add-80be939ab4db',
@@ -17,9 +17,14 @@ const FormPage = () => {
       ) {
         // TODO: Melhorar isto
 
-        const iframe = document.getElementById('hs-form-iframe-0');
+        const iframes = document.querySelectorAll('[id^=hs-form-iframe-]');
+        if (!iframes) return;
+
+        const iframe = iframes[0];
         const innerDoc =
           iframe.contentDocument || iframe.contentWindow.document;
+        if (!innerDoc) return;
+
         const el = innerDoc.querySelector('form');
         const input = el.getElementsByClassName('hs-button')[0];
         input.style.background = '#277a21';
@@ -60,4 +65,4 @@ const FormPage = () => {
   );
 };
 
-export default FormPage;
+export default Form;
