@@ -22,6 +22,9 @@ const Footer = () => {
           <Link to={'/privacy-policy'}>Privacy Policy </Link>
         </li>
         <li>
+          <Link to={'/cookie-policy'}>Cookie Policy </Link>
+        </li>
+        <li>
           <a href="mailto:hello@ecological.earth">Contact</a>
         </li>
       </ul>
