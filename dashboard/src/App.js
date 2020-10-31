@@ -1,26 +1,29 @@
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import Register from './pages/register';
 import Login from './pages/login';
 import Dashboard from './pages/dashboard';
-import { useState } from 'react';
+import { useAppDispatch } from './store';
+import { setAuthState } from './features/auth/authSlice';
 
 const ProtectedRoute = ({ children, isAuthenticated }) => {
   return isAuthenticated ? children : <Redirect to="/login" />;
 };
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const isLoggedIn = useSelector((state) => state.auth.isAuthenticated);
+  const dispatch = useAppDispatch();
 
   const login = () => {
     setTimeout(() => {
-      setIsAuthenticated(true);
+      dispatch(setAuthState(true));
     }, 300);
   };
 
   const logout = () => {
     setTimeout(() => {
-      setIsAuthenticated(false);
+      dispatch(setAuthState(false));
     }, 300);
   };
 
@@ -30,9 +33,9 @@ function App() {
         <Register />
       </Route>
       <Route path="/login">
-        <Login login={login} isAuthenticated={isAuthenticated} />
+        <Login login={login} isAuthenticated={isLoggedIn} />
       </Route>
-      <ProtectedRoute path="/dashboard" isAuthenticated={isAuthenticated}>
+      <ProtectedRoute path="/dashboard" isAuthenticated={isLoggedIn}>
         <Dashboard logout={logout} />
       </ProtectedRoute>
       <Redirect from="/" to="/register" />
