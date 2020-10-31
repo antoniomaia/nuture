@@ -5,7 +5,7 @@ import Register from './pages/register';
 import Login from './pages/login';
 import Dashboard from './pages/dashboard';
 import { useAppDispatch } from './store';
-import { setAuthState } from './features/auth/authSlice';
+import { setAuthState } from './slices/auth';
 
 const ProtectedRoute = ({ children, isAuthenticated }) => {
   return isAuthenticated ? children : <Redirect to="/login" />;
@@ -35,10 +35,9 @@ function App() {
       <Route path="/login">
         <Login login={login} isAuthenticated={isLoggedIn} />
       </Route>
-      <ProtectedRoute path="/dashboard" isAuthenticated={isLoggedIn}>
+      <ProtectedRoute path="/" isAuthenticated={isLoggedIn}>
         <Dashboard logout={logout} />
       </ProtectedRoute>
-      <Redirect from="/" to="/register" />
     </Switch>
   );
 }
