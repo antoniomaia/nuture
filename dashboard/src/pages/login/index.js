@@ -1,7 +1,10 @@
+import LoginForm from '../../components/forms/login';
+
 const Login = () => {
   return (
     <div>
-      <h1>login</h1>
+      <div style={{marginTop: '20%'}}/>
+      <LoginForm />
     </div>
   );
 };
