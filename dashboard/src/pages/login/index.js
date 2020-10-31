@@ -1,9 +1,10 @@
-import LoginForm from '../../components/forms/login';
+import LoginForm from '../../components/form/login';
+import Header from '../../components/header';
 
 const Login = () => {
   return (
     <div>
-      <div style={{marginTop: '20%'}}/>
+      <Header />
       <LoginForm />
     </div>
   );

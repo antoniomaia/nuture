@@ -14,9 +14,6 @@ const LoginForm = () => {
           minWidth: 200,
           maxWidth: 300,
           width: '100%',
-          border: '1px solid black',
-          borderRadius: 4,
-          padding: '2rem'
         }}
       >
         <Typography align="center" variant="h4" gutterBottom>
