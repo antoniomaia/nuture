@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-const LoginForm = () => {
+const LoginForm = ({ login }) => {
   return (
     <Grid container direction="column" justify="center" alignItems="center">
       <div
@@ -18,7 +18,7 @@ const LoginForm = () => {
       >
         <Typography align="center" variant="h4" gutterBottom>
           Login
-        </Typography>
+        </Typography>{' '}
         <TextField
           label="Email"
           type="email"
@@ -32,7 +32,12 @@ const LoginForm = () => {
           variant="outlined"
         />
         <div style={{ height: '1rem' }} />
-        <Button color="primary" variant="contained" size="large">
+        <Button
+          color="primary"
+          variant="contained"
+          size="large"
+          onClick={login}
+        >
           Log in
         </Button>
         <div style={{ height: '1rem' }} />
