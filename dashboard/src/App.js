@@ -1,14 +1,19 @@
-import './App.css';
+import { Route, Switch, Redirect } from 'react-router-dom';
+
+import Register from './pages/register';
+import Login from './pages/login';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Welcome to <code>Ecological Earth</code> dashboard.
-        </p>
-      </header>
-    </div>
+    <Switch>
+      <Route path="/register">
+        <Register />
+      </Route>
+      <Route path="/login">
+        <Login />
+      </Route>
+      <Redirect from="/" to="/register" />
+    </Switch>
   );
 }
 
