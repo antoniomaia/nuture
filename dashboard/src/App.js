@@ -1,18 +1,18 @@
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import Register from './pages/register';
-import Login from './pages/login';
-import Dashboard from './pages/dashboard';
-import { useAppDispatch } from './store';
-import { setAuthState } from './slices/auth';
+import Register from '@pages/register';
+import Login from '@pages/login';
+import Dashboard from '@pages/dashboard';
+import { useAppDispatch } from '@store';
+import { setAuthState } from '@slices/auth';
 
 const ProtectedRoute = ({ children, isAuthenticated }) => {
   return isAuthenticated ? children : <Redirect to="/login" />;
 };
 
 function App() {
-  const isLoggedIn = useSelector((state) => state.auth.isAuthenticated);
+  const isLoggedIn = useSelector(state => state.auth.isAuthenticated);
   const dispatch = useAppDispatch();
 
   const login = () => {
