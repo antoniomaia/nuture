@@ -52,10 +52,7 @@ const LoginForm = () => {
     e.preventDefault();
     if (validate()) {
       dispatch(
-        login({
-          email: 'eve.holt@reqres.in',
-          password: 'cityslicka',
-        })
+        login(values)
       );
       //resetForm();
     }
@@ -101,9 +98,9 @@ const LoginForm = () => {
           />
           <Controls.Button
             href="/register"
-            variant="default"
+            variant="text"
             text="No account? Create one"
-            lowercase
+            color="secondary"
           />
         </div>
       </Grid>

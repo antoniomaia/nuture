@@ -97,9 +97,9 @@ const LoginForm = () => {
           <Controls.Button type="submit" text="Create Account" />
           <Controls.Button
             href="/login"
-            variant="default"
+            variant="text"
             text="Already have an account?"
-            lowercase
+            color="secondary"
           />
         </div>
       </Grid>

@@ -2,10 +2,11 @@ import axios from 'axios';
 import { createAlert } from 'slices/alerts';
 
 const http = axios.create({
-  baseURL: 'https://reqres.in',
+  baseURL: 'http://ecological.earth.api/api/v1',
 });
 
 http.defaults.headers.post['Content-Type'] = 'application/json';
+http.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
 export const interceptor = store => {
   http.interceptors.response.use(

@@ -3,7 +3,7 @@ import { STATUS } from 'constants/status';
 import http from 'services/api';
 
 export const login = createAsyncThunk('/login', async data => {
-  const response = await http.post('/api/login', data);
+  const response = await http.post('/login', data);
   return response;
 });
 

@@ -24,7 +24,7 @@ export default function Button(props) {
       {...other}
       classes={{
         root: classes.root,
-        label: variant === 'default' ? classes.label : "",
+        label: variant === 'text' ? classes.label : "",
       }}
     >
       {text}
