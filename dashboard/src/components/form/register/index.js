@@ -13,7 +13,7 @@ const initialFormValues = {
 const LoginForm = () => {
   const validate = (fieldValues = values) => {
     const temp = {};
-    temp.companyName = values.companyName ? '' : 'This field is required.';
+    temp.companyName = fieldValues.companyName ? '' : 'This field is required.';
     setErrors({
       ...temp,
     });
@@ -28,7 +28,7 @@ const LoginForm = () => {
     setErrors,
     handleInputChange,
     resetForm,
-  } = useForm(initialFormValues, true, validate);
+  } = useForm(initialFormValues, false, validate);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -48,6 +48,9 @@ const LoginForm = () => {
             minWidth: 200,
             maxWidth: 300,
             width: '100%',
+            background: '#f6f6f6',
+            padding: '2rem',
+            borderRadius: 8,
           }}
         >
           <Typography align="center" variant="h4" gutterBottom>

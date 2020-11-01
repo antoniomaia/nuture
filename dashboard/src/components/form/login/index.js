@@ -1,8 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/grid';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import { useAppDispatch } from 'store';
 import { login } from 'slices/auth';
 import { useSelector } from 'react-redux';
@@ -18,15 +16,23 @@ const initialFormValues = {
 
 const LoginForm = () => {
   const validate = (fieldValues = values) => {
-    const temp = {};
-    temp.email = values.email ? '' : 'This field is required.';
-    temp.password = values.password ? '' : 'This field is required.';
+    let temp = { ...errors };
+    if ('email' in fieldValues) {
+      temp.email = /\S+@\S+\.\S+/.test(fieldValues.email)
+        ? ''
+        : 'Email is not valid.';
+    }
+    if ('password' in fieldValues) {
+      temp.password = fieldValues.password ? '' : 'This field is required.';
+    }
 
     setErrors({
       ...temp,
     });
 
-    if (fieldValues === values) return Object.values(temp).every(x => x === '');
+    if (fieldValues === values) {
+      return Object.values(temp).every(x => x === '');
+    }
   };
 
   const {
@@ -36,7 +42,7 @@ const LoginForm = () => {
     setErrors,
     handleInputChange,
     resetForm,
-  } = useForm(initialFormValues, true, validate);
+  } = useForm(initialFormValues, false, validate);
 
   const status = useSelector(state => state.auth.status);
   const isLogginIn = status === STATUS.LOADING;
@@ -45,7 +51,6 @@ const LoginForm = () => {
   const onLogin = e => {
     e.preventDefault();
     if (validate()) {
-      debugger
       dispatch(
         login({
           email: 'eve.holt@reqres.in',
@@ -66,6 +71,9 @@ const LoginForm = () => {
             minWidth: 200,
             maxWidth: 300,
             width: '100%',
+            background: '#f6f6f6',
+            padding: '2rem',
+            borderRadius: 8,
           }}
         >
           <Typography align="center" variant="h4" gutterBottom>
