@@ -31,6 +31,7 @@ const store = configureStore({
   }),
 });
 
+
 interceptor(store);
 
 export let persistor = persistStore(store);

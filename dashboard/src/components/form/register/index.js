@@ -1,24 +1,43 @@
-import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { useForm, Form } from 'components/form/useForm';
 import Controls from 'components/form/controls';
+import { useAppDispatch } from 'store';
+import { register } from 'slices/auth';
 
 const initialFormValues = {
-  companyName: '',
+  name: '',
+  email: '',
+  password: '',
 };
 
 const LoginForm = () => {
+  const dispatch = useAppDispatch();
+  const redirect = useSelector(state => state.auth.isAuthenticated);
+console.log(redirect)
   const validate = (fieldValues = values) => {
-    const temp = {};
-    temp.companyName = fieldValues.companyName ? '' : 'This field is required.';
+    let temp = { ...errors };
+    if ('email' in fieldValues) {
+      temp.email = /\S+@\S+\.\S+/.test(fieldValues.email)
+        ? ''
+        : 'Email is not valid.';
+    }
+    if ('name' in fieldValues) {
+      temp.name = fieldValues.name ? '' : 'This field is required.';
+    }
+    if ('password' in fieldValues) {
+      temp.password = fieldValues.password ? '' : 'This field is required.';
+    }
+
     setErrors({
       ...temp,
     });
 
-    if (fieldValues === values) return Object.values(temp).every(x => x === '');
+    if (fieldValues === values) {
+      return Object.values(temp).every(x => x === '');
+    }
   };
 
   const {
@@ -33,10 +52,12 @@ const LoginForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     if (validate()) {
-      //employeeService.insertEmployee(values);
-      //resetForm();
+      dispatch(register(values));
     }
   };
+  if (redirect) {
+    return <Redirect to={'/dashboard'} />;
+  }
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -57,41 +78,25 @@ const LoginForm = () => {
             Register
           </Typography>
           <Controls.Input
-            name="companyName"
+            name="name"
             label="Company name"
-            value={values.companyName}
+            value={values.name}
             onChange={handleInputChange}
-            error={errors.companyName}
+            error={errors.name}
           />
-          <TextField
-            label="Economic sector"
-            type="text"
-            margin="normal"
-            variant="outlined"
-          />
-          <TextField
+          <Controls.Input
             label="Work email"
-            type="text"
-            margin="normal"
-            variant="outlined"
+            name="email"
+            value={values.email}
+            onChange={handleInputChange}
+            error={errors.email}
           />
-          <TextField
-            label="Number of full-time employees"
-            type="text"
-            margin="normal"
-            variant="outlined"
-          />
-          <TextField
-            label="Email"
-            type="email"
-            margin="normal"
-            variant="outlined"
-          />
-          <TextField
+          <Controls.Input
             label="Password"
-            type="password"
-            margin="normal"
-            variant="outlined"
+            name="password"
+            value={values.password}
+            onChange={handleInputChange}
+            error={errors.password}
           />
           <div style={{ height: '1rem' }} />
           <Controls.Button type="submit" text="Create Account" />

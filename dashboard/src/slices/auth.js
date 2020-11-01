@@ -7,6 +7,15 @@ export const login = createAsyncThunk('/login', async data => {
   return response;
 });
 
+export const register = createAsyncThunk('/user', async data => {
+  const response = await http.post('/user', data).then(response => {
+    if (response) {
+      return http.post('login', { email: data.email, password: data.password });
+    }
+  });
+  return response;
+});
+
 const initialState = {
   token: null,
   isAuthenticated: false,
@@ -37,8 +46,25 @@ const auth = createSlice({
       state.status = 'succeeded';
       state.isAuthenticated = true;
       state.token = action.payload.token;
+      state.userId = action.payload.userId;
     },
     [login.rejected]: (state, action) => {
+      state.status = 'failed';
+      state.isAuthenticated = false;
+      state.token = null;
+      state.error = action.error.message;
+    },
+    [register.pending]: (state, action) => {
+      state.status = 'loading';
+    },
+    [register.fulfilled]: (state, action) => {
+      state.status = 'succeeded';
+      state.isAuthenticated = true;
+      state.token = action.payload.token;
+      state.userId = action.payload.userId;
+      state.error = null;
+    },
+    [register.rejected]: (state, action) => {
       state.status = 'failed';
       state.isAuthenticated = false;
       state.token = null;
@@ -49,30 +75,12 @@ const auth = createSlice({
 
 export default auth.reducer;
 
-// actions
-
 export const { saveToken, clearToken, setAuthState } = auth.actions;
-
-/*export const login = ({ email, password }) => async dispatch => {
-  dispatch();
-  try {
-    // await api.post('/api/auth/login')
-    setTimeout(() => {
-      dispatch(setAuthState(true));
-      dispatch(saveToken('token123'));
-    }, 300);
-  } catch (e) {
-    return console.log(e.message);
-  }
-};*/
 
 export const logout = () => async dispatch => {
   try {
-    // await api.post('/api/auth/logout/')
-    setTimeout(() => {
-      dispatch(setAuthState(false));
-      dispatch(clearToken());
-    }, 300);
+    dispatch(setAuthState(false));
+    dispatch(clearToken());
   } catch (e) {
     return console.error(e.message);
   }

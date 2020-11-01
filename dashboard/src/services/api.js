@@ -6,7 +6,7 @@ const http = axios.create({
 });
 
 http.defaults.headers.post['Content-Type'] = 'application/json';
-http.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+//http.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
 export const interceptor = store => {
   http.interceptors.response.use(
@@ -20,7 +20,7 @@ export const interceptor = store => {
       if (response) {
         if (response.status >= 400 && response.status < 500) {
           store.dispatch(
-            createAlert({ message: response.data.error, type: 'error' })
+            createAlert({ message: response.data.error.message, type: 'error' })
           );
           return Promise.reject(error);
         }
