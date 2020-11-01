@@ -5,8 +5,13 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { useAppDispatch } from 'store';
 import { login } from 'slices/auth';
+import { useSelector } from 'react-redux';
+import { STATUS } from 'constants/status';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const LoginForm = () => {
+  const status = useSelector(state => state.auth.status);
+  const isLogginIn = status === STATUS.LOADING;
   const dispatch = useAppDispatch();
 
   const onLogin = e => {
@@ -51,8 +56,9 @@ const LoginForm = () => {
           variant="contained"
           size="large"
           onClick={onLogin}
+          disabled={isLogginIn}
         >
-          Log in
+          {!isLogginIn ? 'Log in' : <CircularProgress size={30} />}
         </Button>
         <div style={{ height: '1rem' }} />
         <Button href="/register" size="large">
