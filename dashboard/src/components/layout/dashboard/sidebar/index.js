@@ -1,4 +1,4 @@
-import Logo from '@components/ui/icons/logo';
+import Logo from 'components/ui/icons/logo';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import { Link } from 'react-router-dom';
@@ -8,17 +8,26 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import { Button } from '@material-ui/core';
 
-import { sidebarItems } from '@constants/sidebar';
-import { useAppDispatch } from '@store';
-import { setAuthState } from '@slices/auth';
+import { sidebarItems } from 'constants/sidebar';
+import { useAppDispatch } from 'store';
+import { logout } from 'slices/auth';
+import { makeStyles } from '@material-ui/core/styles';
 
-const Sidebar = (props) => {
+const useStyles = makeStyles(theme => ({
+  toolbar: theme.mixins.toolbar,
+}));
+const Sidebar = () => {
+  const classes = useStyles();
   const dispatch = useAppDispatch();
+
+  const onLogout = () => {
+    dispatch(logout());
+  };
 
   return (
     <div>
       <Logo />
-      <div className={props.classes.toolbar} />
+      <div className={classes.toolbar} />
 
       <List>
         {sidebarItems.map(({ text, href }) => (
@@ -29,7 +38,13 @@ const Sidebar = (props) => {
         ))}
       </List>
       <Divider />
-      <Button onClick={() => dispatch(setAuthState(false))}>logout</Button>
+      <List>
+        <ListItem>
+          <Button fullWidth onClick={onLogout}>
+            Logout
+          </Button>
+        </ListItem>
+      </List>
     </div>
   );
 };

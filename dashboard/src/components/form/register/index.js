@@ -33,11 +33,11 @@ const LoginForm = () => {
         />
         <div style={{ height: '1rem' }} />
         <Button color="primary" variant="contained" size="large">
-          Register
+          Create Account
         </Button>
         <div style={{ height: '1rem' }} />
         <Button href="/login" size="large">
-          Log in
+          Already have an account?
         </Button>
       </div>
     </Grid>

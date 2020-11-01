@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// slices
+
 const initialState = {
   token: null,
   isAuthenticated: false,
@@ -23,5 +25,32 @@ const auth = createSlice({
   },
 });
 
-export const { saveToken, clearToken, setAuthState } = auth.actions;
 export default auth.reducer;
+
+// actions
+
+export const { saveToken, clearToken, setAuthState } = auth.actions;
+
+export const login = ({ email, password }) => async dispatch => {
+  try {
+    // await api.post('/api/auth/login')
+    setTimeout(() => {
+      dispatch(setAuthState(true));
+      dispatch(saveToken('token123'));
+    }, 300);
+  } catch (e) {
+    return console.log(e.message);
+  }
+};
+
+export const logout = () => async dispatch => {
+  try {
+    // await api.post('/api/auth/logout/')
+    setTimeout(() => {
+      dispatch(setAuthState(false));
+      dispatch(clearToken());
+    }, 300);
+  } catch (e) {
+    return console.error(e.message);
+  }
+};

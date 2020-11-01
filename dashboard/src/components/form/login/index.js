@@ -3,8 +3,17 @@ import Grid from '@material-ui/core/grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { useAppDispatch } from 'store';
+import { login } from 'slices/auth';
 
-const LoginForm = ({ login }) => {
+const LoginForm = () => {
+  const dispatch = useAppDispatch();
+
+  const onLogin = e => {
+    e.preventDefault();
+    dispatch(login('email', 'password'));
+  };
+
   return (
     <Grid container direction="column" justify="center" alignItems="center">
       <div
@@ -36,13 +45,13 @@ const LoginForm = ({ login }) => {
           color="primary"
           variant="contained"
           size="large"
-          onClick={login}
+          onClick={onLogin}
         >
           Log in
         </Button>
         <div style={{ height: '1rem' }} />
         <Button href="/register" size="large">
-          Sign up
+          No account? Create one
         </Button>
       </div>
     </Grid>

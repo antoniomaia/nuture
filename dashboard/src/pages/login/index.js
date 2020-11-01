@@ -1,6 +1,6 @@
 import { Redirect } from 'react-router-dom';
-import LoginForm from '@components/form/login';
-import Header from '@components/header';
+import LoginForm from 'components/form/login';
+import Header from 'components/header';
 
 const Login = ({ login, isAuthenticated }) => {
   if (isAuthenticated) {
