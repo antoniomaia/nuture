@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@material-ui/core/grid';
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { useAppDispatch } from 'store';
 import { login } from 'slices/auth';
