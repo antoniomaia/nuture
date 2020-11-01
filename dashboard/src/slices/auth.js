@@ -1,10 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { STATUS } from 'constants/status';
+import http from 'services/api';
 
-// slices
+export const login = createAsyncThunk('/login', async data => {
+  const response = await http.post('/api/login', data);
+  return response;
+});
 
 const initialState = {
   token: null,
   isAuthenticated: false,
+  status: STATUS.IDLE,
 };
 
 const auth = createSlice({
@@ -23,6 +29,22 @@ const auth = createSlice({
       state.isAuthenticated = payload;
     },
   },
+  extraReducers: {
+    [login.pending]: (state, action) => {
+      state.status = 'loading';
+    },
+    [login.fulfilled]: (state, action) => {
+      state.status = 'succeeded';
+      state.isAuthenticated = true;
+      state.token = action.payload.token;
+    },
+    [login.rejected]: (state, action) => {
+      state.status = 'failed';
+      state.isAuthenticated = false;
+      state.token = null;
+      state.error = action.error.message;
+    },
+  },
 });
 
 export default auth.reducer;
@@ -31,7 +53,8 @@ export default auth.reducer;
 
 export const { saveToken, clearToken, setAuthState } = auth.actions;
 
-export const login = ({ email, password }) => async dispatch => {
+/*export const login = ({ email, password }) => async dispatch => {
+  dispatch();
   try {
     // await api.post('/api/auth/login')
     setTimeout(() => {
@@ -41,7 +64,7 @@ export const login = ({ email, password }) => async dispatch => {
   } catch (e) {
     return console.log(e.message);
   }
-};
+};*/
 
 export const logout = () => async dispatch => {
   try {

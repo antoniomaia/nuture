@@ -1,12 +1,13 @@
 import Header from 'components/header';
 import RegisterForm from 'components/form/register';
+import MainLayout from 'components/layout/main';
 
 const Register = () => {
   return (
-    <div>
+    <MainLayout>
       <Header />
       <RegisterForm />
-    </div>
+    </MainLayout>
   );
 };
 

@@ -11,7 +11,12 @@ const LoginForm = () => {
 
   const onLogin = e => {
     e.preventDefault();
-    dispatch(login('email', 'password'));
+    dispatch(
+      login({
+        email: 'eve.holt@reqres.in',
+        password: 'cityslicka',
+      })
+    );
   };
 
   return (

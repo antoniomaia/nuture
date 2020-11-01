@@ -9,6 +9,7 @@ module.exports = override(
     ['slices']: path.resolve(__dirname, './src/slices'),
     ['theme']: path.resolve(__dirname, './src/theme'),
     ['store']: path.resolve(__dirname, './src/store'),
+    ['services']: path.resolve(__dirname, './src/services'),
     ['src']: path.resolve(__dirname, './src'),
   })
 );

@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { useDispatch } from 'react-redux';
 import rootReducer from '../rootReducer';
+import { interceptor } from 'services/api';
 
 const persistConfig = {
   key: 'root',
@@ -29,6 +30,8 @@ const store = configureStore({
     },
   }),
 });
+
+interceptor(store);
 
 export let persistor = persistStore(store);
 export const useAppDispatch = () => useDispatch();

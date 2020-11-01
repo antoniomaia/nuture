@@ -1,15 +1,15 @@
 import React from 'react';
+import CustomizedSnackbars from 'components/toast';
 
-const MainLayout = () => {
+const MainLayout = ({ children }) => {
   return (
-    <div>
-
-    </div>
+    <>
+      {children}
+      <CustomizedSnackbars />
+    </>
   );
 };
 
-MainLayout.propTypes = {
-
-};
+MainLayout.propTypes = {};
 
 export default MainLayout;
