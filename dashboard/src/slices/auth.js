@@ -37,6 +37,9 @@ const auth = createSlice({
     setAuthState(state, { payload }) {
       state.isAuthenticated = payload;
     },
+    logout(state) {
+      state = initialState;
+    },
   },
   extraReducers: {
     [login.pending]: (state, action) => {
@@ -75,13 +78,4 @@ const auth = createSlice({
 
 export default auth.reducer;
 
-export const { saveToken, clearToken, setAuthState } = auth.actions;
-
-export const logout = () => async dispatch => {
-  try {
-    dispatch(setAuthState(false));
-    dispatch(clearToken());
-  } catch (e) {
-    return console.error(e.message);
-  }
-};
+export const { saveToken, clearToken, setAuthState, logout } = auth.actions;

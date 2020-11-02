@@ -3,10 +3,10 @@ import authReducer from './slices/auth';
 import userReducer from './slices/user';
 import alertsReducer from './slices/alerts';
 
-const rootReducer = combineReducers({
+const combinedReducer = combineReducers({
   auth: authReducer,
   user: userReducer,
   alerts: alertsReducer,
 });
 
-export default rootReducer;
+export default combinedReducer;
