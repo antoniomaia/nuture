@@ -1,11 +1,13 @@
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { useForm, Form } from 'components/form/useForm';
 import Controls from 'components/form/controls';
 import { useAppDispatch } from 'store';
 import { register } from 'slices/auth';
+import { STATUS } from '../../../constants/status';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { Content } from '../primitives';
 
 const initialFormValues = {
   name: '',
@@ -15,6 +17,8 @@ const initialFormValues = {
 
 const LoginForm = () => {
   const dispatch = useAppDispatch();
+  const authStatus = useSelector(state => state.auth.status);
+  const isLoading = authStatus === STATUS.LOADING;
 
   const validate = (fieldValues = values) => {
     let temp = { ...errors };
@@ -63,18 +67,7 @@ const LoginForm = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Grid container direction="column" justify="center" alignItems="center">
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            minWidth: 200,
-            maxWidth: 300,
-            width: '100%',
-            background: '#f6f6f6',
-            padding: '2rem',
-            borderRadius: 8,
-          }}
-        >
+        <Content>
           <Controls.Input
             name="name"
             label="Company name"
@@ -99,14 +92,24 @@ const LoginForm = () => {
             error={errors.password}
           />
           <div style={{ height: '1rem' }} />
-          <Controls.Button type="submit" text="Create Account" />
+          <Controls.Button
+            type="submit"
+            disabled={isLoading}
+            text={
+              isLoading ? (
+                <CircularProgress size={30} color="white" />
+              ) : (
+                'Create Account'
+              )
+            }
+          />
           <Controls.Button
             href="/login"
             variant="text"
             text="Already have an account?"
             color="secondary"
           />
-        </div>
+        </Content>
       </Grid>
     </Form>
   );

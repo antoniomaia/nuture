@@ -8,6 +8,7 @@ import { STATUS } from 'constants/status';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { useForm, Form } from 'components/form/useForm';
 import Controls from '../controls';
+import { Content } from '../primitives';
 
 const initialFormValues = {
   email: '',
@@ -15,6 +16,9 @@ const initialFormValues = {
 };
 
 const LoginForm = () => {
+  const authStatus = useSelector(state => state.auth.status);
+  const isLoading = authStatus === STATUS.LOADING;
+
   const validate = (fieldValues = values) => {
     let temp = { ...errors };
     if ('email' in fieldValues) {
@@ -57,23 +61,19 @@ const LoginForm = () => {
   };
 
   return (
-    <Form onSubmit={onLogin}>
+    <Form onSubmit={onLogin} disabled={isLoading}>
       <Grid container direction="column" justify="center" alignItems="center">
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            minWidth: 200,
-            maxWidth: 300,
-            width: '100%',
-            background: '#f6f6f6',
-            padding: '2rem',
-            borderRadius: 8,
-          }}
-        >
-          <Typography align="center" variant="h4" gutterBottom>
-            Login
+        <Content>
+          <Typography
+            align="center"
+            variant="h2"
+            component="h3"
+            color="textPrimary"
+            gutterBottom
+          >
+            Log in to your account
           </Typography>
+          <br />
           <Controls.Input
             name="email"
             label="Email"
@@ -93,7 +93,14 @@ const LoginForm = () => {
           <div style={{ height: '1rem' }} />
           <Controls.Button
             type="submit"
-            text={!isLogginIn ? 'Log in' : <CircularProgress size={30} />}
+            disabled={isLoading}
+            text={
+              isLoading ? (
+                <CircularProgress size={30} color="white" />
+              ) : (
+                'Log in'
+              )
+            }
           />
           <Controls.Button
             href="/register"
@@ -101,7 +108,7 @@ const LoginForm = () => {
             text="No account? Create one"
             color="secondary"
           />
-        </div>
+        </Content>
       </Grid>
     </Form>
   );
