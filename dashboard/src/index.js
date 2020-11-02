@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from '@material-ui/core/styles';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-
-import theme from 'theme';
 import store, { persistor } from 'store';
 
-import './index.css';
+import { ThemeProvider } from 'theme';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -17,7 +15,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <ThemeProvider theme={theme}>
+          <ThemeProvider>
             <App />
           </ThemeProvider>
         </PersistGate>

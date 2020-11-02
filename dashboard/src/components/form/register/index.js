@@ -75,9 +75,6 @@ const LoginForm = () => {
             borderRadius: 8,
           }}
         >
-          <Typography align="center" variant="h4" gutterBottom>
-            Register
-          </Typography>
           <Controls.Input
             name="name"
             label="Company name"
