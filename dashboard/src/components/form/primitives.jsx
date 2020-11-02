@@ -38,14 +38,15 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 200px;
-  max-width: 300px;
+  max-width: 400px;
   width: 100%;
-  background: #f6f6f6;
+  background: white;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   border: 1px solid transparent;
-  animation-duration: 1s;
+  box-sizing: border-box; 
+ /* animation-duration: 1s;
   animation-fill-mode: both;
-  animation-name: ${bounce};
+  animation-name: ${bounce};*/
 `;
