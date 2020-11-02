@@ -15,8 +15,7 @@ const initialFormValues = {
 
 const LoginForm = () => {
   const dispatch = useAppDispatch();
-  const redirect = useSelector(state => state.auth.isAuthenticated);
-console.log(redirect)
+
   const validate = (fieldValues = values) => {
     let temp = { ...errors };
     if ('email' in fieldValues) {
@@ -55,6 +54,8 @@ console.log(redirect)
       dispatch(register(values));
     }
   };
+
+  const redirect = useSelector(state => state.auth.isAuthenticated);
   if (redirect) {
     return <Redirect to={'/dashboard'} />;
   }
@@ -87,6 +88,7 @@ console.log(redirect)
           <Controls.Input
             label="Work email"
             name="email"
+            type="email"
             value={values.email}
             onChange={handleInputChange}
             error={errors.email}
@@ -94,6 +96,7 @@ console.log(redirect)
           <Controls.Input
             label="Password"
             name="password"
+            type="password"
             value={values.password}
             onChange={handleInputChange}
             error={errors.password}

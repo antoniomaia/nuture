@@ -51,9 +51,7 @@ const LoginForm = () => {
   const onLogin = e => {
     e.preventDefault();
     if (validate()) {
-      dispatch(
-        login(values)
-      );
+      dispatch(login(values));
       //resetForm();
     }
   };
@@ -79,6 +77,7 @@ const LoginForm = () => {
           <Controls.Input
             name="email"
             label="Email"
+            type="email"
             value={values.email}
             onChange={handleInputChange}
             error={errors.email}

@@ -1,17 +1,24 @@
-import React from 'react'
-import { TextField } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
 
-export default function Input(props) {
-
-  const { name, label, value,error=null, onChange } = props;
+const Input = ({
+  name,
+  label,
+  value,
+  error = null,
+  onChange,
+  type = 'text',
+}) => {
   return (
     <TextField
       variant="outlined"
       label={label}
       name={name}
+      type={type}
       value={value}
       onChange={onChange}
-      {...(error && {error:true,helperText:error})}
+      {...(error && { error: true, helperText: error })}
     />
-  )
-}
+  );
+};
+
+export default Input;

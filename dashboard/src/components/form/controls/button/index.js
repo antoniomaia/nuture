@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button as MuiButton, makeStyles } from '@material-ui/core';
+import MuiButton from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -8,11 +8,9 @@ const useStyles = makeStyles(theme => ({
   label: {
     textTransform: 'none',
   },
-
 }));
 
-export default function Button(props) {
-  const { text, size, color, variant, onClick, ...other } = props;
+const Button = ({ text, size, color, variant, onClick, ...other }) => {
   const classes = useStyles();
 
   return (
@@ -24,10 +22,12 @@ export default function Button(props) {
       {...other}
       classes={{
         root: classes.root,
-        label: variant === 'text' ? classes.label : "",
+        label: variant === 'text' ? classes.label : '',
       }}
     >
       {text}
     </MuiButton>
   );
-}
+};
+
+export default Button;
