@@ -96,7 +96,7 @@ const LoginForm = () => {
             disabled={isLoading}
             text={
               isLoading ? (
-                <CircularProgress size={30} color="white" />
+                <CircularProgress size={30} color="secondary" />
               ) : (
                 'Log in'
               )

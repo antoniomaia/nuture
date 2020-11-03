@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { createAlert } from 'slices/alerts';
+import { config } from 'constants/config';
 
 const http = axios.create({
-  baseURL: 'https://ecological-earth.herokuapp.com/api/v1',
+  baseURL: config.API_URL,
 });
 
 http.defaults.headers.post['Content-Type'] = 'application/json';
-http.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
 export const interceptor = store => {
   http.interceptors.response.use(

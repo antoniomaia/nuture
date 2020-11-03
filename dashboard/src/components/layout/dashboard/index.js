@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,9 +12,9 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 import Sidebar from './sidebar';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
   },
@@ -25,9 +25,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appBar: {
+    background: '#ffffff',
+    color: theme.palette.text.primary,
     [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
+      width: '100%',
+      //width: `calc(100% - ${drawerWidth}px)`,
+      //marginLeft: drawerWidth,
     },
   },
   menuButton: {
@@ -40,7 +43,9 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    background: theme.palette.background.dark,
+    zIndex: 1000,
+    backgroundColor: '#f6f6f6',
+    border: 'none',
   },
   content: {
     flexGrow: 1,
@@ -48,32 +53,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DashboardLayout = (props) => {
-  const { window } = props;
+const Dashboard = ({ children }) => {
   const classes = useStyles();
   const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   const drawer = (
-    <Sidebar props={props} classes={classes}/>
+    <div>
+      <div className={classes.toolbar} />
+      <br />
+      <Sidebar />
+    </div>
   );
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={classes.appBar}
-        color="transparent"
-        elevation={0}
-      >
+      <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -84,8 +84,8 @@ const DashboardLayout = (props) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Dashboard
+          <Typography variant="h4" noWrap>
+            Ecological Earth
           </Typography>
         </Toolbar>
       </AppBar>
@@ -93,7 +93,6 @@ const DashboardLayout = (props) => {
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
           <Drawer
-            container={container}
             variant="temporary"
             anchor={theme.direction === 'rtl' ? 'right' : 'left'}
             open={mobileOpen}
@@ -108,6 +107,9 @@ const DashboardLayout = (props) => {
             {drawer}
           </Drawer>
         </Hidden>
+      </nav>
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
         <Hidden xsDown implementation="css">
           <Drawer
             classes={{
@@ -119,21 +121,14 @@ const DashboardLayout = (props) => {
             {drawer}
           </Drawer>
         </Hidden>
-      </nav>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        {props.children}
+        {children}
       </main>
     </div>
   );
 };
 
-DashboardLayout.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
+Dashboard.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
-export default DashboardLayout;
+export default Dashboard;

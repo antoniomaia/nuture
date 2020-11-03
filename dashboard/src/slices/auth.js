@@ -8,7 +8,7 @@ export const login = createAsyncThunk('/login', async data => {
 });
 
 export const register = createAsyncThunk('/user', async data => {
-  const response = await http.post('/user2', data).then(response => {
+  const response = await http.post('/user', data).then(response => {
     if (response) {
       return http.post('login', { email: data.email, password: data.password });
     }
