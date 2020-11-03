@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAlert } from 'slices/alerts';
 
 const http = axios.create({
-  baseURL: 'http://ecological.earth.api/api/v1',
+  baseURL: 'https://ecological-earth.herokuapp.com/api/v1',
 });
 
 http.defaults.headers.post['Content-Type'] = 'application/json';
