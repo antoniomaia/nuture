@@ -7,7 +7,8 @@ const http = axios.create({
 });
 
 http.defaults.headers.post['Content-Type'] = 'application/json';
-http.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+//http.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+//http.defaults.headers.post['Access-Control-Expose-Headers'] = 'Authorization';
 
 export const interceptor = store => {
   http.interceptors.response.use(

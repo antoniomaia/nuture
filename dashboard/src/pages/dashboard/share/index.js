@@ -27,6 +27,12 @@ const Share = () => {
       <br />
 
       <ecological-earth id={companyId} />
+
+      <br />
+      <br />
+      <br />
+
+      <img src={`http://local.ecological.earth:8080/badge.png?id=${companyId}`}/>
     </div>
   );
 };

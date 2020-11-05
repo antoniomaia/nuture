@@ -102,7 +102,7 @@ class Badge extends HTMLElement {
 
   render() {
     if (this.loading || isEmpty(this.company) || !this.company.data.last_name) {
-      this.shadowRoot.innerHTML = `...`;
+      this.shadowRoot.innerHTML = ``;
     } else {
       this.shadowRoot.innerHTML = `
            <div class="badge-container">
