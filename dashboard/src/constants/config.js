@@ -1,3 +1,20 @@
-export const config = {
-  API_URL: 'https://ecological-earth.herokuapp.com/api/v1',
+const config = () => {
+  switch (process.env.NODE_ENV) {
+    case 'development':
+      return {
+        HOST: 'local.ecological.earth',
+        API_URL: 'http://ecological.earth.api/api/v1',
+      };
+
+    case 'production':
+      return {
+        HOST: 'app.ecological.earth',
+        API_URL: 'https://ecological-earth.herokuapp.com/api/v1',
+      };
+
+    default:
+      return {};
+  }
 };
+
+export default config();

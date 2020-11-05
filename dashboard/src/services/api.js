@@ -1,14 +1,12 @@
 import axios from 'axios';
 import { createAlert } from 'slices/alerts';
-import { config } from 'constants/config';
+import config from 'constants/config';
 
 const http = axios.create({
   baseURL: config.API_URL,
 });
 
 http.defaults.headers.post['Content-Type'] = 'application/json';
-//http.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-//http.defaults.headers.post['Access-Control-Expose-Headers'] = 'Authorization';
 
 export const interceptor = store => {
   http.interceptors.response.use(
