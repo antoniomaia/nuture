@@ -1,6 +1,9 @@
 import { createMuiTheme, colors } from '@material-ui/core';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
-import { createGlobalStyle, ThemeProvider as StyledThemeProvider } from 'styled-components';
+import {
+  createGlobalStyle,
+  ThemeProvider as StyledThemeProvider,
+} from 'styled-components';
 
 import { shadows } from './shadows';
 import { typography } from './typography';
@@ -61,7 +64,11 @@ const GlobalStyle = createGlobalStyle`
     border: 0;
     vertical-align: baseline;
   }
-`
+  
+  html {
+    width: 100vw;
+  }
+`;
 
 export const ThemeProvider = ({ children }) => {
   return (

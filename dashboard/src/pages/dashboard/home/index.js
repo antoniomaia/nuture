@@ -1,15 +1,20 @@
 import Typography from '@material-ui/core/Typography';
 
+import Steps from 'components/steps';
+
 const Home = () => {
   return (
-    <div>
+    <>
       <Typography variant="h1" gutterBottom>
-        your carbon neutral footprint
+        Welcome to Ecological Earth
       </Typography>
       <Typography paragraph>
-        start by calculating the carbon emissions for the month of october
+        This is your dashboard, where you can see all the activity regarding
+        your carbon emissions. Follow the steps below relative to the month of
+        October to become carbon neutral.
       </Typography>
-    </div>
+      <Steps step={1} />
+    </>
   );
 };
 

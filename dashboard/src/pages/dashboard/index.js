@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import DashboardLayout from '../../components/layout/dashboard';
 import Home from './home';
 import Share from './share';
+import NeutralForm from './neutral-form';
 
 const Dashboard = () => {
   return (
@@ -22,6 +23,9 @@ const Dashboard = () => {
         </Route>
         <Route exact path="/dashboard">
           <Home />
+        </Route>
+        <Route exact path="/neutral">
+          <NeutralForm />
         </Route>
       </Switch>
     </DashboardLayout>
