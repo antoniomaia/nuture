@@ -11,7 +11,7 @@ import { typography } from './typography';
 const theme = createMuiTheme({
   palette: {
     background: {
-      dark: '#F4F6F8',
+      dark: '#CDCDCD',
       default: colors.common.white,
       paper: colors.common.white,
     },

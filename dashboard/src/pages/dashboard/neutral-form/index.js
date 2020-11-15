@@ -1,11 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Stepper from '../../../components/steps/stepper';
+import { useHistory } from 'react-router-dom';
 
-const NeutralForm = props => {
+import Stepper from 'components/steps/stepper';
+
+const NeutralForm = () => {
+  const history = useHistory();
+  const search = history.location.search;
+  const params = new URLSearchParams(search);
+  const step = params.get('s');
+
   return (
     <>
-      <Stepper step={1} />
+      <Stepper step={parseInt(step, 10)} />
     </>
   );
 };

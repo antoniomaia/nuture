@@ -29,7 +29,8 @@ export const InputContainer = styled.div`
     color: ${p => p.theme.palette.text.primary};
   }
   input {
-    max-width: 300px;
+    max-width: 250px;
+    width: 100%;
     height: 40px;
     border: 1px solid grey;
     text-align: right;
@@ -71,10 +72,6 @@ export const useStyles = makeStyles(theme => ({
   },
   root: {
     width: '100%',
-  },
-  headline: {
-    margin: '2rem 0 1rem 0',
-    fontSize: '2rem',
   },
   heading: {
     color: theme.palette.text.primary,

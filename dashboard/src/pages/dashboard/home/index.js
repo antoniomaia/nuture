@@ -13,7 +13,7 @@ const Home = () => {
         your carbon emissions. Follow the steps below relative to the month of
         October to become carbon neutral.
       </Typography>
-      <Steps step={1} />
+      <Steps />
     </>
   );
 };

@@ -5,21 +5,20 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 import Measure from '../measure';
 import Project from '../project';
 import Offset from '../offset';
+import Summary from '../summary';
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
   },
-  button: {
-    marginRight: theme.spacing(1),
-  },
-  instructions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
+  headline: {
+    margin: '2rem 0 1rem 0',
+    fontSize: '2rem',
   },
 }));
 
@@ -44,9 +43,9 @@ function getStepContent(step) {
   }
 }
 
-const Stepper = () => {
+const Stepper = ({ step = 0 }) => {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(1);
+  const [activeStep, setActiveStep] = React.useState(step);
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = getSteps();
 
@@ -93,36 +92,27 @@ const Stepper = () => {
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography className={classes.instructions}>
-              All steps completed - you&apos;re finished
-            </Typography>
-            <Button onClick={handleReset} className={classes.button}>
-              Reset
-            </Button>
+            <Typography>All steps completed - you&apos;re finished</Typography>
+            <Button onClick={handleReset}>Reset</Button>
           </div>
         ) : (
           <div>
-            <Typography className={classes.instructions}>
-              {getStepContent(activeStep)}
+            <Typography variant="h2" className={classes.headline}>
+              {steps[activeStep]}
             </Typography>
-            <div>
-              <Button
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                className={classes.button}
-              >
-                Back
-              </Button>
-
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-                className={classes.button}
-              >
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-              </Button>
-            </div>
+            <Grid container spacing={3}>
+              <Grid item xs={8}>
+                {getStepContent(activeStep)}
+              </Grid>
+              <Grid item xs={4}>
+                <Summary
+                  steps={steps}
+                  activeStep={activeStep}
+                  handleBack={handleBack}
+                  handleNext={handleNext}
+                />
+              </Grid>
+            </Grid>
           </div>
         )}
       </div>
