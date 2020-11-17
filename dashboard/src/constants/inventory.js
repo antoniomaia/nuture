@@ -3,8 +3,9 @@ export const inventory = [
     name: 'Electricity',
     description: 'Enter the amount spent in the office electricity usage.',
     fields: [
-      { type: 'number', unit: '€' },
+      { id: 'electricityAmount', type: 'number', unit: '€' },
       {
+        id: 'electricityRenewableEnergy',
         label: 'Renewable energy',
         type: 'number',
         unit: '%',
@@ -15,27 +16,37 @@ export const inventory = [
     name: 'Heating',
     description: 'Enter the amount spent in the office heating fuel usage.',
     fields: [
-      { label: 'Diesel', type: 'number', unit: '€' },
-      { label: 'Natural gas', type: 'number', unit: '€' },
-      { label: 'Air conditioner', type: 'checkbox' },
+      { id: 'heatDiesel', label: 'Diesel', type: 'number', unit: '€' },
+      { id: 'heatNaturalGas', label: 'Natural gas', type: 'number', unit: '€' },
+      { id: 'airConditioner', label: 'Air conditioner', type: 'checkbox' },
     ],
   },
   {
     name: 'Transportation',
     description: 'Enter the amount spent for each fuel type.',
     fields: [
-      { label: 'Diesel', type: 'number', unit: '€' },
-      { label: 'Gasoline', type: 'number', unit: '€' },
+      {
+        id: 'transportationDiesel',
+        label: 'Diesel',
+        type: 'number',
+        unit: '€',
+      },
+      {
+        id: 'transportationGasoline',
+        label: 'Gasoline',
+        type: 'number',
+        unit: '€',
+      },
     ],
   },
   {
     name: 'Water',
     description: 'Enter the amount spent in water.',
-    fields: [{ type: 'number', unit: '€' }],
+    fields: [{ id: 'waterUsage', type: 'number', unit: '€' }],
   },
   {
     name: 'Paper',
     description: 'Enter the amount of reams of paper. (1 ream = 500 sheets)',
-    fields: [{ type: 'number' }],
+    fields: [{ id: 'paperReams', type: 'number' }],
   },
 ];

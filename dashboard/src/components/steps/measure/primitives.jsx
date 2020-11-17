@@ -7,7 +7,7 @@ export const ExpandTag = styled.span`
   padding: 0.1rem 0.5rem;
 `;
 
-export const SaveButton = styled.span`
+export const SaveButton = styled.button`
   border: 1px solid ${p => p.theme.palette.text.secondary};
   color: ${p => p.theme.palette.text.secondary};
   padding: 0.2rem 1rem;

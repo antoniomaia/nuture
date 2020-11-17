@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Typography } from '@material-ui/core';
+import { useSelector } from 'react-redux';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export const useStyles = makeStyles(theme => ({
   paper: {
@@ -13,8 +13,9 @@ export const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '2rem 0',
+    padding: '1rem',
   },
+
   buttonWrapper: {
     textAlign: 'center',
   },
@@ -50,18 +51,70 @@ export const useStyles = makeStyles(theme => ({
       background: '#f6f6f6',
     },
   },
+  loading: {
+    backgroundColor: 'rgba(0,0,0,0.1)',
+    color: 'rgba(0,0,0,0.1)',
+  },
 }));
+
+function sum(obj) {
+  return Object.keys(obj).reduce(
+    (sum, key) => sum + parseFloat(obj[key] || 0),
+    0
+  );
+}
 
 const Summary = ({ activeStep, handleBack, handleNext, steps }) => {
   const classes = useStyles();
+  const footprint = useSelector(state => state.neutralForm);
+  const sumValues = sum(footprint);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 350);
+
+    return () => clearTimeout(timeout);
+  }, [sumValues]);
+
   return (
     <>
+      <Typography variant="h4" gutterBottom align="center">
+        Carbon Emissions
+      </Typography>
+      <Paper
+        className={`${classes.paper} ${loading && classes.loading}`}
+        elevation={0}
+      >
+        {!loading && (
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'baseline',
+            }}
+          >
+            <Typography
+              variant="h2"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                alignContent: 'center',
+                paddingRight: '0.25rem',
+              }}
+            >
+              {sumValues}
+            </Typography>
+            <Typography variant="h5">tCO2e</Typography>
+          </div>
+        )}
+        {loading && <CircularProgress />}
+      </Paper>
+      <Typography variant="h6" gutterBottom align="center">
+        Month
+      </Typography>
       <Paper className={classes.paper} elevation={0}>
-        <Typography variant="h4" gutterBottom>
-          October
-        </Typography>
-        <Typography variant="h1">0</Typography>
-        <Typography variant="subtitle2">tCO2</Typography>
+        <Typography variant="h5">October</Typography>
       </Paper>
       <Typography className={classes.buttonLabel}>
         Complete each step of the business emissions calculator that is relevant
