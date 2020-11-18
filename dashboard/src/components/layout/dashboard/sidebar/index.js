@@ -13,6 +13,7 @@ import {
 import { useAppDispatch } from 'store';
 import { logout } from 'slices/auth';
 import { makeStyles } from '@material-ui/core/styles';
+import { useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   drawer: {
@@ -21,7 +22,31 @@ const useStyles = makeStyles(theme => ({
     },
   },
   listItem: {
-    padding: '0.2rem 1.5rem',
+    borderLeft: '4px solid transparent',
+    padding: '0.5rem 1.5rem',
+    '& svg': {
+      opacity: 0.8,
+    },
+    '&.Mui-selected': {
+      borderLeft: `4px solid ${theme.palette.primary.main}`,
+      color: theme.palette.primary.main,
+      background: 'transparent',
+      '& svg': {
+        opacity: 1,
+        color: theme.palette.primary.main,
+      },
+      '&:hover': {
+        background: 'transparent',
+      },
+    },
+    '&:hover': {
+      borderLeft: `4px solid ${theme.palette.primary.main}`,
+      background: 'transparent',
+      color: theme.palette.primary.main,
+      '& svg': {
+        color: theme.palette.primary.main,
+      },
+    },
   },
   listItemIcon: {
     minWidth: 35,
@@ -30,10 +55,16 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 'fit-content',
     marginRight: '11px',
   },
+  text: {
+    '& span, & svg': {
+      fontSize: '1rem',
+    },
+  },
 }));
 
 const Sidebar = () => {
   const classes = useStyles();
+  const { pathname } = useLocation();
 
   const dispatch = useAppDispatch();
   const onLogout = () => {
@@ -57,9 +88,10 @@ const Sidebar = () => {
             component={Link}
             to={href}
             className={classes.listItem}
+            selected={pathname === href}
           >
             <ListItemIcon className={classes.listItemIcon}>{icon}</ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary={text} className={classes.text} />
           </ListItem>
         ))}
       </List>
@@ -80,7 +112,7 @@ const Sidebar = () => {
             className={classes.listItem}
           >
             <ListItemIcon className={classes.listItemIcon}>{icon}</ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary={text} className={classes.text} />
           </ListItem>
         ))}
       </List>

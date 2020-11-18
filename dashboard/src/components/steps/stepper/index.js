@@ -17,14 +17,23 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
   },
   headline: {
-    margin: '2rem 0 1rem 0',
-    fontSize: '2rem',
+    margin: '2rem 0 1.5rem 0',
+    fontSize: '1.2rem',
+    maxWidth: 700,
   },
 }));
 
 function getSteps() {
   return [
     'Calculate carbon emissions',
+    'Choose offsetting project',
+    'Become carbon neutral',
+  ];
+}
+
+function getStepsDescription() {
+  return [
+    'Complete each step of the business emissions calculator that is relevant to your business, using monthly operational data.',
     'Choose offsetting project',
     'Become carbon neutral',
   ];
@@ -48,6 +57,7 @@ const Stepper = ({ step = 0 }) => {
   const [activeStep, setActiveStep] = React.useState(step);
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = getSteps();
+  const stepsDescription = getStepsDescription();
 
   const isStepSkipped = step => {
     return skipped.has(step);
@@ -98,7 +108,7 @@ const Stepper = ({ step = 0 }) => {
         ) : (
           <div>
             <Typography variant="h2" className={classes.headline}>
-              {steps[activeStep]}
+              {stepsDescription[activeStep]}
             </Typography>
             <Grid container spacing={3}>
               <Grid item xs={8}>

@@ -1,14 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  electricityAmount: '',
-  electricityRenewableEnergy: '',
-  heatDiesel: '',
-  heatNaturalGas: '',
-  paperReams: '',
-  transportationDiesel: '',
-  transportationGasoline: '',
-  waterUsage: '',
+  values: {
+    electricityAmount: '',
+    electricityRenewableEnergy: '',
+    heatDiesel: '',
+    heatNaturalGas: '',
+    paperReams: '',
+    transportationDiesel: '',
+    transportationGasoline: '',
+    waterUsage: '',
+  },
+  project: null,
 };
 
 const neutralForm = createSlice({
@@ -16,12 +19,15 @@ const neutralForm = createSlice({
   initialState,
   reducers: {
     saveNeutralForm: (state, action) => {
-      return { ...state, ...action.payload };
+      state.values = { ...state.values, ...action.payload };
+    },
+    updateProject: (state, action) => {
+      state.project = { ...action.payload };
     },
   },
   extraReducers: {},
 });
 
-export const { saveNeutralForm } = neutralForm.actions;
+export const { saveNeutralForm, updateProject } = neutralForm.actions;
 
 export default neutralForm.reducer;

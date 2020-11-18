@@ -13,6 +13,7 @@ const FormControl = ({
           <UnitContainer>
             <input
               type="number"
+              step=".01"
               id={id}
               name={id}
               min="0"

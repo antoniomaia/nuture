@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import Purchase from './purchase';
 
 export const useStyles = makeStyles(theme => ({
   paper: {
@@ -15,6 +14,31 @@ export const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     padding: '1rem',
   },
+  list: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    alignContent: 'center',
+    listStyle: 'none',
+    width: '100%',
+    paddingBottom: '0.5rem',
+  },
+  listLabel: {
+    background: '#0d090a',
+    color: 'white',
+    padding: '0.75rem',
+    borderTopLeftRadius: 4,
+    borderTopRightRadius: 4,
+    width: '100%',
+  },
+  summary: {
+    color: theme.palette.text.secondary,
+    marginBottom: theme.spacing(3),
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 
   buttonWrapper: {
     textAlign: 'center',
@@ -25,18 +49,12 @@ export const useStyles = makeStyles(theme => ({
     color: theme.palette.background.dark,
     border: `1px solid ${theme.palette.background.dark}`,
     fontSize: '1.2rem',
-    //background: '#f6f6f6',
     transition: 'all 0.2s',
     '&:hover': {
-      background: theme.palette.primary.main,
-      color: 'white',
+      borderColor: theme.palette.primary.main,
+      color: theme.palette.primary.main,
+      background: 'transparent',
     },
-  },
-  buttonLabel: {
-    marginTop: '2rem',
-    padding: '1rem',
-    fontSize: '0.875rem',
-    color: theme.palette.text.secondary,
   },
   back: {
     width: '100%',
@@ -51,10 +69,6 @@ export const useStyles = makeStyles(theme => ({
       background: '#f6f6f6',
     },
   },
-  loading: {
-    backgroundColor: 'rgba(0,0,0,0.1)',
-    color: 'rgba(0,0,0,0.1)',
-  },
 }));
 
 function sum(obj) {
@@ -66,60 +80,98 @@ function sum(obj) {
 
 const Summary = ({ activeStep, handleBack, handleNext, steps }) => {
   const classes = useStyles();
-  const footprint = useSelector(state => state.neutralForm);
+  const footprint = useSelector(state => state.neutralForm.values);
+  const project = useSelector(state => state.neutralForm.project);
   const sumValues = sum(footprint);
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    setLoading(true);
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, 350);
+  const isLastStep = activeStep === steps.length - 1;
 
-    return () => clearTimeout(timeout);
-  }, [sumValues]);
+  const costToOffset = (
+    <li style={{ textAlign: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'baseline' }}>
+        <Typography variant="h5" color="secondary">
+          €{' '}
+        </Typography>
+        <Typography
+          color="secondary"
+          variant="h1"
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            paddingLeft: '0.5rem',
+          }}
+        >
+          {project && project.price
+            ? parseFloat(
+                parseFloat(project.price) * parseFloat(sumValues)
+              ).toFixed(2)
+            : '0.00'}
+        </Typography>
+      </div>
+
+      <Typography variant="subtitle">cost to offset</Typography>
+    </li>
+  );
+
+  if (isLastStep) {
+    return (
+      <Purchase
+        sumValues={sumValues}
+        project={project}
+        activeStep={activeStep}
+        steps={steps}
+        handleNext={handleNext}
+        handleBack={handleBack}
+      />
+    );
+  }
 
   return (
     <>
-      <Typography variant="h4" gutterBottom align="center">
-        Carbon Emissions
-      </Typography>
-      <Paper
-        className={`${classes.paper} ${loading && classes.loading}`}
-        elevation={0}
-      >
-        {!loading && (
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'baseline',
-            }}
-          >
+      <Paper className={`${classes.summary}`} elevation={0}>
+        <ul className={classes.list}>
+          <li style={{ width: '100%' }}>
             <Typography
-              variant="h2"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                alignContent: 'center',
-                paddingRight: '0.25rem',
-              }}
+              variant="h4"
+              gutterBottom
+              align="center"
+              className={classes.listLabel}
             >
-              {sumValues}
+              Carbon Emissions
             </Typography>
-            <Typography variant="h5">tCO2e</Typography>
-          </div>
-        )}
-        {loading && <CircularProgress />}
+          </li>
+          <li style={{ textAlign: 'center' }}>
+            <Typography variant="h1" color="secondary">
+              {sumValues > 0 ? sumValues : '0.00'}
+            </Typography>
+            <Typography variant="subtitle">tonnes of CO2e</Typography>
+          </li>
+          <span
+            style={{
+              height: 1,
+              background: 'lightgrey',
+              width: '100%',
+              margin: '0.75rem 0',
+            }}
+          />
+          {costToOffset}
+        </ul>
       </Paper>
-      <Typography variant="h6" gutterBottom align="center">
-        Month
-      </Typography>
-      <Paper className={classes.paper} elevation={0}>
-        <Typography variant="h5">October</Typography>
+
+      <Paper
+        className={classes.summary}
+        elevation={0}
+        style={{
+          display: 'flex',
+        }}
+      >
+        <Typography variant="h4" align="center" className={classes.listLabel}>
+          Project
+        </Typography>
+        <Typography variant="h4" style={{ padding: '1rem' }}>
+          {(project && project.title) || '—'}
+        </Typography>
       </Paper>
-      <Typography className={classes.buttonLabel}>
-        Complete each step of the business emissions calculator that is relevant
-        to your business, using monthly operational data.
-      </Typography>
+
       <Paper elevation={0} className={classes.buttonWrapper}>
         <Button className={classes.button} onClick={handleNext}>
           {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
