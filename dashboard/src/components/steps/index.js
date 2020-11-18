@@ -8,7 +8,6 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
 import { makeStyles } from '@material-ui/core/styles';
-import { useHistory } from 'react-router-dom';
 
 const steps = [
   {
@@ -49,13 +48,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Steps = () => {
+const Steps = ({ onStepClick }) => {
   const classes = useStyles();
-  const history = useHistory();
-
-  const handleClick = step => () => {
-    history.push(`/neutral?s=${step - 1}`);
-  };
 
   return (
     <Grid container>
@@ -65,7 +59,7 @@ const Steps = () => {
             <ListItem
               key={title}
               className={classes.listItem}
-              onClick={handleClick(step)}
+              onClick={onStepClick(step)}
             >
               <ListItemAvatar className={classes.listAvatar}>
                 <Avatar className={classes.avatar}>{step}</Avatar>

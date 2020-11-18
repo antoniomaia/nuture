@@ -84,7 +84,7 @@ const Dashboard = ({ children }) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h4" noWrap>
+          <Typography variant="h6" noWrap>
             Ecological Earth
           </Typography>
         </Toolbar>

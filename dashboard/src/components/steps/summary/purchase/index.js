@@ -90,7 +90,7 @@ const Purchase = ({
         >
           <li style={{ width: '100%' }}>
             <Typography
-              variant="h4"
+              variant="h6"
               gutterBottom
               align="center"
               style={{
@@ -106,7 +106,7 @@ const Purchase = ({
           </li>
           <li>
             <Typography
-              variant="h4"
+              variant="subtitle1"
               style={{ padding: '1rem' }}
               color="secondary"
             >
@@ -123,8 +123,8 @@ const Purchase = ({
               marginBottom: '1rem',
             }}
           >
-            <Typography variant="h5">/ month</Typography>
-            <Typography variant="h3" color="secondary">
+            <Typography variant="subtitle2">/ month</Typography>
+            <Typography variant="h5" color="secondary">
               € 20.00
             </Typography>
           </li>
@@ -138,7 +138,7 @@ const Purchase = ({
           />
           <li>
             <Typography
-              variant="h4"
+              variant="subtitle1"
               style={{ padding: '1rem' }}
               color="secondary"
             >
@@ -155,8 +155,8 @@ const Purchase = ({
               marginBottom: '1rem',
             }}
           >
-            <Typography variant="h5">Total ton CO2</Typography>
-            <Typography variant="h3" color="secondary">
+            <Typography variant="subtitle2">Total ton CO2</Typography>
+            <Typography variant="h5" color="secondary">
               {sumValues > 0 ? sumValues : '0.00'}
             </Typography>
           </li>
@@ -170,8 +170,8 @@ const Purchase = ({
               marginBottom: '1rem',
             }}
           >
-            <Typography variant="h5">Cost per ton CO2</Typography>
-            <Typography variant="h2" color="secondary">
+            <Typography variant="subtitle2">Cost per ton CO2</Typography>
+            <Typography variant="h5" color="secondary">
               {sumValues > 0 ? sumValues : '0.00'}
             </Typography>
           </li>
@@ -185,8 +185,8 @@ const Purchase = ({
               marginBottom: '1rem',
             }}
           >
-            <Typography variant="h5">Total offset</Typography>
-            <Typography variant="h3" color="secondary">
+            <Typography variant="subtitle2">Total offset</Typography>
+            <Typography variant="h5" color="secondary">
               € {costOffset}
             </Typography>
           </li>
@@ -200,7 +200,7 @@ const Purchase = ({
           />
           <li>
             <Typography
-              variant="h1"
+              variant="h4"
               style={{ padding: '1rem' }}
               color="secondary"
             >

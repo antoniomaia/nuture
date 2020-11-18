@@ -1,6 +1,7 @@
 export const typography = {
   typography: {
     fontFamily: [
+      '"Montserrat"',
       '-apple-system',
       'BlinkMacSystemFont',
       '"Segoe UI"',

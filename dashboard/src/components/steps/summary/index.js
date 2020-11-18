@@ -93,7 +93,7 @@ const Summary = ({ activeStep, handleBack, handleNext, steps }) => {
         </Typography>
         <Typography
           color="secondary"
-          variant="h1"
+          variant="h3"
           style={{
             display: 'flex',
             flexDirection: 'row',
@@ -131,7 +131,7 @@ const Summary = ({ activeStep, handleBack, handleNext, steps }) => {
         <ul className={classes.list}>
           <li style={{ width: '100%' }}>
             <Typography
-              variant="h4"
+              variant="h6"
               gutterBottom
               align="center"
               className={classes.listLabel}
@@ -140,7 +140,7 @@ const Summary = ({ activeStep, handleBack, handleNext, steps }) => {
             </Typography>
           </li>
           <li style={{ textAlign: 'center' }}>
-            <Typography variant="h1" color="secondary">
+            <Typography variant="h3" color="secondary">
               {sumValues > 0 ? sumValues : '0.00'}
             </Typography>
             <Typography variant="subtitle">tonnes of CO2e</Typography>
@@ -164,10 +164,10 @@ const Summary = ({ activeStep, handleBack, handleNext, steps }) => {
           display: 'flex',
         }}
       >
-        <Typography variant="h4" align="center" className={classes.listLabel}>
+        <Typography variant="h6" align="center" className={classes.listLabel}>
           Project
         </Typography>
-        <Typography variant="h4" style={{ padding: '1rem' }}>
+        <Typography variant="subtitle1" style={{ padding: '1rem' }}>
           {(project && project.title) || '—'}
         </Typography>
       </Paper>

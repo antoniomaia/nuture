@@ -11,7 +11,7 @@ export const businessItems = [
   { text: 'Analytics', href: '/analytics', icon: <BubbleChartRoundedIcon /> },
   { text: 'Public Page', href: '/page', icon: <PublicRoundedIcon /> },
   { text: 'Share', href: '/share', icon: <ShareRoundedIcon /> },
-  { text: 'Annual Report', href: '/report', icon: <AssessmentRoundedIcon /> },
+  { text: 'Reports', href: '/report', icon: <AssessmentRoundedIcon /> },
 ];
 
 export const administrationItems = [
@@ -22,4 +22,4 @@ export const administrationItems = [
 export const otherItems = [
   { text: 'Help', href: '/help' },
   { text: 'Contact', href: '/contact' },
-]
+];

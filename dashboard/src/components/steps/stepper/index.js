@@ -52,9 +52,8 @@ function getStepContent(step) {
   }
 }
 
-const Stepper = ({ step = 0 }) => {
+const Stepper = ({ activeStep, setActiveStep }) => {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(step);
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = getSteps();
   const stepsDescription = getStepsDescription();
