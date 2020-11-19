@@ -1,9 +1,9 @@
+import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import { useHistory } from 'react-router-dom';
+import { useHistory, withRouter } from 'react-router-dom';
 
 import Steps from 'components/steps';
 import Stepper from 'components/steps/stepper';
-import React from 'react';
 
 const Home = () => {
   const history = useHistory();
@@ -42,6 +42,4 @@ const Home = () => {
   );
 };
 
-Home.propTypes = {};
-
-export default Home;
+export default withRouter(Home);

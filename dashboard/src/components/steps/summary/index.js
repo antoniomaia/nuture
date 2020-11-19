@@ -24,7 +24,7 @@ export const useStyles = makeStyles(theme => ({
     paddingBottom: '0.5rem',
   },
   listLabel: {
-    background: '#0d090a',
+    background: '#263238',
     color: 'white',
     padding: '0.75rem',
     borderTopLeftRadius: 4,
