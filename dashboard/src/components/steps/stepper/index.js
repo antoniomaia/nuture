@@ -52,7 +52,7 @@ function getStepContent(step) {
   }
 }
 
-const Stepper = ({ activeStep, setActiveStep }) => {
+const Stepper = ({ activeStep, setStep }) => {
   const classes = useStyles();
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = getSteps();
@@ -69,16 +69,12 @@ const Stepper = ({ activeStep, setActiveStep }) => {
       newSkipped.delete(activeStep);
     }
 
-    setActiveStep(prevActiveStep => prevActiveStep + 1);
+    setStep('next');
     setSkipped(newSkipped);
   };
 
   const handleBack = () => {
-    setActiveStep(prevActiveStep => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
+    setStep();
   };
 
   return (
@@ -102,7 +98,6 @@ const Stepper = ({ activeStep, setActiveStep }) => {
         {activeStep === steps.length ? (
           <div>
             <Typography>All steps completed - you&apos;re finished</Typography>
-            <Button onClick={handleReset}>Reset</Button>
           </div>
         ) : (
           <div>

@@ -48,6 +48,8 @@ const useStyles = makeStyles(theme => ({
     border: 'none',
   },
   content: {
+    maxWidth: 1090,
+    margin: 'auto',
     flexGrow: 1,
     padding: theme.spacing(3),
   },
