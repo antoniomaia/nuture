@@ -108,7 +108,7 @@ const Summary = ({ activeStep, handleBack, handleNext, steps }) => {
         </Typography>
       </div>
 
-      <Typography variant="subtitle">cost to offset</Typography>
+      <Typography variant="subtitle2">cost to offset</Typography>
     </li>
   );
 
@@ -143,7 +143,7 @@ const Summary = ({ activeStep, handleBack, handleNext, steps }) => {
             <Typography variant="h3" color="secondary">
               {sumValues > 0 ? sumValues : '0.00'}
             </Typography>
-            <Typography variant="subtitle">tonnes of CO2e</Typography>
+            <Typography variant="subtitle2">tonnes of CO2e</Typography>
           </li>
           <span
             style={{

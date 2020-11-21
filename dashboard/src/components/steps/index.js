@@ -8,6 +8,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
 import { makeStyles } from '@material-ui/core/styles';
+import { useSelector } from 'react-redux';
 
 const steps = [
   {
@@ -33,6 +34,12 @@ const useStyles = makeStyles(theme => ({
     padding: '1.5rem 1rem',
     backgroundColor: theme.palette.background.paper,
     borderRadius: 4,
+    '&.Mui-disabled': {
+      '&:hover': {
+        cursor: 'inherit',
+        boxShadow: 'none',
+      },
+    },
     '&:hover': {
       cursor: 'pointer',
       boxShadow: '0 0 1px 0 rgba(0,0,0,0.31), 0 3px 4px -2px rgba(0,0,0,0.25)',
@@ -46,34 +53,66 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+function sum(obj) {
+  return Object.keys(obj).reduce(
+    (sum, key) => sum + parseFloat(obj[key] || 0),
+    0
+  );
+}
+
 const Steps = ({ onStepClick }) => {
   const classes = useStyles();
+  const footprint = useSelector(state => state.neutralForm.values);
+  const project = useSelector(state => state.neutralForm.project);
+
+  const sumValue = sum(footprint);
+
+  const isDisabled = step => {
+    if (step === 1) {
+      return false;
+    } else if (step === 2 && sumValue > 0) {
+      return false;
+    } else if (step === 3 && sumValue > 0 && project) {
+      return false;
+    }
+    return true;
+  };
 
   return (
     <Grid container>
       <Grid item xs={12}>
         <List>
-          {steps.map(({ step, title, description }) => (
-            <ListItem
-              key={title}
-              className={classes.listItem}
-              onClick={onStepClick(step)}
-            >
-              <ListItemAvatar className={classes.listAvatar}>
-                <Avatar className={classes.avatar}>{step}</Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary={title}
-                primaryTypographyProps={{ variant: 'h4' }}
-                secondary={description}
-              />
-              <ListItemSecondaryAction>
-                <IconButton edge="end" aria-label="forward">
-                  <ArrowForwardIosRoundedIcon color="secondary" />
-                </IconButton>
-              </ListItemSecondaryAction>
-            </ListItem>
-          ))}
+          {steps.map(({ step, title, description }) => {
+            const disabled = isDisabled(step);
+            return (
+              <ListItem
+                disabled={disabled}
+                key={title}
+                className={classes.listItem}
+                onClick={disabled ? null : onStepClick(step)}
+              >
+                <ListItemAvatar className={classes.listAvatar}>
+                  <Avatar className={classes.avatar}>{step}</Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary={title}
+                  primaryTypographyProps={{ variant: 'h4' }}
+                  secondary={description}
+                />
+                <ListItemSecondaryAction>
+                  <IconButton
+                    edge="end"
+                    aria-label="forward"
+                    disabled={disabled}
+                  >
+                    <ArrowForwardIosRoundedIcon
+                      color={disabled ? 'background' : 'secondary'}
+                    />
+                  </IconButton>
+                </ListItemSecondaryAction>
+              </ListItem>
+            );
+          })}
         </List>
       </Grid>
     </Grid>

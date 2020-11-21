@@ -10,7 +10,12 @@ const Register = () => {
     <MainLayout>
       <Header />
       <Container>
-        <Typography variant="h1" component="h3" color="textPrimary" gutterBottom>
+        <Typography
+          variant="h5"
+          component="h3"
+          color="textPrimary"
+          gutterBottom
+        >
           Sign up and go carbon neutral today
         </Typography>
         <Typography variant="subtitle1" component="p" color="textPrimary">

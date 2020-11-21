@@ -114,7 +114,7 @@ const Project = () => {
                     {unit}
                     {price}
                   </Typography>
-                  {project.title === title && (
+                  {project && project.title === title && (
                     <CheckCircleOutlineIcon
                       color="primary"
                       style={{

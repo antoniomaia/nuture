@@ -66,7 +66,7 @@ const LoginForm = () => {
         <Content>
           <Typography
             align="center"
-            variant="h2"
+            variant="h5"
             component="h3"
             color="textPrimary"
             gutterBottom
