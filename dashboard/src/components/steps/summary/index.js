@@ -83,6 +83,7 @@ const Summary = ({ activeStep, handleBack, handleNext, steps }) => {
   const footprint = useSelector(state => state.neutralForm.values);
   const project = useSelector(state => state.neutralForm.project);
   const sumValues = sum(footprint);
+
   const isLastStep = activeStep === steps.length - 1;
 
   const costToOffset = (
