@@ -2,8 +2,13 @@ import styled from 'styled-components';
 import { makeStyles } from '@material-ui/core/styles';
 
 export const ExpandTag = styled.span`
-  border: 1px solid ${p => p.theme.palette.text.secondary};
-  color: ${p => p.theme.palette.text.secondary};
+  border: 1px solid
+    ${p =>
+      p.primary
+        ? p.theme.palette.primary.main
+        : p.theme.palette.text.secondary};
+  color: ${p =>
+    p.primary ? p.theme.palette.primary.main : p.theme.palette.text.secondary};
   padding: 0.1rem 0.5rem;
 `;
 

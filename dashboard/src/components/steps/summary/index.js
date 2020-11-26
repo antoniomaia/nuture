@@ -93,7 +93,7 @@ const Summary = ({ activeStep, handleBack, handleNext, steps }) => {
         </Typography>
         <Typography
           color="secondary"
-          variant="h3"
+          variant="h4"
           style={{
             display: 'flex',
             flexDirection: 'row',
@@ -140,7 +140,7 @@ const Summary = ({ activeStep, handleBack, handleNext, steps }) => {
             </Typography>
           </li>
           <li style={{ textAlign: 'center' }}>
-            <Typography variant="h3" color="secondary">
+            <Typography variant="h4" color="secondary">
               {sumValues > 0 ? sumValues : '0.00'}
             </Typography>
             <Typography variant="subtitle2">tonnes of CO2e</Typography>

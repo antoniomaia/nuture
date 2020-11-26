@@ -1,5 +1,6 @@
 export const inventory = [
   {
+    id: 'electricity',
     name: 'Electricity',
     description: 'Enter the amount spent in the office electricity usage.',
     fields: [
