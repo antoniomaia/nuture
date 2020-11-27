@@ -34,6 +34,7 @@ const useStyles = makeStyles(theme => ({
     padding: '1.5rem 1rem',
     backgroundColor: theme.palette.background.paper,
     borderRadius: 4,
+    boxShadow: '0 0 1px 0 rgba(0,0,0,0.31), 0 2px 2px -2px rgba(0,0,0,0.25)',
     '&.Mui-disabled': {
       '&:hover': {
         cursor: 'inherit',

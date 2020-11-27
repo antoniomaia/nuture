@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
+//import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
@@ -74,7 +74,7 @@ const Dashboard = ({ children }) => {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
+      {/*    <CssBaseline />*/}
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <IconButton

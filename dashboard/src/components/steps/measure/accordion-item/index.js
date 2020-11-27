@@ -63,7 +63,7 @@ const AccordionItem = ({ item: { id, name, description, fields } }) => {
       expanded={!!(expanded && expanded[name])}
       onChange={handleChange(name)}
       className={classes.paper}
-      elevation={0}
+      elevation={1}
       classes={{
         root: classes.MuiAccordionroot,
       }}

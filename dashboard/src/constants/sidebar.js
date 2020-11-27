@@ -7,19 +7,44 @@ import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
 import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 
 export const businessItems = [
-  { text: 'Home', href: '/dashboard', icon: <HomeIcon /> },
-  { text: 'Analytics', href: '/analytics', icon: <BubbleChartRoundedIcon /> },
-  { text: 'Public Page', href: '/page', icon: <PublicRoundedIcon /> },
-  { text: 'Share', href: '/share', icon: <ShareRoundedIcon /> },
-  { text: 'Reports', href: '/report', icon: <AssessmentRoundedIcon /> },
+  { text: 'Home', href: '/dashboard', icon: <HomeIcon />, enabled: true },
+  {
+    text: 'Analytics',
+    href: '/analytics',
+    icon: <BubbleChartRoundedIcon />,
+    enabled: false,
+  },
+  {
+    text: 'Public Page',
+    href: '/page',
+    icon: <PublicRoundedIcon />,
+    enabled: false,
+  },
+  { text: 'Share', href: '/share', icon: <ShareRoundedIcon />, enabled: false },
+  {
+    text: 'Reports',
+    href: '/report',
+    icon: <AssessmentRoundedIcon />,
+    enabled: false,
+  },
 ];
 
 export const administrationItems = [
-  { text: 'Account', href: '/account', icon: <PersonRoundedIcon /> },
-  { text: 'Settings', href: '/settings', icon: <SettingsRoundedIcon /> },
+  {
+    text: 'Account',
+    href: '/account',
+    icon: <PersonRoundedIcon />,
+    enabled: false,
+  },
+  {
+    text: 'Settings',
+    href: '/settings',
+    icon: <SettingsRoundedIcon />,
+    enabled: false,
+  },
 ];
 
 export const otherItems = [
-  { text: 'Help', href: '/help' },
-  { text: 'Contact', href: '/contact' },
+  { text: 'Help', href: '/help', enabled: false },
+  { text: 'Contact', href: '/contact', enabled: false },
 ];

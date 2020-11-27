@@ -76,9 +76,8 @@ export const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(3),
     '&:hover': {
       cursor: 'pointer',
-      boxShadow: '0 0 1px 0 rgba(0,0,0,0.31), 0 3px 4px -2px rgba(0,0,0,0.25)',
-      borderRadius: 4,
       border: 'none',
+      boxShadow: '0 0 1px 0 rgba(0,0,0,0.31), 0 3px 4px -2px rgba(0,0,0,0.25)',
     },
   },
   root: {
@@ -90,8 +89,10 @@ export const useStyles = makeStyles(theme => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
   MuiAccordionroot: {
+    boxShadow: '0 0 1px 0 rgba(0,0,0,0.31), 0 2px 2px -2px rgba(0,0,0,0.25)',
+    borderRadius: 4,
     '&.MuiAccordion-root:before': {
-      backgroundColor: 'white',
+      backgroundColor: '#f6f6f6',
     },
     '&.Mui-expanded': {
       minHeight: 0,

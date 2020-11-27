@@ -81,7 +81,7 @@ const Sidebar = () => {
           </ListSubheader>
         }
       >
-        {businessItems.map(({ text, href, icon }) => (
+        {businessItems.map(({ text, href, icon, enabled }) => (
           <ListItem
             button
             key={text}
@@ -89,6 +89,7 @@ const Sidebar = () => {
             to={href}
             className={classes.listItem}
             selected={pathname === href}
+            disabled={!enabled}
           >
             <ListItemIcon className={classes.listItemIcon}>{icon}</ListItemIcon>
             <ListItemText primary={text} className={classes.text} />
@@ -103,13 +104,14 @@ const Sidebar = () => {
           </ListSubheader>
         }
       >
-        {administrationItems.map(({ text, href, icon }) => (
+        {administrationItems.map(({ text, href, icon, enabled }) => (
           <ListItem
             button
             key={text}
             component={Link}
             to={href}
             className={classes.listItem}
+            disabled={!enabled}
           >
             <ListItemIcon className={classes.listItemIcon}>{icon}</ListItemIcon>
             <ListItemText primary={text} className={classes.text} />
@@ -125,13 +127,14 @@ const Sidebar = () => {
           </ListSubheader>
         }
       >
-        {otherItems.map(({ text, href }) => (
+        {otherItems.map(({ text, href, enabled }) => (
           <ListItem
             button
             key={text}
             component={Link}
             to={href}
             className={classes.listItem}
+            disabled={!enabled}
           >
             <ListItemText primary={text} />
           </ListItem>
