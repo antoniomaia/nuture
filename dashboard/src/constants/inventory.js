@@ -14,6 +14,7 @@ export const inventory = [
     ],
   },
   {
+    id: 'heating',
     name: 'Heating',
     description: 'Enter the amount spent in the office heating fuel usage.',
     fields: [

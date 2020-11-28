@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Button, Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import Purchase from './purchase';
+import { activityType, carbonEmissions } from '@antoniomaia/ee-co2';
 
 export const useStyles = makeStyles(theme => ({
   paper: {
@@ -71,12 +72,22 @@ export const useStyles = makeStyles(theme => ({
   },
 }));
 
-function sum(obj) {
-  return Object.keys(obj).reduce(
-    (sum, key) => sum + parseFloat(obj[key] || 0),
-    0
-  );
-}
+const sum = values => {
+  const electrictyEmissions = {
+    type: activityType.electricity,
+    spent: values.electricityAmount,
+    renewableEnergy: values.electricityRenewableEnergy,
+    countryCode: 'PT',
+  };
+  const emissions = carbonEmissions([electrictyEmissions]);
+  return emissions;
+  /* heatDiesel: '',
+    heatNaturalGas: '',
+    paperReams: '',
+    transportationDiesel: '',
+    transportationGasoline: '',
+    waterUsage: '',*/
+};
 
 const Summary = ({ activeStep, handleBack, handleNext, steps }) => {
   const classes = useStyles();

@@ -10,7 +10,7 @@ import { useForm } from 'react-hook-form';
 import { saveNeutralForm } from 'slices/neutral-form';
 import FormControl from '../form-control';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import { electricity } from '@antoniomaia/ee-co2';
+import { carbonEmissions, activityType } from '@antoniomaia/ee-co2';
 
 const AccordionItem = ({ item: { id, name, description, fields } }) => {
   const classes = useStyles();
@@ -41,21 +41,28 @@ const AccordionItem = ({ item: { id, name, description, fields } }) => {
       case 'electricity': {
         const { electricityAmount, electricityRenewableEnergy } =
           formData && formData.values;
-        const electricityEmissions =
-          electricity &&
-          electricity.carbonEmissions(
-            {
-              amount: Number(electricityAmount),
-              renewablePercentage: Number(electricityRenewableEnergy),
-            },
-            'PT'
-          );
+        const electricityEmissions = carbonEmissions({
+          type: activityType.electricity,
+          spent: electricityAmount,
+          renewableEnergy: electricityRenewableEnergy,
+          countryCode: 'PT',
+        });
         return electricityEmissions;
+      }
+      case 'heating': {
+        const { heatDiesel, heatNaturalGas } = formData.values;
+        const heatingEmissions = carbonEmissions({
+          type: activityType.heating,
+          diesel: heatDiesel,
+          naturalGas: heatNaturalGas,
+          countryCode: 'PT',
+        });
+        return heatingEmissions;
       }
     }
   };
 
-  const emissonsValue = getEmissionsValue(id);
+  const emissionsValue = getEmissionsValue(id);
 
   return (
     <Accordion
@@ -82,7 +89,7 @@ const AccordionItem = ({ item: { id, name, description, fields } }) => {
         }}
       >
         <Typography className={classes.heading}>{name}</Typography>
-        {emissonsValue && emissonsValue > 0 && (
+        {emissionsValue > 0 && (
           <div
             style={{
               display: 'flex',
@@ -103,7 +110,7 @@ const AccordionItem = ({ item: { id, name, description, fields } }) => {
           </div>
         )}
 
-        {emissonsValue && emissonsValue % 1 === 0 && (
+        {emissionsValue % 1 === 0 && (
           <div
             style={{
               display: 'flex',
