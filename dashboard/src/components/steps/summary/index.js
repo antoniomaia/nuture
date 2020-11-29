@@ -30,7 +30,6 @@ export const useStyles = makeStyles(theme => ({
     padding: '0.75rem',
     borderTopLeftRadius: 4,
     borderTopRightRadius: 4,
-    width: '100%',
   },
   summary: {
     color: theme.palette.text.secondary,
@@ -199,12 +198,25 @@ const Summary = ({ activeStep, handleBack, handleNext, steps }) => {
           display: 'flex',
         }}
       >
-        <Typography variant="h6" align="center" className={classes.listLabel}>
-          Project
-        </Typography>
-        <Typography variant="subtitle1" style={{ padding: '1rem' }}>
-          {(project && project.title) || '—'}
-        </Typography>
+        <ul className={classes.list}>
+          <li style={{ width: '100%' }}>
+            <Typography
+              variant="h6"
+              align="center"
+              className={classes.listLabel}
+            >
+              Project
+            </Typography>
+          </li>
+          <li style={{ width: '100%' }}>
+            <Typography
+              variant="subtitle1"
+              style={{ padding: '1rem', textAlign: 'center' }}
+            >
+              {(project && project.title) || '—'}
+            </Typography>
+          </li>
+        </ul>
       </Paper>
 
       <Paper elevation={0} className={classes.buttonWrapper}>

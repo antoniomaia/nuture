@@ -13,6 +13,9 @@ const Dashboard = () => {
         <Route exact path="/dashboard">
           <Home />
         </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
       </Switch>
     </DashboardLayout>
   );
