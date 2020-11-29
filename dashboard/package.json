@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@antoniomaia/ee-co2": "^1.0.1",
+    "@antoniomaia/ee-co2": "^1.0.2",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@reduxjs/toolkit": "^1.4.0",
