@@ -24,6 +24,7 @@ export const inventory = [
     ],
   },
   {
+    id: 'transportation',
     name: 'Transportation',
     description: 'Enter the amount spent for each fuel type.',
     fields: [
@@ -42,11 +43,13 @@ export const inventory = [
     ],
   },
   {
+    id: 'water',
     name: 'Water',
     description: 'Enter the amount spent in water.',
     fields: [{ id: 'waterUsage', type: 'number', unit: '€' }],
   },
   {
+    id: 'paper',
     name: 'Paper',
     description: 'Enter the amount of reams of paper. (1 ream = 500 sheets)',
     fields: [{ id: 'paperReams', type: 'number' }],

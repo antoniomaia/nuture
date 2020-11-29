@@ -41,23 +41,54 @@ const AccordionItem = ({ item: { id, name, description, fields } }) => {
       case 'electricity': {
         const { electricityAmount, electricityRenewableEnergy } =
           formData && formData.values;
-        const electricityEmissions = carbonEmissions({
+        const emissions = carbonEmissions({
           type: activityType.electricity,
           spent: electricityAmount,
           renewableEnergy: electricityRenewableEnergy,
           countryCode: 'PT',
         });
-        return electricityEmissions;
+        return emissions;
       }
       case 'heating': {
         const { heatDiesel, heatNaturalGas } = formData.values;
-        const heatingEmissions = carbonEmissions({
+        const emissions = carbonEmissions({
           type: activityType.heating,
           diesel: heatDiesel,
           naturalGas: heatNaturalGas,
           countryCode: 'PT',
         });
-        return heatingEmissions;
+        return emissions;
+      }
+      case 'transportation': {
+        const {
+          transportationDiesel,
+          transportationGasoline,
+        } = formData.values;
+        const emissions = carbonEmissions({
+          type: activityType.transportation,
+          diesel: transportationDiesel,
+          gasoline: transportationGasoline,
+          countryCode: 'PT',
+        });
+        return emissions;
+      }
+      case 'water': {
+        const { waterUsage } = formData.values;
+        const emissions = carbonEmissions({
+          type: activityType.water,
+          waterUsage,
+          countryCode: 'PT',
+        });
+        return emissions;
+      }
+      case 'paper': {
+        const { paperReams } = formData.values;
+        const emissions = carbonEmissions({
+          type: activityType.paper,
+          reams: paperReams,
+          countryCode: 'PT',
+        });
+        return emissions;
       }
     }
   };

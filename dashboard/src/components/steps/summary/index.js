@@ -79,14 +79,38 @@ const sum = values => {
     renewableEnergy: values.electricityRenewableEnergy,
     countryCode: 'PT',
   };
-  const emissions = carbonEmissions([electrictyEmissions]);
+  const heatingEmissions = {
+    type: activityType.heating,
+    diesel: values.heatDiesel,
+    naturalGas: values.heatNaturalGas,
+    countryCode: 'PT',
+  };
+  const transportationEmissions = {
+    type: activityType.transportation,
+    diesel: values.transportationDiesel,
+    gasoline: values.transportationGasoline,
+    countryCode: 'PT',
+  };
+  const waterEmissions = {
+    type: activityType.water,
+    waterUsage: values.waterUsage,
+    countryCode: 'PT',
+  };
+  const paperEmissions = {
+    type: activityType.paper,
+    reams: values.paperReams,
+    countryCode: 'PT',
+  };
+
+  const emissions = carbonEmissions([
+    electrictyEmissions,
+    heatingEmissions,
+    transportationEmissions,
+    waterEmissions,
+    paperEmissions,
+  ]);
+
   return emissions;
-  /* heatDiesel: '',
-    heatNaturalGas: '',
-    paperReams: '',
-    transportationDiesel: '',
-    transportationGasoline: '',
-    waterUsage: '',*/
 };
 
 const Summary = ({ activeStep, handleBack, handleNext, steps }) => {
