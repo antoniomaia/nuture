@@ -72,7 +72,7 @@ export const useStyles = makeStyles(theme => ({
 }));
 
 const sum = values => {
-  const electrictyEmissions = {
+  const electricityEmissions = {
     type: activityType.electricity,
     spent: values.electricityAmount,
     renewableEnergy: values.electricityRenewableEnergy,
@@ -102,7 +102,7 @@ const sum = values => {
   };
 
   const emissions = carbonEmissions([
-    electrictyEmissions,
+    electricityEmissions,
     heatingEmissions,
     transportationEmissions,
     waterEmissions,
@@ -118,7 +118,7 @@ const Summary = ({ activeStep, handleBack, handleNext, steps }) => {
   const project = useSelector(state => state.neutralForm.project);
   const sumValues = sum(footprint);
   const isLastStep = activeStep === steps.length - 1;
-
+  console.log('sumValues', sumValues);
   const costToOffset = (
     <li style={{ textAlign: 'center' }}>
       <div style={{ display: 'flex', alignItems: 'baseline' }}>
