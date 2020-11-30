@@ -136,7 +136,7 @@ const AccordionItem = ({ item: { id, name, description, fields } }) => {
               style={{ marginRight: '0.25rem' }}
             />
             <Typography variant="body2">
-              {getEmissionsValue(id)} CO2e
+              {getEmissionsValue(id)} kgCO2e
             </Typography>
           </div>
         )}
