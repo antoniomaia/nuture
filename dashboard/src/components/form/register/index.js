@@ -94,7 +94,7 @@ const LoginForm = () => {
           <div style={{ height: '1rem' }} />
           <Controls.Button
             type="submit"
-            disabled={isLoading}
+            disabled
             text={
               isLoading ? (
                 <CircularProgress size={30} color="secondary" />
