@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import useHubspotForm from '@aaronhayes/react-use-hubspot-form';
+import { useHubspotForm } from '@aaronhayes/react-use-hubspot-form';
 import styles from './styles.module.scss';
 
 const Form = () => {
