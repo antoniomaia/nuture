@@ -16,10 +16,13 @@ const Footer = () => {
           <Link to={'/about'}>About</Link>
         </li>
         <li>
+          <Link to={'/calculator'}>Personal Calculator</Link>
+        </li>
+        <li>
           <Link to={'/terms-conditions'}>Terms & Conditions</Link>
         </li>
         <li>
-          <Link to={'/privacy-policy'}>Privacy Policy </Link>
+          <Link to={'/privacy-policy'}>Privacy Policy</Link>
         </li>
         <li>
           <a href="mailto:hello@ecological.earth">Contact</a>

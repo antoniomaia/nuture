@@ -17,26 +17,25 @@ const Header = () => {
     }
   };
 
-  useEffect(
-    () => {
-      if (location && location.pathname !== '/') {
-        setIsSolid(true);
-      } else {
-        setIsSolid(false);
-        window.addEventListener('scroll', onScrollEventListener);
-      }
+  useEffect(() => {
+    if (location && location.pathname !== '/') {
+      setIsSolid(true);
+    } else {
+      setIsSolid(false);
+      window.addEventListener('scroll', onScrollEventListener);
+    }
 
-      return () => {
-        window.removeEventListener('scroll', onScrollEventListener);
-      };
-    },
-    [location]
-  );
+    return () => {
+      window.removeEventListener('scroll', onScrollEventListener);
+    };
+  }, [location]);
 
   return (
     <header className={cx(styles.header, { [styles.solid]: isSolid })}>
       <Logo type={isSolid ? 'black' : 'white'} />
-      <Link to="/calculator" className={styles.button}>calculator</Link>
+      <Link to="/get-started" className={styles.button}>
+        Try Beta
+      </Link>
     </header>
   );
 };
