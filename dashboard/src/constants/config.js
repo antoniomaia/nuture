@@ -9,7 +9,7 @@ const config = () => {
     case 'production':
       return {
         HOST: 'app.ecological.earth',
-        API_URL: 'https://ecological-earth.herokuapp.com/api/v1',
+        API_URL: 'https://ecologicalearth.herokuapp.com/api/v1',
       };
 
     default:
