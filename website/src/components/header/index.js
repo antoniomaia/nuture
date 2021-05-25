@@ -33,9 +33,21 @@ const Header = () => {
   return (
     <header className={cx(styles.header, { [styles.solid]: isSolid })}>
       <Logo type={isSolid ? 'black' : 'white'} />
-      <Link to="/get-started" className={styles.button}>
-        Try Beta
-      </Link>
+      <div>
+        <a
+          href="https://app.ecological.earth/login"
+          className={styles.button}
+          style={{ marginRight: '1rem' }}
+        >
+          Log In
+        </a>
+        <a
+          href="https://app.ecological.earth/register"
+          className={`${styles.button} ${styles.primary}`}
+        >
+          Sign Up
+        </a>
+      </div>
     </header>
   );
 };
