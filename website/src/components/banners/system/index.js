@@ -10,7 +10,9 @@ const System = () => {
         Be part of the <span>worldwide</span> network of{' '}
         <span>carbon neutrals</span>
       </h3>
-      <Link to={'/get-started'}>Go Carbon Neutral</Link>
+      <Link to="https://app.ecological.earth/register" external>
+        Go Carbon Neutral
+      </Link>
     </article>
   );
 };

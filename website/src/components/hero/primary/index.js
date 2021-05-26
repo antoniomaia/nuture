@@ -22,7 +22,9 @@ const Primary = () => {
           All the tools you need to become a certified carbon neutral business
           are here, start taking climate action now!
         </p>
-        <Link to={'/get-started'}>Get Started</Link>
+        <Link to="https://app.ecological.earth/register" external>
+          Get Started
+        </Link>
       </div>
     </section>
   );
